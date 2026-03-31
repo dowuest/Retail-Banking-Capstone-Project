@@ -9,7 +9,7 @@
 | Name | GitHub | Topic | Branch |
 |------|--------|-------|--------|
 | Vivek Ramachandran | @username | Loans & Credit | `feature/loans-credit` |
-| PAde Olanrewaju | @username | Loans & Credit | `feature/loans-credit` |
+| Ade Olanrewaju | @username | Loans & Credit | `feature/loans-credit` |
 | Peter Sewing | @username | Savings & Deposits | `feature/savings-deposits` |
 | PDavron Mirtursunov | @username | Savings & Deposits | `feature/savings-deposits` |
 | Francisco Martha Gonzalez | @username | Payments | `feature/payments` |
