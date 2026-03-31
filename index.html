@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retail Banking — Capstone Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1f3a; --gold: #c9a84c; --gold-light: #e8c97a;
+      --cream: #f5f0e8; --white: #ffffff; --gray: #6b7280;
+      --shadow: 0 4px 32px rgba(11,31,58,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
+
+    header { background: var(--navy); color: var(--white); padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,168,76,0.04) 40px, rgba(201,168,76,0.04) 41px); }
+    .badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid var(--gold); color: var(--gold-light); font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; position: relative; }
+    header h1 span { color: var(--gold); }
+    header p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto; line-height: 1.7; position: relative; }
+    .gold-line { width: 48px; height: 2px; background: var(--gold); margin: 32px auto 0; }
+
+    main { max-width: 1000px; margin: 0 auto; padding: 60px 24px 80px; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 40px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 60px; }
+    .card { background: var(--white); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(11,31,58,0.06); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(11,31,58,0.15); }
+    .card-top { background: var(--navy); padding: 32px 28px 24px; position: relative; }
+    .card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+    .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .card-top h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--white); font-weight: 700; }
+    .card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .card-body p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+    .team-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .team-names { font-size: 0.875rem; font-weight: 500; color: var(--navy); }
+    .card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 0.85rem; font-weight: 500; color: var(--navy); border: 1.5px solid var(--navy); padding: 8px 18px; border-radius: 100px; text-decoration: none; transition: background 0.2s, color 0.2s; width: fit-content; }
+    .card-link:hover { background: var(--navy); color: var(--white); }
+
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+    .member { background: var(--white); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(11,31,58,0.07); box-shadow: 0 2px 12px rgba(11,31,58,0.06); }
+    .avatar { width: 48px; height: 48px; background: var(--navy); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+    .member h3 { font-size: 0.875rem; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .member span { font-size: 0.75rem; color: var(--gray); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; padding: 24px; font-size: 0.8rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    header, .card, .member { animation: fadeUp 0.6s ease both; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Capstone Project · 2025</div>
+    <h1>Retail <span>Banking</span><br>Fundamentals</h1>
+    <p>A collaborative deep-dive into the core pillars of modern retail banking.</p>
+    <div class="gold-line"></div>
+  </header>
+
+  <main>
+
+    <div class="section-label">Our topics</div>
+    <div class="section-title">Three pillars of retail banking</div>
+
+    <div class="cards">
+      <a class="card" href="loans-credit/index.html">
+        <div class="card-top">
+          <span class="card-icon">🏦</span>
+          <h2>Loans &amp; Credit</h2>
+        </div>
+        <div class="card-body">
+          <p>Exploring types of loans, interest rates, credit scoring, and the loan application process in retail banking.</p>
+          <div class="team-label">Team</div>
+          <div class="team-names">Person A &amp; Person B</div>
+          <a class="card-link" href="loans-credit/index.html">View section →</a>
+        </div>
+      </a>
+
+      <a class="card" href="savings-deposits/index.html">
+        <div class="card-top">
+          <span class="card-icon">💰</span>
+          <h2>Savings &amp; Deposits</h2>
+        </div>
+        <div class="card-body">
+          <p>Understanding savings account types, interest calculation, deposit insurance, and term deposit strategies.</p>
+          <div class="team-label">Team</div>
+          <div class="team-names">Person C &amp; Person D</div>
+          <a class="card-link" href="savings-deposits/index.html">View section →</a>
+        </div>
+      </a>
+
+      <a class="card" href="payments/index.html">
+        <div class="card-top">
+          <span class="card-icon">💳</span>
+          <h2>Payments</h2>
+        </div>
+        <div class="card-body">
+          <p>Examining modern payment methods, digital transactions, wire transfers, and transaction security in banking.</p>
+          <div class="team-label">Team</div>
+          <div class="team-names">Person E &amp; Person F</div>
+          <a class="card-link" href="payments/index.html">View section →</a>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-label" style="margin-top:20px">The team</div>
+    <div class="section-title">Six contributors</div>
+
+    <div class="team-grid">
+      <div class="member"><div class="avatar">A</div><h3>Person A</h3><span>Loans &amp; Credit</span></div>
+      <div class="member"><div class="avatar">B</div><h3>Person B</h3><span>Loans &amp; Credit</span></div>
+      <div class="member"><div class="avatar">C</div><h3>Person C</h3><span>Savings &amp; Deposits</span></div>
+      <div class="member"><div class="avatar">D</div><h3>Person D</h3><span>Savings &amp; Deposits</span></div>
+      <div class="member"><div class="avatar">E</div><h3>Person E</h3><span>Payments</span></div>
+      <div class="member"><div class="avatar">F</div><h3>Person F</h3><span>Payments</span></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Retail Banking Capstone Project · <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project">View on GitHub</a></p>
+  </footer>
+
+</body>
+</html>
