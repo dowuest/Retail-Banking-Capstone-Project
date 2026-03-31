@@ -8,12 +8,13 @@
 
 | Name | GitHub | Topic | Branch |
 |------|--------|-------|--------|
-| Person A | @username | Loans & Credit | `feature/loans-credit` |
-| Person B | @username | Loans & Credit | `feature/loans-credit` |
-| Person C | @username | Savings & Deposits | `feature/savings-deposits` |
-| Person D | @username | Savings & Deposits | `feature/savings-deposits` |
-| Person E | @username | Payments | `feature/payments` |
-
+| Vivek Ramachandran | @username | Loans & Credit | `feature/loans-credit` |
+| PAde Olanrewaju | @username | Loans & Credit | `feature/loans-credit` |
+| Peter Sewing | @username | Savings & Deposits | `feature/savings-deposits` |
+| PDavron Mirtursunov | @username | Savings & Deposits | `feature/savings-deposits` |
+| Francisco Martha Gonzalez | @username | Payments | `feature/payments` |
+| Dominik Wüst | @username | Payments | `feature/payments` |
+ 
 ---
 
 ## Topics
