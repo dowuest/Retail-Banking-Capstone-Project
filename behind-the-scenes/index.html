@@ -77,6 +77,18 @@ main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
 .save-all-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,245,255,.45);}
 .save-status{display:inline-block;font-size:.72rem;font-weight:400;letter-spacing:.08em;margin-left:4px;opacity:.7;}
 
+/* ── Library grid ── */
+.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:48px;}
+.lib-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden;}
+.lib-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
+.lib-card:hover{border-color:rgba(0,245,255,.35);box-shadow:var(--glow-cyan);transform:translateY(-4px);}
+.lib-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;letter-spacing:.05em;flex-shrink:0;}
+.lib-icon.pdf{background:rgba(255,80,80,.12);color:#ff7070;border:1px solid rgba(255,80,80,.22);}
+.lib-icon.docx{background:rgba(30,120,255,.12);color:#5aabff;border:1px solid rgba(30,120,255,.22);}
+.lib-title{font-size:.88rem;font-weight:500;color:var(--white);line-height:1.5;}
+.lib-dl{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--cyan);margin-top:auto;}
+.lib-dl svg{flex-shrink:0;}
+
 /* Team grid */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px;margin-top:4px;}
 .member{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;transition:border-color .3s,transform .3s;}
@@ -136,6 +148,49 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
       Save All
       <span class="save-status" id="saveStatus"></span>
     </button>
+  </div>
+
+  <!-- Library -->
+  <div class="section-eyebrow reveal" style="margin-top:60px;transition-delay:.4s">Reference materials</div>
+  <div class="section-heading reveal" style="transition-delay:.45s">Project <span style="color:var(--cyan)">Library</span></div>
+  <div class="library-grid reveal" style="transition-delay:.5s">
+
+    <a href="Library/Retail_Banking_AI_Capstone_Plan.pdf" target="_blank" rel="noopener" class="lib-card">
+      <div class="lib-icon pdf">PDF</div>
+      <div class="lib-title">Retail Banking AI Capstone Plan</div>
+      <div class="lib-dl">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Open PDF
+      </div>
+    </a>
+
+    <a href="Library/Four-Session Workshop Plan for Evaluating AI and New Data Sources in Consumer Lending.pdf" target="_blank" rel="noopener" class="lib-card">
+      <div class="lib-icon pdf">PDF</div>
+      <div class="lib-title">Four-Session Workshop Plan — AI &amp; New Data Sources in Consumer Lending</div>
+      <div class="lib-dl">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Open PDF
+      </div>
+    </a>
+
+    <a href="Library/Retail_Banking_AI_Capstone_UNIFIED.docx" target="_blank" rel="noopener" class="lib-card">
+      <div class="lib-icon docx">DOCX</div>
+      <div class="lib-title">Retail Banking AI Capstone — Unified Document</div>
+      <div class="lib-dl">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download DOCX
+      </div>
+    </a>
+
+    <a href="Library/simple-multi-agent-workflow-guide.docx" target="_blank" rel="noopener" class="lib-card">
+      <div class="lib-icon docx">DOCX</div>
+      <div class="lib-title">Simple Multi-Agent Workflow Guide</div>
+      <div class="lib-dl">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download DOCX
+      </div>
+    </a>
+
   </div>
 
   <!-- Team -->
