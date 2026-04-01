@@ -44,13 +44,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
 .section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
 .section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:.03em;margin-bottom:40px;}
-.content-block{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px 44px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s;}
-.content-block::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));transform:scaleX(0);transition:transform .4s ease;}
-.content-block:hover{border-color:rgba(0,245,255,.3);box-shadow:var(--glow-cyan);transform:translateY(-3px);}
-.content-block:hover::before{transform:scaleX(1);}
-.content-block h2{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.05em;color:var(--white);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
-.content-block h2::before{content:'';display:block;width:3px;height:1.4rem;background:linear-gradient(to bottom,var(--cyan),var(--violet));border-radius:2px;flex-shrink:0;}
-.content-block p{font-size:.95rem;color:var(--gray);line-height:1.85;}
+
+/* ── Widget styles ── */
+.widget-block{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px 40px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+.widget-block:hover{border-color:rgba(0,245,255,.25);box-shadow:var(--glow-cyan);}
+.widget-block::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
+.widget-block.custom-step::before{background:linear-gradient(90deg,var(--violet),var(--cyan));}
+.widget-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;}
+.widget-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--white);display:flex;align-items:center;gap:12px;}
+.widget-title::before{content:'';display:block;width:3px;height:1.4rem;background:linear-gradient(to bottom,var(--cyan),var(--violet));border-radius:2px;flex-shrink:0;}
+.widget-title-input{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--white);background:transparent;border:none;outline:none;border-bottom:1px dashed rgba(0,245,255,.3);width:100%;transition:border-color .2s;cursor:text;}
+.widget-title-input:focus{border-bottom-color:var(--cyan);}
+.widget-title-input::placeholder{color:rgba(255,255,255,.2);}
+.widget-textarea{width:100%;min-height:120px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 18px;color:var(--gray);font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.85;resize:vertical;outline:none;transition:border-color .2s,box-shadow .2s;cursor:text;}
+.widget-textarea:focus{border-color:rgba(0,245,255,.4);box-shadow:0 0 0 3px rgba(0,245,255,.07);color:var(--white);}
+.widget-textarea::placeholder{color:rgba(136,146,164,.5);}
+.save-indicator{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,245,255,.5);opacity:0;transition:opacity .4s;pointer-events:none;}
+.save-indicator.show{opacity:1;}
+.delete-btn{background:rgba(255,60,60,.08);border:1px solid rgba(255,60,60,.2);color:rgba(255,100,100,.7);border-radius:8px;padding:5px 12px;font-size:.75rem;font-family:'DM Sans',sans-serif;cursor:none;transition:background .2s,color .2s;white-space:nowrap;}
+.delete-btn:hover{background:rgba(255,60,60,.2);color:#ff6464;}
+.widget-actions{display:flex;align-items:center;gap:12px;}
+
+/* Add step button */
+.add-step-wrap{text-align:center;margin:8px 0 48px;}
+.add-step-btn{display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.06em;color:var(--cyan);border:1.5px dashed rgba(0,245,255,.4);border-radius:100px;padding:12px 32px;background:transparent;cursor:none;transition:background .2s,border-color .2s,box-shadow .2s;}
+.add-step-btn:hover{background:rgba(0,245,255,.06);border-color:var(--cyan);box-shadow:var(--glow-cyan);}
+.add-step-btn svg{flex-shrink:0;}
+
+/* Save all banner */
+.save-all-wrap{position:sticky;bottom:24px;text-align:right;pointer-events:none;z-index:100;margin-top:-20px;margin-bottom:32px;}
+.save-all-btn{pointer-events:all;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:#000;background:linear-gradient(135deg,var(--cyan),var(--violet));border:none;border-radius:100px;padding:11px 28px;cursor:none;box-shadow:0 4px 24px rgba(0,245,255,.3);transition:transform .2s,box-shadow .2s;}
+.save-all-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,245,255,.45);}
+.save-status{display:inline-block;font-size:.72rem;font-weight:400;letter-spacing:.08em;margin-left:4px;opacity:.7;}
+
 /* Team grid */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px;margin-top:4px;}
 .member{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;transition:border-color .3s,transform .3s;}
@@ -87,17 +113,35 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
   <p>How we built this project — our process, tools, collaboration, and reflections.</p>
   <div class="gold-line"></div>
 </header>
+
 <main id="main-content">
   <div class="section-eyebrow reveal">Our process</div>
   <div class="section-heading reveal" style="transition-delay:.1s">How It Came <span style="color:var(--cyan)">Together</span></div>
-  <div class="content-block reveal" style="transition-delay:.15s"><h2>Project Approach</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.25s"><h2>Tools &amp; Technologies</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.35s"><h2>Collaboration &amp; Workflow</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.45s"><h2>Reflections &amp; Takeaways</h2><p>Add your content here.</p></div>
 
-  <div class="section-eyebrow reveal" style="margin-top:60px;transition-delay:.5s">The full team</div>
+  <!-- Fixed steps widget -->
+  <div id="steps-container"></div>
+
+  <!-- Add new step -->
+  <div class="add-step-wrap">
+    <button class="add-step-btn" id="addStepBtn" type="button">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Add New Step
+    </button>
+  </div>
+
+  <!-- Sticky save button -->
+  <div class="save-all-wrap">
+    <button class="save-all-btn" id="saveAllBtn" type="button">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 10.5v2a1 1 0 01-1 1h-9a1 1 0 01-1-1v-2M8 2v8M5 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Save All
+      <span class="save-status" id="saveStatus"></span>
+    </button>
+  </div>
+
+  <!-- Team -->
+  <div class="section-eyebrow reveal" style="margin-top:20px;transition-delay:.5s">The full team</div>
   <div class="section-heading reveal" style="transition-delay:.55s">Six <span style="color:var(--cyan)">Contributors</span></div>
-  <div class="content-block reveal" style="transition-delay:.6s">
+  <div class="widget-block reveal" style="transition-delay:.6s">
     <div class="team-grid">
       <div class="member"><div class="avatar"><img src="../assets/images/vivek-ramachandran.jpg" alt="Vivek Ramachandran"/></div><h3>Vivek Ramachandran</h3><span>Loans &amp; Credit</span></div>
       <div class="member"><div class="avatar">A</div><h3>Ade Olanrewaju</h3><span>Loans &amp; Credit</span></div>
@@ -108,6 +152,7 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
     </div>
   </div>
 </main>
+
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-logo">RB·26</div>
@@ -115,16 +160,195 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
     <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
   </div>
 </footer>
+
 <script>
 (function(){
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.addEventListener('load',()=>{setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.transition='opacity .5s ease';pl.style.opacity='0';setTimeout(()=>pl.style.display='none',550);},1100);});
+  const STORAGE_KEY = 'rbc26_bts_steps';
+
+  /* ── Default fixed steps ── */
+  const DEFAULT_STEPS = [
+    { id:'s1', title:'Project Approach',        body:'', fixed:true  },
+    { id:'s2', title:'Tools & Technologies',    body:'', fixed:true  },
+    { id:'s3', title:'Collaboration & Workflow', body:'', fixed:true  },
+    { id:'s4', title:'Reflections & Takeaways', body:'', fixed:true  }
+  ];
+
+  /* ── Load saved state or defaults ── */
+  function loadSteps(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    return DEFAULT_STEPS.map(s=>({...s}));
+  }
+
+  function saveSteps(steps){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(steps));
+  }
+
+  /* ── Render all steps ── */
+  const container = document.getElementById('steps-container');
+
+  function flashSaved(){
+    const el = document.getElementById('saveStatus');
+    el.textContent = '✓ Saved';
+    clearTimeout(flashSaved._t);
+    flashSaved._t = setTimeout(()=>{ el.textContent=''; }, 2200);
+  }
+
+  function renderSteps(){
+    const steps = loadSteps();
+    container.innerHTML = '';
+
+    steps.forEach((step, idx) => {
+      const block = document.createElement('div');
+      block.className = 'widget-block reveal visible' + (step.fixed ? '' : ' custom-step');
+      block.dataset.id = step.id;
+
+      const headerDiv = document.createElement('div');
+      headerDiv.className = 'widget-header';
+
+      if(step.fixed){
+        /* Fixed title — not editable */
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'widget-title';
+        titleDiv.textContent = step.title;
+        headerDiv.appendChild(titleDiv);
+      } else {
+        /* Custom step — editable title */
+        const titleWrap = document.createElement('div');
+        titleWrap.style.cssText = 'display:flex;align-items:center;gap:12px;flex:1;min-width:0;';
+        const bar = document.createElement('span');
+        bar.style.cssText = 'width:3px;height:1.4rem;background:linear-gradient(to bottom,var(--violet),var(--cyan));border-radius:2px;flex-shrink:0;display:block;';
+        const titleInput = document.createElement('input');
+        titleInput.className = 'widget-title-input';
+        titleInput.type = 'text';
+        titleInput.value = step.title;
+        titleInput.placeholder = 'Step title…';
+        titleInput.addEventListener('input', ()=>{
+          const s = loadSteps();
+          const i = s.findIndex(x=>x.id===step.id);
+          if(i>-1){ s[i].title = titleInput.value; saveSteps(s); }
+        });
+        titleWrap.appendChild(bar);
+        titleWrap.appendChild(titleInput);
+        headerDiv.appendChild(titleWrap);
+      }
+
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'widget-actions';
+
+      /* Save indicator */
+      const saveInd = document.createElement('span');
+      saveInd.className = 'save-indicator';
+      saveInd.textContent = '✓ saved';
+      actionsDiv.appendChild(saveInd);
+
+      /* Delete button for custom steps */
+      if(!step.fixed){
+        const delBtn = document.createElement('button');
+        delBtn.className = 'delete-btn';
+        delBtn.type = 'button';
+        delBtn.textContent = '✕ Remove';
+        delBtn.addEventListener('click', ()=>{
+          const s = loadSteps().filter(x=>x.id!==step.id);
+          saveSteps(s);
+          renderSteps();
+        });
+        actionsDiv.appendChild(delBtn);
+      }
+
+      headerDiv.appendChild(actionsDiv);
+      block.appendChild(headerDiv);
+
+      /* Textarea */
+      const textarea = document.createElement('textarea');
+      textarea.className = 'widget-textarea';
+      textarea.placeholder = step.fixed
+        ? `Write your notes for "${step.title}" here…`
+        : 'Describe this step…';
+      textarea.value = step.body;
+
+      let saveTimer;
+      textarea.addEventListener('input', ()=>{
+        clearTimeout(saveTimer);
+        saveInd.classList.remove('show');
+        saveTimer = setTimeout(()=>{
+          const s = loadSteps();
+          const i = s.findIndex(x=>x.id===step.id);
+          if(i>-1){ s[i].body = textarea.value; saveSteps(s); }
+          saveInd.classList.add('show');
+          setTimeout(()=>saveInd.classList.remove('show'), 1800);
+        }, 600);
+      });
+
+      block.appendChild(textarea);
+      container.appendChild(block);
+    });
+  }
+
+  /* ── Add new step ── */
+  document.getElementById('addStepBtn').addEventListener('click', ()=>{
+    const steps = loadSteps();
+    const newStep = {
+      id: 'c_' + Date.now(),
+      title: '',
+      body: '',
+      fixed: false
+    };
+    steps.push(newStep);
+    saveSteps(steps);
+    renderSteps();
+    /* Focus the new title input */
+    setTimeout(()=>{
+      const inputs = container.querySelectorAll('.widget-title-input');
+      if(inputs.length) inputs[inputs.length-1].focus();
+    }, 50);
+  });
+
+  /* ── Save All button ── */
+  document.getElementById('saveAllBtn').addEventListener('click', ()=>{
+    /* Flush all textarea values to storage */
+    const steps = loadSteps();
+    container.querySelectorAll('.widget-block').forEach(block=>{
+      const id = block.dataset.id;
+      const textarea = block.querySelector('.widget-textarea');
+      const titleInput = block.querySelector('.widget-title-input');
+      const s = steps.find(x=>x.id===id);
+      if(s){
+        if(textarea) s.body = textarea.value;
+        if(titleInput) s.title = titleInput.value;
+      }
+    });
+    saveSteps(steps);
+    flashSaved();
+  });
+
+  /* ── Init ── */
+  renderSteps();
+
+  /* ── Preloader ── */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      const pl=document.getElementById('preloader');
+      pl.style.transition='opacity .5s ease';pl.style.opacity='0';
+      setTimeout(()=>pl.style.display='none',550);
+    },1100);
+  });
+
+  /* ── Custom cursor ── */
   const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   function lerpCursor(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpCursor);}
   if(!reduced)lerpCursor();
-  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.borderColor='rgba(123,47,255,.7)';});el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(0,245,255,.5)';});});
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.borderColor='rgba(123,47,255,.7)';});
+    el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(0,245,255,.5)';});
+  });
+
+  /* ── Scroll reveal ── */
   const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
