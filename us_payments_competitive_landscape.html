@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US Payments Competitive Landscape</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f6f5f0;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #5f5e5a;
+  --color-text-tertiary: #888780;
+  --color-border-tertiary: rgba(0,0,0,0.12);
+  --color-border-secondary: rgba(0,0,0,0.22);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1c1c1a;
+    --color-background-secondary: #252523;
+    --color-text-primary: #e8e6de;
+    --color-text-secondary: #a8a69e;
+    --color-text-tertiary: #6e6d68;
+    --color-border-tertiary: rgba(255,255,255,0.10);
+    --color-border-secondary: rgba(255,255,255,0.18);
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}
+
+.layer-grid { display: grid; gap: 6px; }
+
+.layer { display: flex; align-items: stretch; gap: 6px; min-height: 52px; }
+
+.layer-num {
+  width: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+}
+
+.layer-title {
+  width: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-md);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.layer-players {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+
+.chip {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: opacity .15s;
+  border: 0.5px solid transparent;
+  white-space: nowrap;
+}
+.chip:hover { opacity: .75; }
+
+.layer-rev {
+  width: 100px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Color chips */
+.t-purple { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+.t-blue   { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; }
+.t-teal   { background: #E1F5EE; color: #085041; border-color: #5DCAA5; }
+.t-green  { background: #EAF3DE; color: #27500A; border-color: #97C459; }
+.t-amber  { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
+.t-coral  { background: #FAECE7; color: #712B13; border-color: #F0997B; }
+.t-gray   { background: #F1EFE8; color: #444441; border-color: #B4B2A9; }
+.t-red    { background: #FCEBEB; color: #791F1F; border-color: #F09595; }
+.t-pink   { background: #FBEAF0; color: #72243E; border-color: #ED93B1; }
+
+.lt-purple { background: #EEEDFE; color: #3C3489; }
+.lt-blue   { background: #E6F1FB; color: #0C447C; }
+.lt-teal   { background: #E1F5EE; color: #085041; }
+.lt-green  { background: #EAF3DE; color: #27500A; }
+.lt-amber  { background: #FAEEDA; color: #633806; }
+.lt-coral  { background: #FAECE7; color: #712B13; }
+.lt-gray   { background: #F1EFE8; color: #444441; }
+
+@media (prefers-color-scheme: dark) {
+  .t-purple { background: #3C3489; color: #CECBF6; border-color: #534AB7; }
+  .t-blue   { background: #0C447C; color: #B5D4F4; border-color: #185FA5; }
+  .t-teal   { background: #085041; color: #9FE1CB; border-color: #0F6E56; }
+  .t-green  { background: #27500A; color: #C0DD97; border-color: #3B6D11; }
+  .t-amber  { background: #633806; color: #FAC775; border-color: #854F0B; }
+  .t-coral  { background: #712B13; color: #F5C4B3; border-color: #993C1D; }
+  .t-gray   { background: #444441; color: #D3D1C7; border-color: #5F5E5A; }
+  .t-red    { background: #791F1F; color: #F7C1C1; border-color: #A32D2D; }
+  .t-pink   { background: #4B1528; color: #F4C0D1; border-color: #993556; }
+  .lt-purple { background: #26215C; color: #CECBF6; }
+  .lt-blue   { background: #042C53; color: #B5D4F4; }
+  .lt-teal   { background: #04342C; color: #9FE1CB; }
+  .lt-green  { background: #173404; color: #C0DD97; }
+  .lt-amber  { background: #412402; color: #FAC775; }
+  .lt-coral  { background: #4A1B0C; color: #F5C4B3; }
+  .lt-gray   { background: #2C2C2A; color: #D3D1C7; }
+}
+
+.rev-high { color: #0F6E56; font-size: 12px; }
+.rev-med  { color: #3B6D11; font-size: 11px; }
+.rev-low  { color: #888780; font-size: 11px; }
+
+.risk-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+.risk-high { background: #FCEBEB; color: #791F1F; }
+.risk-med  { background: #FAEEDA; color: #633806; }
+.risk-low  { background: #EAF3DE; color: #27500A; }
+
+@media (prefers-color-scheme: dark) {
+  .risk-high { background: #501313; color: #F7C1C1; }
+  .risk-med  { background: #412402; color: #FAC775; }
+  .risk-low  { background: #173404; color: #C0DD97; }
+}
+
+.divider { height: 1px; background: var(--color-border-tertiary); margin: 16px 0 4px; }
+
+.detail-panel {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: var(--border-radius-lg);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-secondary);
+  display: none;
+}
+.detail-panel.visible { display: block; }
+.detail-title { font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--color-text-primary); }
+.detail-body  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+.close-btn { float: right; font-size: 11px; cursor: pointer; color: var(--color-text-tertiary); }
+.close-btn:hover { color: var(--color-text-secondary); }
+
+.scenario-tabs { display: flex; gap: 6px; margin: 8px 0; flex-wrap: wrap; }
+.tab {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0.5px solid var(--color-border-secondary);
+  color: var(--color-text-secondary);
+  background: transparent;
+  transition: all .15s;
+}
+.tab.active {
+  background: var(--color-text-primary);
+  color: var(--color-background-primary);
+  border-color: transparent;
+}
+
+.scenario-content { display: none; }
+.scenario-content.active { display: block; }
+</style>
+</head>
+<body>
+
+<h1>US Payments &amp; Consumer Lending — Competitive Landscape</h1>
+<p class="subtitle">Senior strategy analysis · Q1 2026 · Click any player chip for detail</p>
+
+<div class="section-label">Value chain layers</div>
+
+<div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;">
+  <div style="width:22px"></div>
+  <div style="width:130px;font-size:10px;color:var(--color-text-tertiary);font-weight:500;">Layer</div>
+  <div style="flex:1;font-size:10px;color:var(--color-text-tertiary);font-weight:500;">Key players</div>
+  <div style="width:100px;font-size:10px;color:var(--color-text-tertiary);font-weight:500;text-align:right;">Annual pool</div>
+</div>
+
+<div class="layer-grid" id="layers"></div>
+
+<div id="detail-panel" class="detail-panel">
+  <span class="close-btn" onclick="closeDetail()">✕ close</span>
+  <div class="detail-title" id="detail-title"></div>
+  <div class="detail-body" id="detail-body"></div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label">Revenue pools at risk</div>
+
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center;">
+  <span style="font-size:11px;color:var(--color-text-secondary)">Risk horizon →</span>
+  <span class="risk-badge risk-high">High</span><span style="font-size:11px;color:var(--color-text-secondary)">significant disruption likely</span>
+  <span class="risk-badge risk-med">Medium</span><span style="font-size:11px;color:var(--color-text-secondary)">partial compression</span>
+  <span class="risk-badge risk-low">Low</span><span style="font-size:11px;color:var(--color-text-secondary)">structurally defended</span>
+</div>
+
+<div id="risks-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;"></div>
+
+<div class="divider"></div>
+<div class="section-label">Scenario outlook (2026–2030)</div>
+
+<div class="scenario-tabs">
+  <button class="tab active" onclick="setScenario(0,this)">Base case</button>
+  <button class="tab" onclick="setScenario(1,this)">Accelerated disruption</button>
+  <button class="tab" onclick="setScenario(2,this)">Incumbent resilience</button>
+</div>
+
+<div id="scenario-0" class="scenario-content active"></div>
+<div id="scenario-1" class="scenario-content"></div>
+<div id="scenario-2" class="scenario-content"></div>
+
+<script>
+const layers = [
+  {
+    num:"1", color:"lt-blue", label:"Issuers",
+    players:[
+      {name:"JPMorgan",c:"t-blue"},{name:"Citi",c:"t-blue"},{name:"BofA",c:"t-blue"},
+      {name:"Capital One",c:"t-blue"},{name:"Amex",c:"t-purple"},{name:"Synchrony",c:"t-gray"},
+      {name:"Bread Financial",c:"t-gray"}
+    ],
+    rev:"$100B+", revClass:"rev-high",
+    info:"Issuers earn interchange ($80–90B credit, $25–30B debit), revolving credit spread, and annual fees. JPMorgan dominates with $224B in card receivables and 17.3% market share. The card-issuer position is the single most profitable in US payments — 3.87% ROA vs 1.12% industry average."
+  },
+  {
+    num:"2", color:"lt-purple", label:"Card networks",
+    players:[
+      {name:"Visa",c:"t-purple"},{name:"Mastercard",c:"t-purple"},
+      {name:"Amex (closed loop)",c:"t-purple"},{name:"Discover→Cap One",c:"t-coral"}
+    ],
+    rev:"$15–20B", revClass:"rev-high",
+    info:"Visa processed $14T in volume across 258B transactions in FY2025, generating $40B net revenue. Mastercard handled $9.2T GDV. Moats: network ubiquity, 10B+ token vault, full-network data visibility, rule-setting authority. Value-added services now ~35% of revenue and growing. Most structurally resilient position in payments."
+  },
+  {
+    num:"3", color:"lt-teal", label:"Acquirers / PSPs",
+    players:[
+      {name:"Fiserv",c:"t-teal"},{name:"FIS/Worldpay",c:"t-teal"},{name:"Global Payments",c:"t-teal"},
+      {name:"Stripe",c:"t-green"},{name:"Adyen",c:"t-green"},{name:"JPM Merchant Svcs",c:"t-blue"},
+      {name:"Block/Square",c:"t-green"}
+    ],
+    rev:"$12–18B", revClass:"rev-med",
+    info:"Merchant acquirers handle >$9T in annual transaction volume. Legacy processors (FIS, Fiserv, Global Payments) face acute commoditization pressure from Adyen and Stripe. Adyen's direct-acquiring model creates 2:1 margin advantage over ISO-model processors. Embedded PSPs (Shopify Payments, Toast) earn 30–50bps premium because switching = replacing the full software stack."
+  },
+  {
+    num:"4", color:"lt-teal", label:"Orchestration",
+    players:[
+      {name:"Spreedly",c:"t-teal"},{name:"Primer",c:"t-teal"},{name:"Checkout.com",c:"t-teal"},
+      {name:"Gr4vy",c:"t-gray"},{name:"Stripe (integrated)",c:"t-green"}
+    ],
+    rev:"Emerging", revClass:"rev-low",
+    info:"Fastest-growing software layer in merchant payments. Merchants with >$50M volume deploy multi-PSP strategies with AI-based routing: optimize authorization rate, cost, fraud score, and latency simultaneously. As orchestration commoditizes acquiring, winners will be platforms with the richest routing intelligence — not those with the most connectors."
+  },
+  {
+    num:"5", color:"lt-green", label:"BaaS / Core banking",
+    players:[
+      {name:"Marqeta",c:"t-green"},{name:"Galileo/SoFi",c:"t-green"},{name:"Unit",c:"t-green"},
+      {name:"Synctera",c:"t-green"},{name:"FIS",c:"t-teal"},{name:"Fiserv",c:"t-teal"},
+      {name:"Jack Henry",c:"t-teal"}
+    ],
+    rev:"$3–6B", revClass:"rev-low",
+    info:"Infrastructure powering hundreds of fintechs. Marqeta leads card-issuing infra (Cash App, Uber, DoorDash, Klarna). Galileo and Marqeta concentration risk: outage disrupts entire ecosystem. BaaS enablers are migrating to cloud-native/API architectures, slashing fintech launch timelines from years to months."
+  },
+  {
+    num:"6", color:"lt-amber", label:"Correspondent / wholesale",
+    players:[
+      {name:"JPMorgan",c:"t-blue"},{name:"Citi",c:"t-blue"},{name:"BofA",c:"t-blue"},
+      {name:"Wells Fargo",c:"t-blue"},{name:"SWIFT",c:"t-amber"}
+    ],
+    rev:"$25–35B", revClass:"rev-high",
+    info:"SWIFT connects ~11,000 institutions in 200+ countries. USD correspondent banking dominated by JPMorgan and Citi. ISO 20022 migration adds rich data payloads. Key risk: stablecoin rails and Wise/Airwallex bilateral connections already capturing price-sensitive SMB/consumer corridors. Correspondent profit pool forecast to compress 20–35% over 5 years."
+  },
+  {
+    num:"7", color:"lt-gray", label:"Wallets / super-apps",
+    players:[
+      {name:"Apple Pay",c:"t-gray"},{name:"Google Pay",c:"t-gray"},{name:"PayPal",c:"t-blue"},
+      {name:"Venmo",c:"t-blue"},{name:"Cash App",c:"t-green"},{name:"Shop Pay",c:"t-green"}
+    ],
+    rev:"Variable", revClass:"rev-low",
+    info:"Apple Pay earns ~15bps per credit transaction from issuers. PayPal earns 1.5–2% take rate. Wallets control checkout UX and routing decisions — whoever owns the first click controls consumer data and upsell into BNPL/rewards. Digital wallets were ~50% of online transactions in 2023, growing to 54%+ by 2025. Strategic insight: wallets are the consumer identity layer, not just a credential holder."
+  },
+  {
+    num:"8", color:"lt-coral", label:"Crypto / stablecoins",
+    players:[
+      {name:"Circle (USDC)",c:"t-coral"},{name:"Paxos (PYUSD)",c:"t-coral"},
+      {name:"Coinbase/Base",c:"t-coral"},{name:"Fireblocks",c:"t-amber"},
+      {name:"Ripple (RLUSD)",c:"t-amber"}
+    ],
+    rev:"$12–16B float", revClass:"rev-high",
+    info:"Outstanding USD stablecoins reached ~$280B at year-end 2025. GENIUS Act (July 2025) created first federal framework for payment stablecoins. OCC granted national trust bank charters to Circle, Paxos and others (Dec 2025). Stablecoin float income: ~$12–13B annually at 4.5% T-bill yield on $280B reserves. Near-instant settlement, near-zero transaction fees, programmable via smart contracts."
+  },
+  {
+    num:"9", color:"lt-purple", label:"Fraud / risk / compliance",
+    players:[
+      {name:"Sardine",c:"t-purple"},{name:"Socure",c:"t-purple"},{name:"Alloy",c:"t-purple"},
+      {name:"Sift",c:"t-purple"},{name:"Persona",c:"t-purple"},{name:"ComplyAdvantage",c:"t-coral"},
+      {name:"Unit21",c:"t-coral"}
+    ],
+    rev:"$7–12B", revClass:"rev-med",
+    info:"Fastest-growing layer by valuation. AI-native vendors (Sardine, Featurespace, Sift) are displacing legacy rules-based systems (Oracle FCRM, Actimize). Stripe Radar cut card-testing attacks by 80%. Socure achieves 98%+ auto-approval on identity. AML AI reduces false-positive rates from 95% to 70–80%, cutting compliance operations costs. Structural shift: loss-based pricing → SaaS subscription."
+  }
+];
+
+const risks = [
+  { name:"Credit card interchange", pool:"$80–90B", risk:"med", note:"CCCA routing mandate not yet passed; V/MA settlement freezes increases 5 yrs" },
+  { name:"Acquiring / gateway margins", pool:"$12–18B", risk:"high", note:"Adyen, Stripe, orchestration layers actively commoditizing" },
+  { name:"Cross-border FX spread", pool:"$15–25B", risk:"high", note:"Wise/Airwallex already cut major corridors 60–80%; stablecoins accelerate" },
+  { name:"Wire / SWIFT fee income", pool:"$5–8B", risk:"med", note:"FedNow domestic; stablecoins for cross-border; institutional flows sticky" },
+  { name:"Card network scheme fees", pool:"$15–20B", risk:"low", note:"Ubiquity + tokenization moat; CCCA is the only structural threat" },
+  { name:"Issuer revolving interest", pool:"$174B+", risk:"low", note:"Consumer credit demand structural; not a payment fee — attached to cards" },
+  { name:"Correspondent banking", pool:"$25–35B", risk:"high", note:"SMB/consumer corridors at 50–80% risk over 5 yrs; institutional defensible" },
+  { name:"Stablecoin reserve float", pool:"$12–16B", risk:"low", note:"GENIUS Act legitimizes; T-bill yield on $280B reserves; fastest-growing pool" },
+];
+
+const scenarios = [
+  {
+    id:0,
+    desc:"No CCCA passage. FedNow grows to 900+ institutions and $500B+ annual value. Stablecoins grow to $500B+ outstanding, primarily B2B cross-border. Cards retain consumer dominance with modest share loss in bill pay.",
+    winners:["Visa / Mastercard","Stripe","Embedded payments (Shopify, Toast)","AI fraud vendors (Sardine, Socure)","Cross-border specialists (Wise, Airwallex)","Circle + bank stablecoins"],
+    losers:["Commodity acquirers (no software)","Legacy AML/KYC systems","Correspondent banks in SMB corridors","Western Union"],
+    outcomes:["Cards: stable, modest MDR compression","Checks: −7%/yr volume continues","RTP/FedNow: 15–20% of electronic volume by 2028","Stablecoins: $500B+ outstanding, 2–3% of cross-border B2B"]
+  },
+  {
+    id:1,
+    desc:"CCCA passes 2026–2027, forcing credit card routing choice. FedNow reaches 5,000+ institutions. Stablecoins hit $1T+ outstanding. Aggressive CFPB data portability enforcement enables real-time account switching.",
+    winners:["Orchestration platforms (Primer, Spreedly)","Circle / Coinbase / bank stablecoin issuers","FedNow/RTP middleware (Modern Treasury, Dwolla)","AI-native fraud + compliance","Cross-border challengers"],
+    losers:["Premium rewards card issuers (interchange model collapses)","Correspondent banks","Legacy processors without AI","Rules-based fraud vendors","Standalone gateways"],
+    outcomes:["Cards: interchange −30–40% on affected volumes if CCCA passes","Checks: functional elimination by 2029","RTP/FedNow: 30%+ of electronic volume","Stablecoins: 10–15% of cross-border B2B"]
+  },
+  {
+    id:2,
+    desc:"CCCA does not pass. FedNow growth slower than expected (APP fraud concern limits merchant incentives). Stablecoin adoption stalls as banks counter with tokenized deposits. AI improves incumbent efficiency without structural change.",
+    winners:["JPMorgan (full-stack position)","Visa + Mastercard (ubiquity moat)","Fiserv/Clover, Global Payments","Marqeta (BaaS infrastructure)"],
+    losers:["Standalone cross-border fintechs","Stablecoin infrastructure without bank partnerships","Pure-play fraud SaaS (banks build in-house)"],
+    outcomes:["Cards: dominant and growing","Checks: slow decline, B2B checks persist through 2030","SWIFT: minimal disruption","Stablecoins: institutional only, limited consumer adoption"]
+  }
+];
+
+function renderLayers() {
+  const grid = document.getElementById('layers');
+  layers.forEach(l => {
+    const row = document.createElement('div');
+    row.className = 'layer';
+    row.innerHTML = `
+      <div class="layer-num">${l.num}</div>
+      <div class="layer-title ${l.color}">${l.label}</div>
+      <div class="layer-players">
+        ${l.players.map(p=>`<span class="chip ${p.c}" onclick="showDetail('${l.label}','${l.info.replace(/'/g,"&#39;")}')">${p.name}</span>`).join('')}
+      </div>
+      <div class="layer-rev ${l.revClass}">${l.rev}</div>
+    `;
+    grid.appendChild(row);
+  });
+}
+
+function renderRisks() {
+  const grid = document.getElementById('risks-grid');
+  risks.forEach(r => {
+    const card = document.createElement('div');
+    card.style.cssText = 'padding:8px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);background:var(--color-background-secondary);';
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+        <span style="font-size:12px;font-weight:500;color:var(--color-text-primary)">${r.name}</span>
+        <span class="risk-badge risk-${r.risk}">${r.risk}</span>
+      </div>
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px">${r.pool}</div>
+      <div style="font-size:10px;color:var(--color-text-secondary);line-height:1.4">${r.note}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderScenarios() {
+  scenarios.forEach(s => {
+    const el = document.getElementById('scenario-'+s.id);
+    el.innerHTML = `
+      <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:10px">${s.desc}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+        <div>
+          <div style="font-size:10px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px">Winners</div>
+          <div style="display:flex;flex-direction:column;gap:4px">${s.winners.map(w=>`<span style="font-size:11px;padding:3px 8px;border-radius:20px;" class="t-teal">${w}</span>`).join('')}</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px">Losers</div>
+          <div style="display:flex;flex-direction:column;gap:4px">${s.losers.map(w=>`<span style="font-size:11px;padding:3px 8px;border-radius:20px;" class="t-red">${w}</span>`).join('')}</div>
+        </div>
+      </div>
+      <div style="font-size:10px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px">Payment type outcomes</div>
+      <div style="display:flex;flex-direction:column;gap:3px">${s.outcomes.map(o=>`<div style="font-size:11px;color:var(--color-text-secondary);padding:2px 0;border-left:2px solid var(--color-border-secondary);padding-left:8px">${o}</div>`).join('')}</div>
+    `;
+  });
+}
+
+function showDetail(title, body) {
+  document.getElementById('detail-title').textContent = title;
+  document.getElementById('detail-body').textContent = body;
+  document.getElementById('detail-panel').classList.add('visible');
+}
+function closeDetail() { document.getElementById('detail-panel').classList.remove('visible'); }
+
+function setScenario(idx, btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.scenario-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('scenario-'+idx).classList.add('active');
+}
+
+renderLayers();
+renderRisks();
+renderScenarios();
+</script>
+</body>
+</html>
