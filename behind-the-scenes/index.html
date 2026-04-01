@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Behind the Scenes — Retail Banking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1f3a; --gold: #c9a84c; --gold-light: #e8c97a;
+      --cream: #f5f0e8; --white: #ffffff; --gray: #6b7280;
+      --shadow: 0 4px 32px rgba(11,31,58,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
+
+    header { background: var(--navy); color: var(--white); padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,168,76,0.04) 40px, rgba(201,168,76,0.04) 41px); }
+    .badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid var(--gold); color: var(--gold-light); font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; position: relative; }
+    header h1 span { color: var(--gold); }
+    header p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto; line-height: 1.7; position: relative; }
+    .gold-line { width: 48px; height: 2px; background: var(--gold); margin: 32px auto 0; }
+    .back-link { position: absolute; top: 28px; left: 32px; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .back-link:hover { color: var(--gold); }
+
+    main { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 32px; }
+
+    .content-block { background: var(--white); border-radius: 16px; box-shadow: var(--shadow); padding: 36px 40px; margin-bottom: 28px; border: 1px solid rgba(11,31,58,0.06); }
+    .content-block h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); display: inline-block; }
+    .content-block p { font-size: 0.95rem; color: var(--gray); line-height: 1.8; margin-bottom: 12px; }
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 8px; }
+    .member { background: var(--cream); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(11,31,58,0.07); }
+    .avatar { width: 48px; height: 48px; background: var(--navy); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+    .member h3 { font-size: 0.875rem; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .member span { font-size: 0.75rem; color: var(--gray); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; padding: 24px; font-size: 0.8rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    header, .content-block { animation: fadeUp 0.6s ease both; }
+    .content-block:nth-child(2) { animation-delay: 0.1s; }
+    .content-block:nth-child(3) { animation-delay: 0.2s; }
+    .content-block:nth-child(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="back-link" href="../index.html">← Back to overview</a>
+    <div class="badge">Retail Banking · Capstone 2025</div>
+    <h1>Behind the <span>Scenes</span></h1>
+    <p>How we built this project — our process, tools, collaboration, and reflections.</p>
+    <div class="gold-line"></div>
+  </header>
+
+  <main>
+
+    <div class="section-label">Our process</div>
+    <div class="section-title">How it came together</div>
+
+    <div class="content-block">
+      <h2>Project Approach</h2>
+      <p>Add your content here.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>Tools &amp; Technologies</h2>
+      <p>Add your content here.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>Collaboration &amp; Workflow</h2>
+      <p>Add your content here.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>Reflections &amp; Takeaways</h2>
+      <p>Add your content here.</p>
+    </div>
+
+    <div class="section-label" style="margin-top: 20px;">The full team</div>
+    <div class="section-title">Six contributors</div>
+
+    <div class="content-block">
+      <div class="team-grid">
+        <div class="member"><div class="avatar">V</div><h3>Vivek Ramachandran</h3><span>Loans &amp; Credit</span></div>
+        <div class="member"><div class="avatar">A</div><h3>Ade Olanrewaju</h3><span>Loans &amp; Credit</span></div>
+        <div class="member"><div class="avatar">P</div><h3>Peter Sewing</h3><span>Savings &amp; Deposits</span></div>
+        <div class="member"><div class="avatar">D</div><h3>Davron Mirtursunov</h3><span>Savings &amp; Deposits</span></div>
+        <div class="member"><div class="avatar">F</div><h3>Francisco Martha Gonzalez</h3><span>Payments</span></div>
+        <div class="member"><div class="avatar">D</div><h3>Dominik Wüst</h3><span>Payments</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Retail Banking Capstone Project · <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project">View on GitHub</a></p>
+  </footer>
+
+</body>
+</html>
