@@ -1,0 +1,1237 @@
+
+
+=== SEITE 01 ===
+
+US Payments & Transactions Market: Strategic Analysis
+
+Senior Strategy Consultant Perspective | March 2026
+
+EXECUTIVE SUMMARY
+
+The US payments market is undergoing the most structurally significant transformation ina
+generation. Three forces are converging simultaneously: (1) real-time rail proliferation
+(FedNow, RTP) threatening card economics at the margin; (2) stablecoin legitimization via the
+GENIUS Act (July 2025), opening a new settlement layer that could bypass correspondent
+banking entirely; and (3) Al-driven intelligence shifting competitive advantage from
+infrastructure ownership toward data density and model quality. The result is a market where
+the traditional integrated stack — bank + network + processor + issuer — is fragmenting
+horizontally, with software and intelligence layers capturing an increasing share of value. Yet
+cards remain structurally dominant in consumer payments, and incumbents with scale, data, and
+distribution are not standing still. The next 3-5 years will determine which players become
+utilities and which become intelligence control points — and the strategic choices made now will
+define the industry structure for the following decade.
+
+1. MARKET STRUCTURE AND VALUE POOLS
+
+The End-to-End US Payments Value Chain
+
+The US payments system is best understood as a set of overlapping value chains, not a single
+stack. Each payment type has its own rails, economics, and players — but AI, APIs, and
+regulatory shifts are forcing convergence.
+
+Layer 1 — Issuers: Banks and credit unions originating cards and accounts. Revenue:
+interchange, interest income, annual fees, FX spreads on international cards. Key players:
+JPMorgan Chase, Citibank, Bank of America, Capital One, American Express (issuer/network
+hybrid), Synchrony Financial, Bread Financial. Issuer economics are heavily reliant on
+interchange ($100B+ annually in US credit and debit interchange revenue) and revolving credit
+spread.
+
+Layer 2 — Card Networks: Visa, Mastercard (four-party model); Amex, Discover (three-party
+model). Revenue: network/assessment fees (~0.11-0.13% per transaction), data services, value-
+added services (fraud tools, analytics, tokenization). In fiscal year 2025, Visa processed $14
+trillion in total payments volume across 258 billion transactions, generating $40 billion in net
+revenue. Mastercard handled $9.2 trillion in GDV. Their moats are ubiquity, token vaults, fraud
+
+
+=== SEITE 02 ===
+
+infrastructure, and rule-setting authority — not transaction processing per se. These are the
+strongest structural positions in global payments.
+
+Layer 3 — Acquirers and Processors: Merchant-facing. Revenue: acquiring spread, gateway fees,
+value-added services. Collectively, merchant acquirers handle more than $9 trillion in annual
+transaction volume in the US. Key players: FIS (Worldpay), Fiserv (Clover), Global Payments,
+JPMorgan Merchant Services, Stripe, Adyen, Block/Square. Commoditization pressure is acute
+here, especially in gateway and plain-vanilla processing.
+
+Layer 4 — Gateways and Orchestration: Connecting merchants to acquirers, routing
+transactions. Standalone gateway revenue is compressing toward zero as orchestration layers
+absorb the function. Players: Spreedly, Primer, Gr4vy, Checkout.com, Stripe (vertically
+integrated). Orchestration is the fastest-growing layer — merchants want multi-acquirer routing,
+least-cost routing, and authorization rate optimization simultaneously.
+
+Layer 5 — Core Banking and Treasury Infrastructure: BaaS platforms (Galileo/SoFi, Margeta,
+Unit, Synctera), core banking (FIS, Fiserv, Jack Henry), treasury infrastructure (Kyriba, Modern
+Treasury, TreasuryPrime). These are the rails under the fintechs. Revenue: SaaS fees, per-
+transaction fees, float on held balances.
+
+Layer 6 — Correspondent Banks and Wholesale Infrastructure: SWIFT messaging, FedWire,
+CHIPS for large-value settlement, correspondent networks for cross-border. Revenue: wire fees,
+FX spreads, float, correspondent account balances. Under structural pressure from RTP, FedNow,
+and stablecoins.
+
+Layer 7 — Wallets and Super-Apps: Apple Pay, Google Pay, PayPal/Venmo, Cash App, WeChat
+Pay (limited US). Revenue models vary: Apple earns ~15bps per Apple Pay transaction on credit,
+PayPal earns transaction take-rates of ~1.5-2%. Wallets are becoming the consumer identity
+layer, not just a payment credential holder.
+
+Layer 8 — Crypto and Stablecoin Infrastructure: Circle (USDC), Paxos (PYUSD), Coinbase,
+Fireblocks (custody/settlement rails), Ripple (ODL for cross-border). Revenue: issuance float on
+stablecoin reserves (T-bill yield on ~$50-100B+ USD-pegged reserves), custody fees, exchange
+spreads, payment network fees. The volume of outstanding USD stablecoins grew to nearly $280
+billion at year-end 2025 from about $25 billion in 2020.
+
+Layer 9 — Fraud, Risk, and Compliance Infrastructure: Featurespace, Sardine, Sift, Socure,
+Alloy, Persona, Onfido, Comply Advantage, unit21, Hawk AI. Revenue: SaaS, per-API-call, per-
+transaction risk scoring. This layer is growing faster than any other as AI shifts it from rules-
+based to model-driven.
+
+
+=== SEITE 03 ===
+
+Revenue Pool Sizing and Concentration
+
+Revenue Pool Estimated US Annual Size Where Profit Concentrates
+
+Credit card interchange ~$80-90B Card issuers (JPM, Citi, Amex)
+
+Debit card interchange ~$25-30B Issuers (regulated by Durbin)
+Network/scheme fees ~$15-20B Visa, Mastercard
+
+Acquiring/gateway margins ~$12-18B Large acquirers, Stripe, Adyen
+Cross-border FX spread ~$15-25B Banks, Amex, Visa, specialized fintechs
+Wire/SWIFT fee income ~$5-8B Large correspondent banks
+
+Float income (wallets, BaaS) ~$3-6B PayPal, Cash App, neobanks
+Fraud/risk services ~$4-7B Networks, fintechs, incumbents
+AML/KYC/compliance SaaS ~$3-5B Fintechs, large bank-owned platforms
+Stablecoin reserve float ~$12-16B Circle, Paxos, bank issuers
+
+Key insight: The single largest profit pool in US payments is credit card interchange — controlled
+
+by issuers and defended by the network-issuer incentive structure. It is both the most
+economically significant pool and the most politically/regulatorily vulnerable. The second
+structural insight is that stablecoin reserve float is already material and could rival wire fee
+
+income within 3 years.
+
+Where Value Is Being Created vs. Defended vs. Disrupted
+
+e Created: Al-powered risk scoring, payment orchestration, stablecoin reserve float,
+embedded payments SaaS
+
+e Defended: Card network ubiquity (tokenization moats), issuer rewards economics,
+JPMorgan's cross-border infrastructure
+
+¢ Disrupted: Acquiring margins (race to zero), cross-border FX spread (Wise, stablecoins),
+
+wire fees (FedNow, RTP), check processing (secular decline)
+
+2. PAYMENT TYPES: STRATEGIC ANALYSIS
+
+Cards (Credit, Debit, Prepaid — Consumer and Commercial)
+
+
+=== SEITE 04 ===
+
+Current role: Still the dominant non-cash payment method. Credit cards dominated in-store
+transactions at 70% in 2024. US consumers hold ~170 million credit cards; credit card debt
+exceeded $900B in 2023. Cards are the default payment UX for e-commerce, in-store, and
+recurring billing.
+
+Economics: Consumer credit: interchange 1.5-2.4% + flat fee. Debit (unregulated): ~1.5%
+interchange. Debit (regulated, Durbin): capped at ~0.21% + $0.05. Commercial/corporate cards:
+2.0-2.8%, higher interchange due to card-not-present and B2B premiums. Merchant discount
+rate aggregate ~1.8-2.5% in most verticals, higher for premium and travel cards. A standard US
+consumer credit card transaction might carry an interchange rate of 1.50% + $0.10, while a
+premium rewards card could reach 2.40% + $0.10 or higher.
+
+Key players: Visa, Mastercard (networks); JPMorgan Chase, Amex, Citi, Capital One, BofA (top
+issuers); Fiserv, FIS, Adyen, Stripe (acquiring side). Margeta leads card issuing infrastructure for
+fintechs.
+
+Strengths: Global acceptance ubiquity. Consumer protection (chargebacks, zero liability).
+Rewards and benefits economics that are self-reinforcing. Network effects on both merchant and
+consumer sides. Tokenization infrastructure is now deeply embedded in mobile wallets (Apple
+Pay = card credentials, not a new rail).
+
+Weaknesses: High cost to merchants, especially SMBs. Interchange attracts regulatory scrutiny.
+Credit Card Competition Act (CCCA) — if passed, would force routing choice on credit cards
+(analogous to Durbin for debit), threatening the Visa/Mastercard duopoly on credit card routing.
+Chargebacks/disputes are structurally expensive for issuers and merchants alike.
+
+Strategic outlook (3-5 years): Cards will remain dominant in consumer payments by volume
+and value, but face two structural pressures: (1) incremental margin compression on interchange
+from regulation and competition; (2) selective displacement by A2A/RTP in specific merchant
+categories (utilities, rent, B2B). The networks themselves are well-positioned: Visa and
+Mastercard's response to A2A is tokenization of accounts (Visa A2A), not resistance.
+Commercial card is the fastest-growing sub-segment (expense management, AP automation,
+virtual cards). Prepaid and BaaS-linked debit will grow as embedded finance platforms issue
+white-label debit products.
+
+ACH (Automated Clearing House)
+
+Current role: The backbone of B2B and recurring consumer payments. Payroll, direct deposit, bill
+pay, B2B supplier payments. Not real-time — next-day and same-day ACH are available but not
+instant.
+
+Economics: Very low per-transaction cost. Same-Day ACH has a network fee of $0.052 per
+transaction. Volume: ~31 billion transactions and ~$80 trillion in value annually (Nacha 2024).
+
+
+=== SEITE 05 ===
+
+Per-transaction revenue is minimal — value capture is in treasury, float, and volume-driven
+SaaS.
+
+Key players: Federal Reserve (FedACH), EPN (operated by The Clearing House), Nacha
+(governance). Access via bank treasuries, fintechs using Modern Treasury, Dwolla, Plaid, or
+direct bank APIs.
+
+Strengths: Near-universal bank coverage. Very low cost. Deeply embedded in payroll, direct
+deposit, bill pay, B2B AP workflows.
+
+Weaknesses: Not real-time (even Same-Day ACH settles in batches). Not irrevocable —
+returns/reversals create fraud risk and operational complexity. Not 24/7. Poorly suited to high-
+urgency or consumer-demand use cases.
+
+Strategic outlook: ACH will retain dominance in high-value, non-urgent B2B flows for the next
+5+ years. Same-Day ACH will grow but will increasingly be complemented (not replaced) by
+FedNow and RTP for time-sensitive use cases. The Key risk: as FedNow reaches critical mass,
+merchants and platforms may shift recurring consumer billing to A2A instant rails for lower cost
+and faster float benefit.
+
+RTP / FedNow / Instant A2A Payments
+
+Current role: The most strategically important infrastructure shift in US payments in decades.
+RTP (The Clearing House, launched 2017, now covering ~90% of US demand deposit accounts)
+and FedNow (launched July 2023) are competing 24/7/365 instant payment rails. FedNow
+expanded from 35 launch banks to more than 900 institutions by August 2024, with community
+banks representing 78% of participants.
+
+Economics: Network fees very low — $0.045 per transaction on FedNow. Revenue captures is in
+treasury management, float benefit to receivers (immediate funds availability), reduced
+chargeback exposure, and the ability to build new products on top (e.g., request-for-payment,
+insurance claims, gig worker payouts, earned wage access).
+
+Key players: Federal Reserve (FedNow), The Clearing House (RTP), bank participants, fintech
+overlays (Dwolla, Modern Treasury, Plaid), and software orchestrators building on top.
+
+Strengths: Real-time, 24/7, irrevocable (no chargebacks). Removes float drag. Enables new
+payment flows that are impossible on ACH or card rails. Lower cost than cards for merchants
+willing to accept the UX change.
+
+Weaknesses: Irrevocability is a double-edged sword — no consumer protection equivalent to
+card chargebacks. Authorized push payment (APP) fraud is a growing problem (significant in UK
+after Faster Payments launch). Merchant acceptance requires new checkout UX; consumer
+adoption is a chicken-and-egg problem. Credit functionality (BNPL, installments) must be
+layered separately — no native credit.
+
+
+=== SEITE 06 ===
+
+Strategic outlook: The most important 3-5 year question in US payments. The consensus bullish
+case: RTP/FedNow displace check and ACH in bill pay, insurance payouts, gig/contractor
+payments, and B2B disbursements. The bearish case on card displacement: without consumer
+protection parity and a rewards equivalent, consumers won't voluntarily shift from credit cards
+for discretionary purchases. The honest answer: significant displacement in push-payment use
+cases (payroll, earned wage access, insurance, government disbursements, B2B AP) but limited
+consumer POS displacement through 2028 absent a regulatory forcing function or a merchant-
+funded incentive structure. Non-obvious second-order effect: FedNow + open banking +
+request-for-payment (RfP) protocols together could create a merchant-directed "pull A2A"
+product competitive with debit cards for subscription billing — this is the real threat to regulated
+debit interchange over the next 5 years.
+
+Checks
+
+Current role: In secular decline but still the largest payment instrument by dollar value in B2B.
+Cash usage was approximately 20% of all transactions in 2021, and by 2024 the percentage
+decreased to 16%. Checks follow a similar arc. Federal Reserve data shows checks declining ~7%
+per year. B2B still accounts for ~60% of check volume; consumer check writing is approaching
+residual.
+
+Economics: Costly to process — bank revenue from check processing comes from service fees,
+float during clearing, and overdraft fees triggered by bad check timing. Positive Pay, Check Fraud
+Fraud services generate some incremental bank revenue. Total check clearing costs to the
+industry are substantial but declining as volumes fall.
+
+Key players: Federal Reserve (check processing services), FIS, Fiserv, bank back-offices. Fintech
+challengers: Checkbook.io (digital check issuance), Paymentus (electronic bill pay replacing
+check receipt).
+
+Strategic outlook: Structural decline accelerating. The remaining check volume is sticky
+because it is embedded in accounts payable/receivable software (QuickBooks, SAP, Oracle),
+legal/real estate settlements, and segments that have not yet digitized. Digital check issuance
+services (sending a PDF or printable check via email) are a transitional product, not a
+destination. Check processing will become a utility service managed at declining scale by the
+Fed and large banks. No strategic premium here — only cost management.
+
+Domestic Wires (Fedwire, CHIPS)
+
+Current role: High-value, same-day settlement for corporate treasury, real estate, securities
+settlement, and interbank funding. CHIPS (Clearing House Interbank Payments System) settles
+~$1.8T/day; Fedwire ~$4T/day. Not a consumer product.
+
+
+=== SEITE 07 ===
+
+Economics: Per-wire fee income for banks: $15-50 per outgoing wire (consumer), variable for
+wholesale. CHIPS is net-settled with significant netting efficiency. Total wire fee revenue is
+relatively modest (~$5-8B) compared to the dollar volume, because unit economics are
+transaction fees on very large amounts.
+
+Key players: Federal Reserve (Fedwire), The Clearing House (CHIPS), money-center banks
+(JPMorgan, Citi, BofA, Wells Fargo). Corporate treasury management systems connect clients to
+wire infrastructure.
+
+Strategic outlook: Wires remain critical for large-value, time-sensitive institutional payments.
+They are not being displaced by FedNow (different value threshold, different risk profile). The
+real competitive threat: blockchain-based settlement (tokenized deposits, stablecoins) for
+institutional cross-border flows, where JPMorgan's Onyx/JPM Coin has demonstrated that
+banks themselves see the opportunity to disintermediate SWIFT-dependent correspondent
+chains using internal ledgers.
+
+SWIFT and Correspondent Banking
+
+Current role: The messaging infrastructure (not a rail itself) connecting ~11,000 financial
+institutions in 200+ countries. Used for international wire instructions. ISO 20022 migration is
+now in full deployment phase.
+
+Economics: High-margin for correspondent banks holding nostro/vostro accounts — float, FX
+spread, wire fees, and crucially, the ability to cross-sell trade finance and treasury services to
+respondent banks. Total correspondent banking revenue globally: ~$25-35B (wholesale). In the
+US, money-center banks (JPMorgan, Citi, BofA, Wells) are the dominant USD correspondents.
+
+Key players: SWIFT (messaging), JPMorgan (dominant USD correspondent), Citi (global
+network), BofA, Wells Fargo. Challengers: Wise, Ripple (ODL), stablecoin rails.
+
+Strengths: Deep integration into trade finance, documentary credit, securities settlement. ISO
+20022 migration is adding rich data payloads that improve reconciliation and enable AI-based
+processing.
+
+Weaknesses: Slow (1-3 day settlement in many corridors), opaque FX pricing, high per-
+transaction cost ($25-50 for cross-border wires), multiple intermediary hops. De-risking
+(correspondent bank exits from high-risk corridors) is reducing coverage and increasing
+concentration risk.
+
+Strategic outlook: SWIFT itself is adapting — ISO 20022, pre-validation APIs, SWIFT Go for
+smaller cross-border payments. But the structural pressure from Wise/Airwallex, stablecoin rails,
+and Visa/Mastercard B2B Connect is real. The correspondent banking profit pool will compress
+20-35% over 5 years as fintech and blockchain-based alternatives capture the most price-
+
+
+=== SEITE 08 ===
+
+sensitive corridors. Large-value institutional flows stay on SWIFT/Fedwire/CHIPS. SMB and
+consumer remittance flows are the contested territory.
+
+International / Cross-Border Payments
+
+Current role: Cross-border payments market is worth over $194 trillion and is forecast to reach
+$320 trillion by 2032. US is the largest source of remittance flows globally. Cross-border B2B
+payments are the highest-fee, highest-friction segment — and the most disrupted.
+
+Economics: Banks capture FX spread of 1.5-3% on retail cross-border payments, plus wire fees.
+Fintechs like Wise operate at 0.3-0.7% all-in for major corridors. The spread compression is
+massive — early Wise corridors saw 80%+ fee reductions vs. banks. For B2B: Airwallex, Nium,
+Ebury, and Part quote interbank rates plus small FX margin for SMB flows.
+
+Key players: JPMorgan Payments, Citi Treasury & Trade Solutions (large corporate). Wise,
+Airwallex, Nium, Ebury, Currencycloud (acquired by Visa), Ripple, Remitly, Western Union
+(declining). Airwallex reached $1 billion in annualized revenue in October 2025, processing more
+than $130 billion in annualized TPV.
+
+Strengths of challengers: Real exchange rates, transparent pricing, local payment network
+access in 50+ markets, API-first, fast settlement.
+
+Strategic outlook: The most disrupted segment in payments over the next 5 years. Stablecoins
+are a potentially transformative force here — over 50% of companies surveyed expect to adopt
+stablecoins for cross-border payments in the next 6-12 months, expecting stablecoins to handle
+5-10% of cross-border payments by 2030, equivalent to $2.1-4.2 trillion according to EY
+estimates. The key constraint is last-mile fiat conversion and regulatory compliance in
+destination markets. Whoever solves programmatic FX conversion with stablecoin rails at scale
+wins the next era of cross-border B2B payments.
+
+Digital Wallets and Mobile Payments
+
+Current role: Digital wallets accounted for almost 50% of online transactions in 2023, and their
+usage is expected to surpass 54% by 2025. Apple Pay and Google Pay dominate contactless in-
+store in the US. PayPal dominates online checkout. Venmo/Cash App own P2P. Shop Pay
+(Shopify) is the fastest-growing checkout wallet in e-commerce.
+
+Economics: Wallets are primarily credential storage layers on top of existing rails (mostly card,
+some ACH/A2A). Apple earns ~15bps per credit card transaction routed through Apple Pay from
+issuers. Google Pay monetizes less directly — data and ecosystem lock-in. PayPal earns 1.5-2%
+take rate on transactions. Cash App monetizes through Bitcoin, instant transfer fees, and Cash
+App Card interchange. Venmo monetizes via Pay with Venmo merchant fees.
+
+
+=== SEITE 09 ===
+
+Key players: Apple Pay (iPhone NFC dominance), Google Pay, PayPal, Venmo, Cash App,
+Samsung Pay, Shop Pay, Amazon Pay, Walmart Pay.
+
+Strategic outlook: Wallets are becoming the primary consumer payments interface — not the
+rail. The strategic importance is in owning the checkout experience and consumer identity,
+which confers data leverage and the ability to route across underlying rails. Apple's NFC
+monopoly in iPhone (now being partially opened by EU regulation, with US implications likely)
+has been a moat. The most important long-term wallet dynamic: whoever controls the checkout
+flow controls routing decisions — this is why Visa and Mastercard are investing in tokenization
+and network-level wallet integrations rather than fighting wallets. Stablecoin-linked wallets
+(PayPal's PYUSD, Coinbase's Base network) represent a potential future where wallets settle on
+non-card rails.
+
+Stablecoins
+
+Current role: The most strategically important emerging payment infrastructure in the US.
+Outstanding USD stablecoins reached nearly $280 billion at year-end 2025. The GENIUS Act
+(July 2025) created the first federal regulatory framework for payment stablecoins. The OCC
+conditionally granted national trust bank charters to Circle, Paxos, and three other nonbank
+financial firms in December 2025.
+
+Economics: Issuer earns T-bill yield on reserve assets backing stablecoins. With $280B
+outstanding and short-term T-bills yielding ~4.5%, this represents roughly $12-13B in annual
+float income — a revenue pool that did not exist five years ago. Transaction fees on stablecoin
+rails are near-zero (gas fees on USDC/Base transactions are fractions of a cent). The economic
+model is: issue stablecoin at near-zero transaction cost, earn float on reserves, retain users in
+ecosystem for other services.
+
+Key players: Circle (USDC — dominant in institutional and B2B), Paxos (PYUSD, USDP), Tether
+(USDT — offshore), Coinbase (USDC co-issuer, Base L2 network), Fireblocks (settlement rails
+for institutional stablecoin flows), Ripple (RLUSD for ODL), bank issuers under GENIUS Act.
+
+Strengths: Near-instant settlement (seconds on L2 networks). Global reach without
+correspondent banking. Programmability (smart contracts for conditional payments, escrow,
+streaming payments). Float to the issuer (not the merchant or consumer). GENIUS Act provides
+regulatory clarity for the first time.
+
+Weaknesses: No consumer protection equivalent to card chargebacks. Last-mile fiat conversion
+friction. Regulatory complexity in non-US jurisdictions. GENIUS Act prohibits interest/yield to
+holders — limiting consumer adoption incentive.
+
+Strategic outlook: The most transformative 5-year bet in payments. Use cases accreting fastest:
+(1) cross-border B2B (supplier payments, treasury corridors); (2) institutional settlement
+(tokenized securities, repo); (3) gig economy worker payouts; (4) remittances. Non-obvious
+
+
+=== SEITE 10 ===
+
+insight: Banks issuing stablecoins under GENIUS Act can capture the float income that
+currently accrues to Circle — this is why JPMorgan (JPM Coin for institutional), Citi, and BofA
+are all moving aggressively into tokenized deposit and stablecoin issuance. The real question is
+not whether stablecoins grow — they will — but whether the economic gains from reserve float
+accrue to bank issuers or to crypto-native infrastructure providers.
+
+Other Crypto Payment Mechanisms
+
+Current role: Minimal for actual commerce payments. Bitcoin is primarily a store of value and
+speculative asset, not a payment instrument (high transaction costs on base layer, volatility).
+Lightning Network (Bitcoin L2) enables micropayments with low fees but adoption is limited.
+Ethereum smart contracts are the backbone of DeFi but not consumer payments. Ripple/XRP is
+used in specific institutional cross-border corridors.
+
+Strategic outlook: Non-stablecoin crypto for payments remains a niche use case except in
+specific remittance corridors where recipients prefer crypto-native settlement (e.g., Latin
+America, Sub-Saharan Africa). The focus of institutional energy has shifted entirely to
+stablecoins and tokenized deposits. Bitcoin's role in payments may be permanently limited by
+volatility and the availability of superior alternatives (stablecoins).
+
+3. KEY PLAYERS AND COMPETITIVE DYNAMICS
+
+Traditional Incumbents
+
+JPMorgan Chase: The most powerful player in US payments by any measure. Largest card issuer
+(~$1.4T in card sales volume), dominant correspondent bank, owns Paymentech (large merchant
+acquirer), has deployed JPM Coin for institutional cross-border, and is investing aggressively in
+tokenized deposits. JPM's competitive advantage is the combination of consumer deposits,
+credit extension, merchant relationships, and institutional infrastructure — no competitor has all
+four. Greatest risk: if embedded finance platforms disintermediate the merchant relationship,
+JPM loses cross-sell leverage.
+
+Visa / Mastercard: The most structurally resilient players in the US market. Moats: (1) network
+ubiquity — every merchant, every bank; (2) token vaults — 10B+ network tokens issued, making
+tokenized card credentials the default secure credential; (3) data — the only players with full
+visibility across issuer and acquirer side of transactions; (4) value-added services (fraud tools,
+analytics, Visa Direct / Mastercard Send for push payments) now represent ~35% of network
+revenue and growing. Key risk: CCCA (Credit Card Competition Act) routing mandates for credit
+cards, which would compress network fee economics by forcing network competition. As part of
+the Visa/Mastercard interchange settlement in 2024, Visa agreed to hold off on interchange
+increases for five years.
+
+
+=== SEITE 11 ===
+
+Fiserv / FIS / Global Payments: The processing oligopoly. Between them, they handle the
+majority of US merchant acquiring volume. Revenue is increasingly SaaS-oriented (Clover,
+WorldPay). Margin compression from Adyen, Stripe is a persistent threat at the upper end of the
+market. Their defense: scale, SaaS bundles (Clover = POS + software + payments), and
+SMB/community bank relationships that fintech competitors cannot easily replicate.
+
+American Express: The most profitable card issuer/network by net income per card. Closed-loop
+model gives Amex unique data advantages and eliminates interchange passthrough. Amex's key
+strategic move: expansion into SMB and B2B cards, where interchange is higher and the rewards
+subsidy is more manageable. Risk: premium consumer reward cost inflation and merchant
+surcharge acceptance.
+
+Fintech Challengers
+
+Stripe: The most important private payments infrastructure company. Estimated $1T+ in annual
+TPV, $15B+ in revenue. Stripe's edge: (1) developer-first API experience that has become the
+default for SaaS and e-commerce; (2) Stripe Radar (AI fraud — cuts card testing attacks by 80%
+per company data); (3) Stripe Connect (marketplace/platform payments); (4) expanding into
+financial services (Stripe Capital, Stripe Treasury, Stripe Issuing). Risk: Adyen is winning the
+enterprise mid-market; Stripe's move upmarket is contested.
+
+Adyen: The enterprise PSP challenger. Outperforming legacy processors on gross margin due to:
+direct acquiring (no third-party acquirer margin), single platform architecture, and lower total
+cost of ownership for large merchants. Adyen's "unified commerce" thesis — single platform for
+in-store and online — is winning enterprise retailers. Key limitation: less suited for SMB or long-
+tail merchants than Stripe.
+
+Block/Square: Dominant in SMB POS and Cash App ecosystem. Cash App is a financial services
+super-app with 57M+ monthly actives. Square's Afterpay acquisition brought BNPL to the suite.
+The risk: Cash App's monetization is heavily dependent on Bitcoin trading spread and Instant
+Transfer fees — both under competitive pressure.
+
+PayPal: The dominant online checkout wallet (3.5B+ PayPal buttons on the web). Revenue under
+pressure as Venmo monetization matures, PayPal faces competition from Shop Pay/Apple Pay in
+checkout, and the company navigates a strategic transition toward AI-driven personalized
+checkout. PYUSD (PayPal stablecoin) is a meaningful stablecoin bet — volume growing but
+mostly ecosystem-internal.
+
+Plaid: The infrastructure layer for open banking in the US. Connects consumer bank accounts to
+~8,000 fintech apps via API. Revenue: per-API-call fees for account verification, instant ACH,
+identity. Strategic position: the data broker/aggregator sitting between banks and fintechs. Risk:
+bank direct access APIs (Chase, Citi building their own connectivity APIs), and CFPB 1033
+
+
+=== SEITE 12 ===
+
+rulemaking mandating open banking data portability — which both enables and commoditizes
+Plaid's core service.
+
+Modern Treasury: B2B payment operations infrastructure. Connects to ACH, Fedwire, RTP,
+FedNow via bank APIs with workflow automation for reconciliation, money movement, and
+treasury operations. Represents the "payments operating system" thesis — software sitting
+
+above the rails, not on them.
+
+Margeta: Card issuing infrastructure. Powers Cash App, Uber, DoorDash, Klarna, and hundreds
+of BaaS fintechs. Revenue: interchange split with issuing banks and per-transaction fees. Risk:
+Stripe Issuing, Lithic, Highnote as competitors; margin pressure as issuers negotiate harder.
+
+Cross-Border Specialists
+
+Wise: The gold standard for transparent, low-cost international transfers. $100B+ in annual
+cross-border volume. Competitive advantage: mid-market FX rate transparency, proprietary
+direct bank integrations in 80+ markets (bypassing correspondent banks), and network effects
+in payment flow matching. Risk: Airwallex and neobanks replicating the value proposition with
+broader feature sets.
+
+Airwallex: The fastest-growing cross-border payment infrastructure company. Airwallex
+reached $1 billion in ARR in October 2025, now repositioning as an embedded finance platform
+— 60% of revenue comes from its API and products. Strategic shift from FX spread to embedded
+finance SaaS is raising take rates and reducing commoditization risk.
+
+Nium: B2B payment infrastructure in 100+ countries. Particularly strong in Southeast Asia and
+embedded finance distribution. SWIFT alternative for specific corridors.
+
+Ripple / ODL: Uses XRP as a bridge currency for cross-border settlement in specific corridors
+(primarily USD/MXN, USD/PHP). Niche but growing in markets where traditional
+correspondent banking is expensive or unreliable.
+
+Wallet / Platform Ecosystems
+
+The Key insight: wallets are becoming the consumer identity layer in payments, not just a
+credential holder. Apple Pay, Google Pay, and PayPal each have 100M+ US users with stored
+payment credentials. The strategic importance: whoever controls the checkout UI controls (a)
+routing decisions, (b) consumer data, and (c) the upsell into BNPL, rewards, and financial
+services.
+
+Shop Pay (Shopify): The fastest-growing checkout button in US e-commerce. Shopify's ~25% of
+US e-commerce GMV gives Shop Pay significant network effects. Risk: Shopify's merchant
+concentration and fee structure make it a competitor to payment processors, not just a wallet.
+
+
+=== SEITE 13 ===
+
+Amazon Pay: Primarily used for off-Amazon sites. Limited network effect outside Amazon
+ecosystem.
+
+Crypto / Stablecoin Infrastructure Players
+
+Circle: Dominant USDC issuer. The primary beneficiary of GENIUS Act regulatory clarity.
+Circle's moat: USDC is the most trusted, regulated, and institutionally-accepted USD stablecoin.
+Circle's challenge: it must build distribution and use case adoption faster than banks (who now
+can issue their own stablecoins) replicate the trust and compliance infrastructure.
+
+Fireblocks: Institutional-grade digital asset custody and settlement infrastructure. The
+"plumbing" for institutional stablecoin flows. Used by 1,800+ financial institutions. The SWIFT of
+blockchain settlement.
+
+Coinbase: Consumer and institutional crypto exchange plus Base L2 network. USDC co-
+issuance with Circle. Coinbase's stablecoin ambition is to make Base the settlement layer for
+stablecoin commerce — low-cost, fast, programmable.
+
+Paxos: Issuer of PYUSD (PayPal's stablecoin) and USDP. National trust bank charter (OCC)
+received December 2025. Regulated, compliant, enterprise-focused.
+
+AI-Native Risk and Compliance Players
+
+Sardine: Fraud and compliance API infrastructure. AI-first, covers device fingerprinting,
+behavior biometrics, and AML graph analytics in one platform. Backed by al6z.
+
+Socure: Identity verification and fraud prediction. 98%+ auto-approval rates for consumer
+identity, significantly outperforming legacy ID verification. Embedded in fintech onboarding
+flows.
+
+Sift: E-commerce fraud prevention. ML-driven. Strong in marketplace and platform fraud.
+
+Alloy: KYC/KYB decisioning orchestration. API connects to 180+ data sources and runs
+compliance workflows for fintech and bank partners.
+
+Persona: Identity verification SaaS. Modular, no-code compliance workflow builder. Fastest-
+growing KYC infrastructure for fintechs.
+
+Comply Advantage: AI-driven AML and sanctions screening. Replaces legacy Accelus/Lexis-
+Nexis watchlist matching with a continuously updated AI model.
+
+Unit21: Case management and AML/fraud investigation workflows. Replacing legacy FIS/Oracle
+FCRM systems.
+
+
+
+=== SEITE 14 ===
+
+4, TECHNOLOGY AND INFRASTRUCTURE SHIFTS
+
+Real-Time Rails and 24/7 Settlement
+
+The transition from batch (ACH, checks) to real-time (RTP, FedNow) is not a 5-year project — it is
+structurally underway. The challenge: real-time is irrevocable, which means fraud prevention
+must be pre-transaction (AI-based risk scoring) not post-transaction (dispute/chargeback
+resolution). This changes the value proposition entirely for fraud vendors — from dispute
+management to pre-authorization AI.
+
+API-First and Cloud-Native Infrastructure
+
+The shift from on-premise core banking to cloud-native API infrastructure (Galileo, Margeta,
+Unit, Synctera, Temenos SaaS) is enabling fintechs to launch in months rather than years. This
+has dramatically lowered barriers to entry at the fintech layer but increased concentration risk at
+the infrastructure provider layer. Galileo (now SoFi) and Margeta each power hundreds of
+fintechs — a Galileo outage disrupts the entire ecosystem.
+
+Payment Orchestration / Smart Routing
+
+Orchestration is the fastest-growing software layer in merchant payments. Merchants with
+>$50M in payment volume are increasingly deploying multi-PSP strategies with smart routing
+based on: authorization rate by BIN/card type/geography, transaction cost, fraud score, latency.
+Providers: Spreedly (150+ payment connectors), Primer (no-code orchestration), Gravy (cloud
+routing), Checkout.com (orchestration + acquiring), Adyen (unified commerce). Key strategic
+insight: as orchestration commoditizes the acquiring layer, the winners will be the orchestration
+platforms with the richest decision intelligence (AI-based routing optimization), not the ones
+with the most connectors.
+
+Tokenization and Network-Linked Wallets
+
+EMV Co (Visa/Mastercard/Amex/Discover consortium) network tokens have replaced primary
+account numbers (PANs) in mobile wallets and many e-commerce flows. This has a profound
+strategic implication: tokens are managed by the network (Visa Token Service, Mastercard
+Digital Enablement Service), which means the networks control lifecycle management of
+payment credentials even as the consumer-facing experience moves to Apple Pay or Google Pay.
+Networks become more embedded, not less, in the digital wallet era.
+
+Embedded Finance and Software-Led Distribution
+
+The "embedded payments" thesis: payment functionality built directly into vertical SaaS
+(Shopify Payments, Toast POS, ServiceTitan field service, FareHarbor activities booking).
+Merchant retention for embedded payments providers is structurally higher than for standalone
+processors because switching requires replacing the entire software stack. Take rates are also
+structurally higher — merchants pay for convenience and integration, not just transaction
+
+
+=== SEITE 15 ===
+
+processing. This is why Stripe, PayFac-in-a-box providers (Payrix, Finix, Infinicept), and Adyen
+for Platforms are growing faster than traditional acquirers.
+
+Open Banking / Account Connectivity
+
+CFPB's 1033 final rule (effective 2024-2026 by institution size) mandates financial data
+portability — consumers can direct banks to share their financial data with third parties via API.
+This accelerates Plaid, MX Technologies, Akoya, and Finicity (acquired by Mastercard). The
+strategic implications: (1) reduces Plaid's screen-scraping friction (which creates
+compliance/security issues); (2) enables richer A2A payment initiation; (3) shifts bank data from
+captive asset to regulated utility. Non-obvious second-order effect: open banking data
+connectivity + Al analytics = real-time underwriting of creditworthiness without credit bureau
+dependency. This threatens FICO and traditional credit decisioning.
+
+Stablecoins and Blockchain-Based Settlement
+
+The GENIUS Act framework has legitimized stablecoin infrastructure. The Key architectural
+shift: programmable settlement (smart contracts can automate conditional payments, escrow
+release, streaming payroll, and DvP for securities) is not possible on ACH or Fedwire. This creates
+entirely new payment product categories — not just cheaper versions of existing ones.
+
+5. AIDISRUPTION LAYER
+
+Where AI Changes Economics vs. Where It Only Improves Efficiency
+
+This distinction is critical for strategy. AI changes economics when it: (a) enables new revenue
+streams that didn't previously exist; (b) reduces unit costs to near-zero in ways that change
+pricing power; (c) creates data moats that compound over time. Al improves efficiency when it:
+(a) automates human-labor-intensive tasks without changing the underlying fee structure; (b)
+reduces fraud losses; (c) speeds up workflows.
+
+Real-Time Fraud Scoring: Economics Changed
+
+Pre-Al fraud detection was rules-based (velocity checks, blacklists, hard thresholds). AI models
+trained on billions of transactions reduce false positive rates by 30-50% (more revenue for
+merchants), reduce false negative rates (fewer fraud losses for issuers), and enable dynamic risk
+scoring that adapts to new fraud patterns in near-real-time. Stripe's Al-driven Radar tool cut card
+testing attacks by an impressive 80%, analyzing billions of data points in real time. The economic
+impact is material: lower fraud losses = lower interchange rates required to subsidize losses =
+structural pressure on current interchange levels. AI fraud tools are also creating a new revenue
+pool: fraud-as-a-service, where networks, fintechs (Sift, Sardine), and processors charge per-
+transaction risk scoring fees to issuers and merchants.
+
+
+=== SEITE 16 ===
+
+AML / KYC / KYB Automation: Efficiency Improvement Now, Economics Shift Later
+
+Legacy AML systems generate ~95% false positive rates on transaction monitoring alerts. AI
+reduces this to ~70-80%, dramatically cutting the cost of compliance investigations. For large
+banks spending $500M-$2B annually on BSA/AML compliance, this is massive efficiency gain.
+The economic shift: AI-native compliance vendors (ComplyAdvantage, Hawk AI, Unit21) are
+disrupting the legacy compliance software market (Oracle FCRM, Actimize/NICE, Temenos
+Financial Crime Mitigation). Compliance SaaS unit economics improve as AI models scale — a
+fundamental shift toward recurring SaaS revenue replacing high-labor compliance operations.
+
+Non-obvious insight: as AI automates AML decision-making, banks face a new regulatory risk
+— model explainability. Regulators (FinCEN, OCC, FRB) require explainable AI for SAR filing
+and examination purposes. This creates demand for explainable-AI (XAI) tooling in compliance
+— anew sub-category of compliance software.
+
+Payment Operations Automation: Efficiency Now, Economics Shift Possible
+
+Reconciliation, exceptions handling, return processing, and dispute investigations are among the
+most labor-intensive payment operations. AI agents (Generative AI + workflow automation) can
+automate 60-80% of routine exception handling. Modern Treasury, Stripe, and Adyen are
+already deploying LLM-based payment operations tools internally. The economics shift: if
+payment operations automation reduces total cost of ownership for merchant payment
+infrastructure, net margins for PSPs could expand even as transaction fees compress —
+decoupling revenue from labor cost.
+
+Smart Routing Optimization
+
+AlI-based payment routing (not just rule-based routing) optimizes authorization rates, fraud
+scores, cost, and latency simultaneously across acquirers and payment methods. Providers with
+richer cross-merchant data can build superior routing models — this creates a data network
+effect where transaction volume generates model improvement that improves authorization
+rates, which attracts more volume. Primer, Spreedly, and Adyen (with its unified platform data)
+are building toward this. The key insight: this is where AI changes economics — better
+authorization rates directly translate to higher revenue capture for merchants, creating
+willingness to pay for intelligence-layer products on top of commodity processing.
+
+Customer Support and Merchant Analytics: Efficiency Improvement
+
+LLM-based customer service (Stripe Sigma, Adyen Analytics, PayPal's AI checkout assistant)
+reduces support costs and improves merchant experience. This is efficiency, not an economic
+model shift. The exception: Al-powered merchant analytics that generate actionable revenue
+insights (e.g., "your authorization rate in Germany drops 15% on Amex — here's what to do")
+have upsell value and can support premium SaaS tiers.
+
+
+=== SEITE 17 ===
+
+Transition to Autonomous Decisioning
+
+The medium-term trajectory: fully autonomous AI agents for payment operations. This means
+Al systems that (a) identify exceptions, (b) investigate root causes by querying data sources, (c)
+remediate issues (re-route, re-submit, flag for human review) without human intervention. Early
+implementations are live at Stripe, Adyen, and large bank treasury operations. This trajectory
+creates existential risk for payment operations BPO firms (Conduent, Genpact payment
+processing) and cost reduction opportunity for any firm currently paying for manual exception
+handling.
+
+6. COMPETITIVE DYNAMICS AND SHIFTING CONTROL POINTS
+
+How Control Is Shifting Across the Stack
+
+The traditional control point was the issuing bank — it owned the consumer relationship, the
+credit product, and the payment credential. This control point is fragmenting. Wallets (Apple
+Pay) now own the consumer checkout experience. Platforms (Shopify, Toast) own the merchant
+relationship. Orchestration layers own the routing logic. AI vendors own the risk decisioning.
+The bank retains the deposit relationship and credit extension — which remain powerful — but
+the intermediary economics at each layer are being competed down.
+
+The key shift: control is moving toward players with superior data and intelligence capabilities.
+Visa and Mastercard retain control because they see the full transaction (both sides) and can
+monetize that data through value-added services. Stripe retains control because its fraud and
+analytics models are trained on aggregate multi-merchant data. The players losing control:
+commodity acquirers and processors who have transaction volume but not the intelligence layer
+to monetize it.
+
+Cards vs. A2A: The Real Dynamic
+
+Cards will not be displaced in consumer discretionary payments in the next 5 years. The reasons:
+(1) rewards economics create consumer lock-in; (2) zero-liability protection has no real-time
+payment equivalent; (3) credit functionality (revolving balance, installments) is native to cards,
+not A2A. Where displacement is real and accelerating: (a) bill pay and recurring billers who will
+shift to A2A/FedNow to capture the lower cost and improve float; (b) B2B AP where commercial
+card interchange is the most expensive rail; (c) government disbursements (IRS refunds,
+insurance claims, earned wage access). The consumer debit card is more vulnerable than credit
+— it has no rewards moat and higher regulatory interchange caps.
+
+Checks and SWIFT: Decline Trajectories
+
+Checks: structural decline, not disruption. The volume trajectory is a 6-8% annual decline that
+will continue. The remaining volume (mostly B2B) will transition to ACH Same-Day and RTP
+
+
+=== SEITE 18 ===
+
+over the next 5-7 years. There is no scenario where check volume stabilizes.
+
+SWIFT: structural redefinition, not simple decline. ISO 20022 migration is modernizing SWIFT.
+SWIFT Go is addressing sub-$10K international transfers. SWIFT itself will survive because it
+solves the interoperability problem no single bilateral network can. But SWIFT's role as the only
+practical cross-border messaging standard is ending as stablecoin corridors and bilateral API
+connections emerge. SWIFT becomes one option among several for cross-border.
+
+Embedded Payments and Customer Ownership
+
+Embedded payments fundamentally change pricing power because switching cost is the entire
+software stack, not just the payment processor. Toast's take rate (~2.49% + flat fee) is 30-SObps
+higher than a merchant could achieve by buying standalone payment processing — and
+merchants accept it because the integration value is worth it. This is the embedded finance
+premium. The implication: payment revenue is becoming SaaS revenue, and the players with
+vertical SaaS distribution (Shopify, Toast, ServiceTitan, Mindbody) will expand payment take
+rates even as standalone processor margins compress.
+
+Commoditization vs. Strategic Premium
+
+Commoditizing: Plain-vanilla acquiring (sub-SObps margin), generic gateway functionality,
+screen-scraping open banking, basic ACH initiation, rules-based fraud tools, legacy core
+banking.
+
+Gaining strategic premium: AI-based fraud and risk scoring (data network effects), stablecoin
+issuance/reserve management, payment orchestration with routing intelligence, embedded
+payments in vertical SaaS, cross-border infrastructure with proprietary local network access,
+tokenization infrastructure (controlled by networks), and compliance automation with
+explainable AI for regulated entities.
+
+7. REVENUE POOLS AT RISK
+
+Interchange and Merchant Discount Economics
+
+Pressure sources: Regulatory (Credit Card Competition Act threatens credit card routing choice,
+which would compress interchange for top-of-wallet premium rewards cards); competition (A2A
+rails offer merchants 70-90% cost savings on per-transaction basis); Al-driven fraud reduction
+(reduces the cross-subsidy rationale for high interchange).
+
+Risk level: Medium over 3 years, high over 5 years. The CCCA has been introduced multiple
+times but not passed — however, the political pressure from merchants is persistent. If CCCA
+passes, the impact on Visa/Mastercard network fee revenue and issuer interchange could be
+$10-20B annually.
+
+
+=== SEITE 19 ===
+
+Who is most exposed: Premium rewards card issuers (Capital One, Chase Sapphire, Citi Thank
+You, Amex Platinum). Their business model depends on high interchange subsidizing the
+rewards liability. If routing choice forces these cards into lowest-interchange routing, the
+economics collapse.
+
+Where value migrates: A2A processing infrastructure (if volumes shift), and merchant-funded
+rewards programs (issuers shift reward cost to merchants directly rather than via interchange
+cross-subsidy).
+
+Network/Scheme Fees
+
+Pressure sources: Visa/Mastercard fee increases have been frozen for 5 years per 2024
+settlement. Long-term: CCCA routing competition.
+
+Risk level: Low in near-term (settlement freeze), medium over 5 years.
+
+Mitigation: Networks are rapidly diversifying into value-added services (VAS) — fraud tools,
+data analytics, A2A connectivity (Visa A2A, Mastercard Send), tokenization services. VAS
+already ~35% of network revenue and growing. This diversification is both defensive and
+structurally sound.
+
+Acquiring and Gateway Margins
+
+Pressure sources: Adyen, Stripe, and direct acquirer competition. Orchestration layers
+abstracting away single-acquirer lock-in. Al improving authorization rates reduces the "value" of
+acquirer relationships.
+
+Risk level: High and ongoing. This is the most actively commoditizing segment. Gross margin
+for standalone gateway businesses is approaching nil. Adyen's structural advantage (direct
+acquiring) is creating 2:1 margin differential vs. IsO-model processors.
+
+Where value migrates: Embedded acquiring in vertical SaaS, payment orchestration with AI
+routing intelligence, and analytics/underwriting services layered on transaction data.
+
+FX Margins and Cross-Border Spreads
+
+Pressure sources: Wise, Airwallex, and stablecoin rails have already compressed major corridor
+margins 60-80% vs. bank rates. Stablecoin-based settlement (USDC, RLUSD) eliminates the FX
+conversion step entirely for USD-to-USD-equivalent flows.
+
+Risk level: High and accelerating. Bank FX cross-border margins are at peak risk. JPMorgan and
+Citi defend the institutional end (complex multi-currency treasury, trade finance) but lose
+ground in SMB and consumer corridors.
+
+Whois most exposed: Regional banks with significant cross-border wire income, Western Union
+(structural secular decline in high-margin consumer remittance corridors).
+
+
+=== SEITE 20 ===
+
+Where value migrates: Last-mile conversion infrastructure, local payment network access
+(Nium, Thunes), and stablecoin-to-fiat conversion technology.
+
+Wire and SWIFT Fee Income
+
+Pressure sources: FedNow for domestic (lower-cost real-time alternative). Stablecoin rails and
+Wise/Airwallex alternatives for cross-border.
+
+Risk level: Medium domestic (FedNow volume still small), medium-high international. Wire
+volume is sticky at the institutional/high-value end. SMB and mid-market international wires are
+at risk.
+
+Where value migrates: RTP/FedNow transaction fee income (small per-transaction but scalable)
+and stablecoin reserve float.
+
+Float Income
+
+Pressure sources: Higher interest rates have actually increased float income value in 2023-2025.
+The risk: rate normalization. Also, CFPB has targeted wallet float (PayPal's FDIC question), and
+open banking data portability may enable consumers to move balances to higher-yield accounts
+more easily.
+
+Risk level: Low near-term (rates elevated), medium over 3 years as rates normalize. Stablecoin
+reserve float (T-bill yield on $280B+ outstanding) is the fastest-growing float pool — currently
+very high value.
+
+Fraud Management Margins
+
+Pressure sources: Al is dramatically reducing fraud losses — which erodes the revenue of fraud
+management services priced as a percentage of losses prevented. As AI drives fraud rates down,
+the base on which services are priced shrinks.
+
+Paradox: AI simultaneously disrupts fraud service revenue and creates demand for new AI-
+based fraud services. The transition is from "loss-based pricing" (percentage of fraud prevented)
+to "SaaS subscription pricing" for Al risk models.
+
+Who is most exposed: Legacy rules-based fraud vendors (older FIS, SAS, Oracle FCRM
+systems). Who wins: AI-native vendors (Sardine, Featurespace, Sift, Stripe Radar).
+
+AML/KYC/Compliance Service Revenues
+
+Pressure sources: AI automation reduces the human labor in compliance, which is where a
+significant portion of compliance vendor revenue comes from (implementation, configuration,
+false-positive investigation workflow). AI also reduces regulatory fines by improving detection
+quality.
+
+Risk level: Medium. AI-native vendors are displacing legacy systems, but total compliance
+spending continues to grow due to regulatory scope expansion. The revenue pool is not
+
+
+=== SEITE 21 ===
+
+shrinking — it is shifting from labor-intensive custom implementations to AI SaaS pricing
+models.
+
+Where value migrates: Real-time AI model inference at scale (per-API-call pricing, SaaS
+subscriptions), explainable AI compliance documentation, and automated SAR/CTR reporting.
+
+Correspondent Banking Economics
+
+Pressure sources: Stablecoin rails, Wise/Airwallex bilateral connections, Ripple ODL for specific
+corridors. De-risking by large correspondent banks reduces coverage, increasing cost
+concentration.
+
+Risk level: High for SMB and consumer cross-border flows; medium for institutional. The
+wholesale correspondent banking model for high-value flows (trade finance, securities,
+interbank) is structurally defensible.
+
+Where value migrates: Local payment network infrastructure, stablecoin issuance float, and
+treasury-as-a-service for SMBs currently underserved by traditional correspondents.
+
+8. REGULATORY AND POLICY LANDSCAPE
+
+Interchange Regulation
+
+The Durbin Amendment (2010) capped debit interchange for large issuers at ~$0.21 + 0.05%.
+The Federal Reserve proposed expanding Durbin coverage (lower cap) in 2023 — the rule would
+cut regulated debit interchange by ~30%, affecting JPMorgan, BofA, Wells Fargo's debit issuer
+economics. This has not been finalized as of March 2026 amid legal challenges.
+
+The Credit Card Competition Act (credit card routing mandate) has repeatedly been introduced
+but not passed. If enacted, it would be the most significant structural change to card economics
+since Durbin.
+
+CFPB and Consumer Protection
+
+CFPB 1033 open banking rules are in implementation phase, mandating data portability for
+consumer financial accounts. This is the regulatory catalyst for US open banking — accelerating
+Plaid, Akoya, Finicity, and bank-direct API access. CFPB has also targeted BNPL (Regulation Z
+extension for periodic statement and dispute rights) — adding compliance cost to BNPL
+providers but legitimizing the product category for mainstream adoption.
+
+Stablecoin Regulation (GENIUS Act, July 2025)
+
+The most important payments regulatory development of 2025. The GENIUS Act establishes a
+regulatory framework for payment stablecoins, prohibiting any person other than a permitted
+payment stablecoin issuer from issuing a payment stablecoin in the US. Key provisions: 100%
+
+
+=== SEITE 22 ===
+
+reserve requirement (US dollars and short-term Treasuries), AML/BSA obligations for stablecoin
+issuers, no interest/yield to holders, state-level regime available for issuers under $10B
+outstanding.
+
+Strategic implications: (1) Tether (USDT) cannot legally serve US users without compliance;
+this could redistribute substantial market share to Circle (USDC) and bank-issued stablecoins.
+(2) Big Tech companies (Apple, Google, Amazon) cannot issue stablecoins without a GENIUS
+Act license unless they spin off a compliant subsidiary — the "Stablecoin Certification Review
+Committee" creates a regulatory hurdle for non-financial Big Tech. (3) Banks that issue
+stablecoins capture reserve float that currently accrues to Circle — a direct competitive threat to
+Circle's business model.
+
+AML/BSA Expectations
+
+FinCEN is modernizing BSA rules (AML/CFT Program Effectiveness final rule, 2024) with a risk-
+based approach that requires actual effectiveness measurement, not just checkbox compliance.
+This creates demand for AI-based compliance tools that can demonstrate measurable reduction
+in financial crime risk.
+
+Crypto Regulatory Clarity
+
+The Federal Reserve rescinded its anti-crypto guidance in late 2025 and replaced it with a
+"different activity, different risks" framework. The OCC granted national trust bank charters to
+Circle, Paxos, and other nonbank stablecoin issuers in December 2025. This opens the door to
+federally chartered nonbank stablecoin issuers operating at national scale without state-by-state
+licensing.
+
+Real-Time Payment Access
+
+The Federal Reserve is considering offering limited "skinny" master accounts to federally
+regulated stablecoin issuers — giving them access to FedNow and Fedwire without full bank
+charter requirements. This would be a historic expansion of access to the Federal Reserve
+payment system to non-bank entities.
+
+9, FUTURE SCENARIOS (2026-2030)
+
+Scenario 1: Base Case — Managed Evolution
+
+Conditions: Regulatory pressure on interchange continues but no CCCA passage. FedNow
+grows to 2,000+ institutions and $500B+ in annual transaction value. Stablecoins grow to
+$500B+ outstanding with GENIUS Act implementation, primarily used in B2B cross-border and
+institutional flows. Cards retain consumer dominance but face modest share loss in bill pay and
+B2B.
+
+
+=== SEITE 23 ===
+
+Winning business models: Visa and Mastercard (network + VAS diversification). Embedded
+payments in vertical SaaS (Shopify, Toast, Adyen for Platforms). Al-native fraud and compliance
+vendors (Sardine, Socure, Alloy). Cross-border specialists (Wise, Airwallex). Stablecoin
+infrastructure (Circle, Fireblocks, bank-issued stablecoins).
+
+Losing business models: Commodity acquirers without software attachment. Legacy AML/KYC
+systems (rules-based). Correspondent banks in high-volume SMB corridors. Western Union in
+consumer remittances.
+
+Payment type outcomes: Cards: stable with modest MDR compression. Checks: -7%/year
+volume. SWIFT: evolves with ISO 20022, adds SWIFT Go, survives. Wallets: continue growing as
+primary checkout UX, built on card rails. RTP/FedNow: 15-20% of US electronic payment volume
+by 2028. Stablecoins: $500B+ outstanding, 2-3% of cross-border B2B volume. Fraud/compliance:
+40-50% AI automation of routine operations.
+
+Scenario 2: Accelerated Disruption
+
+Conditions: CCCA passes in 2026-2027, mandating credit card routing choice. FedNow reaches
+5,000+ institutions; merchant incentive programs (funded by acquirers seeking to win back
+volume from cards) drive consumer A2A adoption. Stablecoins reach $1T+ outstanding; PayPal,
+Shopify, and several banks launch consumer-facing stablecoin wallets. CFPB data portability
+rules are aggressively enforced, enabling real-time competitive account switching.
+
+Winning business models: Orchestration platforms with AI routing (Primer, Spreedly).
+Stablecoin issuers and infrastructure (Circle, Coinbase/Base, bank issuers). FedNow/RTP access
+middleware (Modern Treasury, Dwolla). Al-native fraud and compliance at scale (data moat
+advantages). Cross-border challengers (Wise, Airwallex, Nium). Embedded payments SaaS
+(Shopify Payments, Toast).
+
+Losing business models: Premium rewards card issuers (interchange model broken if CCCA
+passes). Correspondent banks in cross-border. Legacy payment processors without AI or
+software differentiation. Rules-based fraud vendors. Standalone gateways.
+
+Payment type outcomes: Cards: significant mix shift from premium rewards to basic/utility;
+interchange -30-40% on affected volumes if CCCA passes. Checks: accelerates to functional
+elimination by 2029. SWIFT: significant volume loss in SMB cross-border; institutional flows
+remain. Wallets: bifurcate into card-backed (current model) and stablecoin-backed (new model).
+RTP/FedNow: 30%t+ of electronic payment volume. Stablecoins: 10-15% of cross-border B2B.
+Fraud/compliance: 60-70% AI automation; legacy systems face existential pressure.
+
+Scenario 3: Incumbent Resilience
+
+Conditions: CCCA does not pass; regulators maintain status quo on interchange. FedNow
+
+
+=== SEITE 24 ===
+
+growth slower than expected (consumer protection gap = APP fraud concern limits merchant
+incentive programs). Stablecoin adoption stalls due to implementation complexity and bank
+competitive response (tokenized deposits win vs. stablecoins for institutional use). Al improves
+efficiency at incumbents without changing structure.
+
+Winning business models: JPMorgan (card issuing + institutional infrastructure + tokenized
+deposits). Visa and Mastercard (ubiquity moat, VAS growth). Large embedded processors
+(Fiserv/Clover, Global Payments). Marqeta (BaaS infrastructure).
+
+Losing business models: Standalone cross-border fintechs (margin compression without
+stablecoin tailwinds). Stablecoin-native infrastructure players without bank partnerships. Pure-
+play fraud SaaS (banks build in-house Al).
+
+Payment type outcomes: Cards: dominant and growing. Checks: slow decline but B2B checks
+persist through 2030. SWIFT: minimal disruption. Wallets: grow but remain card-backed.
+RTP/FedNow: grows but limited to niche use cases (payroll, gig economy). Stablecoins:
+institutional only, limited consumer adoption.
+
+10. STRATEGIC CONCLUSIONS
+
+Where the Market Is Going
+
+The US payments market is transitioning from a vertically integrated, rail-centric structure toa
+horizontally layered, intelligence-centric structure. The rails (card networks, ACH, FedNow,
+Fedwire) are becoming utilities — high volume, low margin, regulated. The intelligence layers
+(routing optimization, fraud AI, compliance automation, analytics) are becoming the control
+points and strategic premium zones.
+
+Layers Becoming Utilities
+¢ Plain-vanilla ACH and wire initiation
+* Generic payment gateway functionality
+e Basic card issuing infrastructure
+¢ Rules-based fraud detection
+e Screen-scraping open banking connectivity
+e Correspondent account maintenance for standard currencies
+
+e Legacy core banking transaction processing
+
+Layers Becoming Control Points
+
+« Al-based fraud and risk scoring (data network effects create self-reinforcing moats)
+
+
+=== SEITE 25 ===
+
+Payment orchestration with routing intelligence (controls merchant economics)
+Tokenization infrastructure (Visa/Mastercard retain strategic premium here)
+
+Stablecoin reserve management and issuance (float income + programmable settlement)
+Embedded payments in vertical SaaS (switching cost = entire software stack)
+
+Consumer identity and checkout UX (Apple Pay, Shopify — they own the first click)
+Compliance AI and explainable decisioning (regulatory requirement creates demand)
+
+Cross-border local payment network access (scarce and hard to replicate)
+
+Players Best Positioned to Win
+
+1.
+
+Visa and Mastercard: Network ubiquity + tokenization control + VAS diversification. Even
+in the disruption scenario, they adapt rather than lose — Visa A2A, Mastercard Send,
+stablecoin integration are defensive and offensive.
+
+Stripe: Developer distribution + AI fraud moat + expanding financial services. The most
+likely enterprise-software-era payments champion.
+
+JPMorgan: Issuing + acquiring + institutional cross-border + tokenized deposits + AI
+investment at scale. The bank with the most complete position across the value chain.
+Circle (with GENIUS Act legitimacy): Stablecoin float + USDC institutional trust + bank
+charter (OCC). Primary beneficiary of regulatory clarity.
+
+Airwallex / Wise: Cross-border specialists with proprietary local network infrastructure.
+Hard to replicate and well-monetized.
+
+Adyen: Direct acquiring + unified commerce + platform payments. The anti-legacy
+processor.
+
+AlI-native compliance vendors (Sardine, Alloy, Socure): Structural tailwind from AI
+adoption in compliance at every institution.
+
+Defensible vs. Vulnerable Incumbent Revenue Streams
+
+Most Defensible:
+
+Card network assessment fees (ubiquity + tokenization moat + no regulatory cap yet)
+Large bank wholesale payments (CHIPS, high-value institutional Fedwire)
+
+Issuer interest income on revolving credit (not a payment fee but attached to card
+economics)
+
+Amex closed-loop data advantage
+
+JPMorgan/Citi institutional FX for complex multi-currency treasury management
+
+Most Vulnerable:
+
+
+=== SEITE 26 ===
+
+¢ Bank FX spread on SMB/consumer cross-border payments (50-80% exposed to
+Wise/Airwallex/stablecoin over 5 years)
+
+e Check processing revenues (structural elimination)
+e Correspondent banking in standard corridors
+e Legacy fraud/AML system license revenues (rules-based tools lose to AI)
+
+¢ Acquiring margins without software attachment
+
+Strategic Moves to Make Now
+
+Banks: (1) Issue stablecoins under GENIUS Act — capture reserve float before Circle dominates.
+(2) Invest in FedNow/RTP product development for B2B disbursements — capture the volume
+shift from checks/wires. (3) Build or acquire AI-native compliance infrastructure — or face
+existential cost disadvantage within 5 years. (4) Compete on embedded finance for SMB with
+API-first BaaS capabilities.
+
+Card Networks (Visa, Mastercard): (1) Accelerate stablecoin integration (both companies
+already moving — Visa stablecoin-linked cards, Mastercard stablecoin infrastructure). (2)
+Defend toKenization control point — own the credential lifecycle regardless of the underlying
+rail. (3) Build out A2A product suite (Visa A2A, Mastercard Open Banking) to own the A2A rail
+before being disintermediated by it.
+
+Processors and PSPs (FIS, Fiserv, Global Payments, Adyen, Stripe): (1) Move up the stack into
+software and intelligence — commodity processing alone is a commoditizing business. (2) Invest
+in orchestration intelligence and AI routing optimization. (3) Build vertical SaaS or acquire
+embedded payments software companies.
+
+Fintechs (Stripe, Adyen, PayPal, Block): (1) Accelerate AI model development using
+proprietary transaction data — this is the defensible moat as payment processing commoditizes.
+(2) Expand into stablecoin rails for cross-border. (3) Build out financial services beyond
+payments (lending, treasury, insurance) to increase revenue per customer and switching cost.
+
+Cross-Border Specialists (Wise, Airwallex, Nium): (1) Expand local payment network coverage
+— this is the hardest-to-replicate moat. (2) Build stablecoin-to-fiat conversion capabilities to
+serve the growing USDC/stablecoin payment corridor. (3) Move from pure-play FX/payments to
+full treasury infrastructure for SMB.
+
+Al/Compliance Fintechs (Sardine, Alloy, Socure, Comply Advantage): (1) Build out model
+explainability for regulatory purposes — this is the gate to enterprise bank sales. (2) Expand
+beyond KYC/fraud to full transaction monitoring and AML workflow automation. (3)
+Accumulate cross-industry training data to widen the moat against bank in-house AI buildout.
+
+
+
+=== SEITE 27 ===
+
+This analysis reflects market conditions and regulatory developments as of Q1 2026. The pace of
+change in this sector — particularly around stablecoin regulation (GENIUS Act implementation),
+FedNow adoption, and AI capability advancement — may materially alter specific forecasts
+within the 3-5 year horizon.
