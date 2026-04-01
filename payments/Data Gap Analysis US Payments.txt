@@ -1,0 +1,78 @@
+Data Gap Analysis: US Payments / AI Disruption
+Research Status: March 2026
+
+1. FedNow Adoption 2025/2026
+Participant Count
+Source: Federal Reserve Financial Services, Participants List (updated 23.03.2026)
+Fact: Over 1,500 participating financial institutions are live on the service; Community Banks & Credit Unions account for >95%
+Relevance: Landscape Slide — reach vs. actual depth of usage
+Critical Limitation (Receive-Only Problem)
+Source: Finzly Blog, January 2026; CU Insight, July 2025
+Fact: The majority of the 1,400+ participants can only receive payments — most have not yet activated send capabilities. This is the central structural weakness.
+Relevance: Gap Slide — explains the discrepancy between participant count and actual volume
+Transaction Volume
+Source: Federal Register / Fed Board, December 2025
+Fact: January through August 2025: 5.14 million cumulative transactions
+Source 2: Finzly, January 2026
+Fact 2: Q2 2025: $245 billion in processed volume — an increase of 49,000% compared to Q2 2024 ($492 million) (Note: base effect is extremely low; absolute numbers remain modest compared to RTP and Zelle)
+Relevance: Landscape Slide — growth narrative yes, but must be contextualized relative to the overall market
+Transaction Limit Increase
+Source: ABA Banking Journal, October 2025
+Fact: The network transaction limit was raised in November 2025 from $1 million to $10 million — in response to growing commercial demand
+Relevance: Winners Slide — enables B2B use cases
+
+2. AI in Payments — ROI Figures & Case Studies 2025/2026
+Mastercard Study (strongest reliable primary source)
+Source: Mastercard / FT Longitude, Payment Fraud Prevention Report 2025, published February 2026
+Facts:
+
+42% of issuers and 26% of acquirers saved more than $5 million in fraud attempts through AI deployment (over two years)
+85% of respondents report positive returns from AI in fraud triage and transaction pattern recognition; 83% state AI significantly accelerated fraud investigation
+Organizations that have used AI for more than five years report $4.3 million in saved revenue loss — nearly double the average of $2.2 million
+
+Relevance: Winners Slide — concrete ROI evidence for established adopters
+JPMorgan Chase (benchmark institution)
+Source: Tearsheet Report, Q1 2025; Articledge, February 2026
+Fact: JPMorgan generates $1.5 billion in annual business value from AI initiatives; LLM Suite serves over 200,000 employees — the largest Wall Street AI deployment
+Relevance: Winners Slide — scale advantage of Tier-1 banks
+Deloitte Finding (counterpoint)
+Source: Deloitte Financial AI Adoption Report 2024, cited in Caspian One Whitepaper
+Fact: Only 38% of AI projects in financial services meet or exceed ROI expectations; over 60% of firms report significant implementation delays
+Relevance: Gap Slide — puts frontrunner success stories in perspective
+
+3. CCCA — Status March 2026
+This is the most actively evolving of the five topics. Status is precisely documented.
+Reintroduction & Trump Endorsement
+Source: Congressman Lance Gooden / Payments Dive, January 2026
+Fact: On January 13, 2026, Trump publicly endorsed the legislation on Truth Social; Rep. Gooden (R-TX) and Zoe Lofgren (D-CA) reintroduced the CCCA in the 119th Congress (S.3623 / House equivalent)
+Failed Amendment Attempt (most current data point)
+Source: Payments Dive & PYMNTS, March 13, 2026
+Fact: The Senate passed the 21st Century ROAD to Housing Act on March 12, 2026 with an 89:10 vote — without the CCCA amendment (S.Amdt. 4305) submitted by Sen. Marshall
+Context: Marshall and Durbin are reportedly "open to any opportunity for a vote and believe the banks cannot avoid this vote forever"
+Conclusion March 2026: The bill has not passed, but is politically more active than ever (Trump backing + failed Housing Bill attempt). Next potential vehicle unclear.
+Relevance: Losers Slide (Visa/Mastercard tail risk), Landscape Slide (regulatory uncertainty factor)
+
+4. Stablecoin Market Shares Following GENIUS Act
+GENIUS Act — Key Facts
+Source: Congress.gov / Phemex, July 2025
+Fact: GENIUS Act passed the Senate on June 17, 2025 with a 68:30 vote, the House with 307:122, and was signed into law on July 18, 2025 — the first federal stablecoin legislation in US history. OCC and Fed rulemaking is ongoing; deadline for final implementation rules: July 2026
+Market Structure Q4 2025
+Source: Ainvest / CoinGenius, March 2026
+Fact: USDT and USDC together held ~90% of the stablecoin market as of Q4 2025; USDT alone ~67% market share with $155 billion market capitalization
+Fact 2 (CoinGenius, March 2026): Total stablecoin transaction volume 2025: $33 trillion (+72% YoY) — USDC: $18.3 trillion, USDT: $13.3 trillion
+Post-GENIUS Shift Favoring USDC (institutional)
+Source: CoinGenius, March 2026
+Fact: 86% of surveyed institutions use or hold USDC compared to 68% for USDT; USDC supply grew by $4.5 billion through March 2026, while USDT supply declined by ~$2 billion
+Fragmentation Risk
+Source: Grant Thornton, November 2025
+Fact: USDT and USDC saw their combined market share fall from 89% to below 84% over the course of the year — new market entrants are gaining traction
+Driver: The FDIC enabled bank-licensed institutions to issue their own stablecoins in December 2025; first bank stablecoins (JPM, BofA, etc.) are expected for late 2026 / early 2027
+Relevance: Landscape Slide + Winners Slide (Circle/USDC as regulated winner; Tether under compliance pressure)
+
+5. Deployment Gap — AI in Production vs. Pilot
+This topic has the most available studies from 2025/2026:
+StudyDateKey FigureSourceRiverbed Global Survey2025Only 12% of AI initiatives fully rolled out enterprise-wide; 62% stuck in pilot or development phaseRetail Banker InternationalBCGMay 2025Only 25% of banks have strategically integrated AI; 75% remain in isolated pilots/PoCsBCG.comS&P Global Market Intelligence 451 ResearchJanuary 202554% of financial services firms have deployed AI initiatives (up from 40% YoY); however only 9% with externally facing systems (43% internal)S&P Global, October 2025MIT GenAI DivideJuly 2025Only 5% of integrated AI pilots delivered significant value and were scaled enterprise-wideCited in S&P GlobalWolters KluwerMarch 202661% of financial institutions are productively using or piloting AI/ML; however only 12.2% have a clearly defined and resourced AI strategyHousingWireProSight 2026 CRO OutlookJanuary 202654% of respondents have AI in production; 48% expect AI deployment in risk within two years; only 12% describe their AI governance framework as "highly developed"ProSight Financial Association
+Consistent picture: ~50–60% of banks have some form of AI in use — but genuine enterprise-wide production deployments can be narrowed to 10–25%, depending on definition. Governance maturity is structurally the weakest link.
+Relevance: Gap Slide (primary) — quantifies the "Deployment Gap" as a central strategic risk for mid-sized banks and PSPs
+
+No reliable source found for: Detailed, isolated PSP-specific AI production data (separate from banks). All available studies aggregate "Financial Services" or "Banks" — a PSP-exclusive deployment study for 2025/2026 does not exist in publicly accessible sources.
