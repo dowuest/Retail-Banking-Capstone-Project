@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rewriting the Rules — AI in Consumer Banking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="brand-dot"></span>
+      <span>AI × Banking</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#executive-summary">Overview</a></li>
+      <li><a href="#products">Analysis</a></li>
+      <li><a href="#comparison">Comparison</a></li>
+      <li><a href="#recommendations">Recommendations</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollToSection('recommendations')">Leadership Action</button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#executive-summary" class="mobile-link">Overview</a>
+    <a href="#products" class="mobile-link">Analysis</a>
+    <a href="#comparison" class="mobile-link">Comparison</a>
+    <a href="#recommendations" class="mobile-link">Recommendations</a>
+  </div>
+</nav>
+
+<!-- Scroll progress bar -->
+<div id="progress-bar"></div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Capstone Analysis &nbsp;·&nbsp; AI in Financial Services &nbsp;·&nbsp; 2025
+    </div>
+    <h1 class="hero-title">
+      Rewriting<br>
+      <span class="hero-title-accent">the Rules</span>
+    </h1>
+    <p class="hero-subtitle">
+      How Artificial Intelligence is Transforming Consumer Banking —<br>
+      Deposits, Lending, and Payments
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="scrollToSection('products')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Explore Analysis
+      </button>
+      <button class="btn-ghost" onclick="scrollToSection('recommendations')">
+        Leadership Recommendations
+      </button>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to begin</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+  <!-- Floating stat cards in hero -->
+  <div class="hero-float-cards">
+    <div class="float-card float-card-1">
+      <div class="fc-value">$32T</div>
+      <div class="fc-label">Combined Market Scope</div>
+    </div>
+    <div class="float-card float-card-2">
+      <div class="fc-value">73%</div>
+      <div class="fc-label">Banks Increasing AI Investment</div>
+    </div>
+    <div class="float-card float-card-3">
+      <div class="fc-value">$340B</div>
+      <div class="fc-label">Projected AI Efficiency Value by 2030</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXECUTIVE SUMMARY
+     ============================================================ -->
+<section id="executive-summary">
+  <div class="container">
+    <div class="section-label">Executive Summary</div>
+    <h2 class="section-title">The AI Inflection Point in Consumer Banking</h2>
+    <div class="exec-layout">
+      <div class="exec-thesis">
+        <p class="thesis-lead">Artificial intelligence is not an incremental upgrade to consumer banking — it is a structural force rewriting competitive dynamics, cost structures, and customer expectations simultaneously.</p>
+        <p class="thesis-body">Across deposits, lending, and payments, AI is compressing decision cycles from days to milliseconds, reducing credit losses by up to 45%, and enabling challenger institutions to operate at a fraction of incumbent cost. Banks that treat AI as a back-office efficiency tool will find themselves outmaneuvered. Those that embed it into the product core will define the next decade of consumer finance.</p>
+        <p class="thesis-body">This analysis examines the three pillars of retail banking through the lens of AI disruption — quantifying the economic stakes, mapping the competitive threats, and charting a clear path for leadership action.</p>
+      </div>
+      <div class="exec-stats">
+        <div class="kpi-grid">
+          <div class="kpi-card" data-target="17.5" data-suffix="T" data-prefix="$" data-label="US Deposit Market" data-color="teal"></div>
+          <div class="kpi-card" data-target="4.2" data-suffix="T" data-prefix="$" data-label="Consumer Credit Outstanding" data-color="purple"></div>
+          <div class="kpi-card" data-target="10.8" data-suffix="T" data-prefix="$" data-label="Annual Payment Volume" data-color="amber"></div>
+          <div class="kpi-card" data-target="45" data-suffix="%" data-prefix="" data-label="Avg. Reduction in Charge-offs with AI" data-color="teal"></div>
+          <div class="kpi-card" data-target="90" data-suffix="sec" data-prefix="" data-label="AI Loan Decision Time vs. 3-Day Legacy" data-color="purple"></div>
+          <div class="kpi-card" data-target="33" data-suffix="B" data-prefix="$" data-label="Annual Payments Fraud Losses" data-color="amber"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key takeaway chips -->
+    <div class="takeaway-strip">
+      <div class="takeaway-chip">
+        <svg class="chip-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        Fastest disruption in Payments
+      </div>
+      <div class="takeaway-chip">
+        <svg class="chip-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        Highest margin risk in Deposits
+      </div>
+      <div class="takeaway-chip">
+        <svg class="chip-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        Greatest AI opportunity in Lending
+      </div>
+      <div class="takeaway-chip">
+        <svg class="chip-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        $340B+ value at stake by 2030
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCT ANALYSIS (Tabs: Deposits / Lending / Payments)
+     ============================================================ -->
+<section id="products">
+  <div class="container">
+    <div class="section-label">Product Analysis</div>
+    <h2 class="section-title">Three Markets. One Transformation.</h2>
+    <p class="section-subtitle">Select a product category to explore its AI disruption landscape, economic stakes, and strategic imperatives.</p>
+
+    <!-- Tab selector -->
+    <div class="tab-selector" role="tablist">
+      <button class="tab-btn active" data-tab="deposits" role="tab" aria-selected="true" aria-controls="panel-deposits">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </span>
+        <span class="tab-text">
+          <span class="tab-name">Deposits</span>
+          <span class="tab-sub">$17.5T market</span>
+        </span>
+      </button>
+      <button class="tab-btn" data-tab="lending" role="tab" aria-selected="false" aria-controls="panel-lending">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </span>
+        <span class="tab-text">
+          <span class="tab-name">Lending</span>
+          <span class="tab-sub">$4.2T market</span>
+        </span>
+      </button>
+      <button class="tab-btn" data-tab="payments" role="tab" aria-selected="false" aria-controls="panel-payments">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </span>
+        <span class="tab-text">
+          <span class="tab-name">Payments</span>
+          <span class="tab-sub">$10.8T market</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- ========================
+         DEPOSITS PANEL
+         ======================== -->
+    <div class="product-panel active" id="panel-deposits" role="tabpanel">
+      <div class="panel-header deposits-accent">
+        <div class="panel-header-text">
+          <h2>Deposits</h2>
+          <p>The AI-driven race to redefine deposit stickiness, pricing, and distribution</p>
+        </div>
+        <div class="panel-kpis">
+          <div class="pkpi"><span class="pkpi-val">$17.5T</span><span class="pkpi-label">US Market Size</span></div>
+          <div class="pkpi"><span class="pkpi-val">46%</span><span class="pkpi-label">Share at Top 5 Banks</span></div>
+          <div class="pkpi"><span class="pkpi-val">2.1%</span><span class="pkpi-label">Avg. Cost of Deposits</span></div>
+        </div>
+      </div>
+
+      <div class="analysis-sections">
+
+        <!-- Market Today -->
+        <div class="analysis-block" data-section="market">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num deposits-bg">01</div>
+              <div>
+                <h3>Market Today</h3>
+                <p>The structural landscape of US consumer deposits</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="block-content-grid">
+              <div class="content-text">
+                <p>The US deposit market remains the largest and most stable funding source in consumer banking, yet AI is introducing structural volatility not seen since the rise of internet banking. Digital-first High Yield Savings Accounts gained over <strong>$890 billion in assets</strong> since the rate cycle began, redirecting flows away from traditional demand deposits and into a hyper-competitive yield race.</p>
+                <p>Branch visits have declined <strong>40% since 2019</strong>, while mobile engagement has surged 68%. The customer relationship is increasingly intermediated by app-native experiences where rate and UX — not branch proximity — drive selection. Mid-tier banks are under acute pressure: they lack the scale of majors and the AI-native agility of challengers.</p>
+              </div>
+              <div class="market-metrics">
+                <div class="metric-bar-item">
+                  <span>Digital account openings</span>
+                  <div class="bar-track"><div class="bar-fill deposits-fill" style="--pct:78%">78%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Branch transaction decline (5yr)</span>
+                  <div class="bar-track"><div class="bar-fill deposits-fill" style="--pct:40%">40%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Customers considering switching for yield</span>
+                  <div class="bar-track"><div class="bar-fill deposits-fill" style="--pct:61%">61%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Mobile banking weekly active users</span>
+                  <div class="bar-track"><div class="bar-fill deposits-fill" style="--pct:68%">68%</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disruptive Forces -->
+        <div class="analysis-block" data-section="forces">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num deposits-bg">02</div>
+              <div>
+                <h3>Potential Disruptive Forces</h3>
+                <p>Five AI-driven forces reshaping deposit dynamics</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="force-cards">
+              <div class="force-card">
+                <div class="force-icon deposits-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2l2 2-2 2"/><path d="M22 2h-4"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>AI-Driven Rate Personalization</h4>
+                    <span class="risk-badge badge-critical">Critical</span>
+                  </div>
+                  <p>Fintechs deploy behavioral ML to offer individualized deposit rates based on churn probability, lifetime value, and relationship breadth — enabling dynamic pricing that legacy batch-pricing systems cannot match.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon deposits-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Embedded Deposit Infrastructure</h4>
+                    <span class="risk-badge badge-high">High</span>
+                  </div>
+                  <p>Apple, Google, and retail platforms are offering FDIC-insured deposits at the point of purchase or loyalty redemption, bypassing traditional acquisition entirely and redefining what it means to "have a bank."</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon deposits-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Real-Time Liquidity Optimization</h4>
+                    <span class="risk-badge badge-high">High</span>
+                  </div>
+                  <p>AI-powered money movement tools — integrated into consumer financial apps — automatically sweep idle balances across institutions to maximize yield, directly eroding deposit stickiness and increasing sensitivity to rate changes.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon deposits-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Neobank Cost Advantage</h4>
+                    <span class="risk-badge badge-medium">Medium</span>
+                  </div>
+                  <p>AI-native challengers operate at 60–70% lower cost-to-serve ratios than incumbents, enabling them to pass higher yields to customers while maintaining positive unit economics — a structural advantage that compounds over time.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon deposits-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Generative AI Savings Experiences</h4>
+                    <span class="risk-badge badge-medium">Emerging</span>
+                  </div>
+                  <p>Gen AI creates hyper-personalized goal-based savings experiences — "save for a house by 2028" — with AI coaching, auto-adjustment, and behavioral nudges. This transforms deposits from commodities into differentiated relationships.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economic Impact -->
+        <div class="analysis-block" data-section="economic">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num deposits-bg">03</div>
+              <div>
+                <h3>Economic Impact</h3>
+                <p>Quantifying the value at stake for deposit franchises</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="economic-grid">
+              <div class="econ-card risk">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">15–25<small>bps</small></div>
+                <div class="econ-label">NIM compression risk from AI-driven rate shopping</div>
+                <div class="econ-type">Risk</div>
+              </div>
+              <div class="econ-card risk">
+                <div class="econ-icon">↑</div>
+                <div class="econ-value">2.3×</div>
+                <div class="econ-label">Higher attrition rate for customers using AI money-movement tools</div>
+                <div class="econ-type">Risk</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">40–60<small>%</small></div>
+                <div class="econ-label">Lower customer acquisition cost for AI-native deposit models</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">$</div>
+                <div class="econ-value">$12–18<small>B</small></div>
+                <div class="econ-label">Industry revenue recoverable through personalized fee structures</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leadership Recommendations -->
+        <div class="analysis-block" data-section="recs">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num deposits-bg">04</div>
+              <div>
+                <h3>Leadership Recommendations</h3>
+                <p>Strategic actions to protect and grow deposit franchises</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="rec-list">
+              <div class="rec-item">
+                <div class="rec-num deposits-bg">1</div>
+                <div class="rec-content">
+                  <h4>Invest in AI-Powered Relationship Retention</h4>
+                  <p>Deploy ML models that identify deposit attrition risk 90+ days in advance and trigger personalized, multichannel retention interventions — beyond rate matching alone. Customers who perceive value in advice and convenience show 3× lower rate sensitivity.</p>
+                </div>
+                <span class="rec-priority now">Now</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num deposits-bg">2</div>
+                <div class="rec-content">
+                  <h4>Build Embedded Deposit Distribution</h4>
+                  <p>Establish API-first partnerships with digital platforms, payroll providers, and marketplace ecosystems before competitors lock in exclusive relationships. First-mover advantage in embedded deposits is structural, not incremental.</p>
+                </div>
+                <span class="rec-priority next">Next</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num deposits-bg">3</div>
+                <div class="rec-content">
+                  <h4>Deploy Dynamic Deposit Pricing Engines</h4>
+                  <p>Move from quarterly rate committee decisions to real-time pricing optimization that balances NIM preservation with retention probability at the individual customer level. Target 10–15bps NIM improvement vs. static pricing approaches.</p>
+                </div>
+                <span class="rec-priority next">Next</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num deposits-bg">4</div>
+                <div class="rec-content">
+                  <h4>Launch AI-Native Savings Experiences</h4>
+                  <p>Create goal-based, AI-coached savings products that compete on engagement and life-outcome relevance, not yield alone. These products build behavioral lock-in and cross-sell pathways that commodity deposits cannot create.</p>
+                </div>
+                <span class="rec-priority later">Later</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end analysis-sections -->
+    </div><!-- end panel-deposits -->
+
+    <!-- ========================
+         LENDING PANEL
+         ======================== -->
+    <div class="product-panel" id="panel-lending" role="tabpanel">
+      <div class="panel-header lending-accent">
+        <div class="panel-header-text">
+          <h2>Lending</h2>
+          <p>AI-driven underwriting, instant decisioning, and the credit access revolution</p>
+        </div>
+        <div class="panel-kpis">
+          <div class="pkpi"><span class="pkpi-val">$4.2T</span><span class="pkpi-label">Consumer Credit Outstanding</span></div>
+          <div class="pkpi"><span class="pkpi-val">90sec</span><span class="pkpi-label">AI Decision Time</span></div>
+          <div class="pkpi"><span class="pkpi-val">45M</span><span class="pkpi-label">Credit-Invisible Americans</span></div>
+        </div>
+      </div>
+
+      <div class="analysis-sections">
+
+        <!-- Market Today -->
+        <div class="analysis-block" data-section="market">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num lending-bg">01</div>
+              <div>
+                <h3>Market Today</h3>
+                <p>The $4.2T consumer credit market and its AI transformation</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="block-content-grid">
+              <div class="content-text">
+                <p>Consumer lending is undergoing its most significant structural transformation since the introduction of the FICO score. Digital loan originations crossed <strong>60% of all applications in 2024</strong>, and AI-powered fintech lenders have demonstrated loss rates 35–45% below traditional models — creating a performance gap that regulators, investors, and consumers are all beginning to notice.</p>
+                <p>The BNPL market — a $180B category growing at 24% CAGR — has normalized the expectation of <strong>instant, embedded credit decisions</strong>. Legacy underwriting cycles measured in days are now a competitive liability, not merely an operational inconvenience. The question is no longer whether to modernize decisioning, but how quickly the transformation can be executed without introducing fair lending risk.</p>
+              </div>
+              <div class="market-metrics">
+                <div class="metric-bar-item">
+                  <span>Digital loan origination share</span>
+                  <div class="bar-track"><div class="bar-fill lending-fill" style="--pct:60%">60%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>BNPL market CAGR (2024–2030)</span>
+                  <div class="bar-track"><div class="bar-fill lending-fill" style="--pct:24%">24%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Fintech charge-off improvement vs. legacy</span>
+                  <div class="bar-track"><div class="bar-fill lending-fill" style="--pct:45%">45%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Consumers willing to share alt. data for better rates</span>
+                  <div class="bar-track"><div class="bar-fill lending-fill" style="--pct:58%">58%</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disruptive Forces -->
+        <div class="analysis-block" data-section="forces">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num lending-bg">02</div>
+              <div>
+                <h3>Potential Disruptive Forces</h3>
+                <p>AI vectors transforming credit origination, pricing, and access</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="force-cards">
+              <div class="force-card">
+                <div class="force-icon lending-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.69 0 3.27.47 4.61 1.28"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Alternative Data Underwriting</h4>
+                    <span class="risk-badge badge-critical">Critical</span>
+                  </div>
+                  <p>ML models leveraging rent payments, cash-flow patterns, utility bills, and behavioral signals can extend credit to 45 million credit-invisible Americans — unlocking a $90B+ addressable market while simultaneously outperforming FICO-only models on loss prediction.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon lending-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Real-Time, Embedded Decisioning</h4>
+                    <span class="risk-badge badge-critical">Critical</span>
+                  </div>
+                  <p>Sub-second credit decisions at point of sale, payroll portal, or e-commerce checkout are compressing the decision cycle from days to milliseconds. Banks without real-time decisioning APIs will be excluded from the embedded lending ecosystem entirely.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon lending-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Dynamic, Individualized Loan Pricing</h4>
+                    <span class="risk-badge badge-high">High</span>
+                  </div>
+                  <p>AI adjusts loan pricing in real-time based on real-time risk signals, market conditions, and competitive intelligence — enabling finer-grained risk segmentation that captures more borrowers profitably while reducing adverse selection.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon lending-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>AI Fraud &amp; Synthetic Identity Detection</h4>
+                    <span class="risk-badge badge-high">High</span>
+                  </div>
+                  <p>Synthetic identity fraud is projected to cost $5B+ by 2025. Graph analytics and behavioral biometrics enable real-time detection of fabricated identities at application, dramatically outperforming rule-based systems with 70%+ false positive reduction.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon lending-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Algorithmic Fair Lending Compliance</h4>
+                    <span class="risk-badge badge-medium">Regulatory Risk</span>
+                  </div>
+                  <p>Automated adverse action explanations, real-time disparate impact monitoring, and explainable AI (XAI) are becoming regulatory requirements. Banks that invest in compliance-by-design will gain a moat; those that react late face material liability exposure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economic Impact -->
+        <div class="analysis-block" data-section="economic">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num lending-bg">03</div>
+              <div>
+                <h3>Economic Impact</h3>
+                <p>The financial stakes of AI in consumer credit</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="economic-grid">
+              <div class="econ-card opportunity">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">35–45<small>%</small></div>
+                <div class="econ-label">Reduction in charge-offs with AI underwriting vs. legacy models</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">$2,100<br><small>→ $500</small></div>
+                <div class="econ-label">Origination cost per loan, legacy vs. AI-native lender</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">$</div>
+                <div class="econ-value">$90B+</div>
+                <div class="econ-label">Addressable market from credit-invisible Americans with alt. data</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card risk">
+                <div class="econ-icon">⚠</div>
+                <div class="econ-value">$50B+</div>
+                <div class="econ-label">Potential regulatory penalty exposure from algorithmic fair lending failures</div>
+                <div class="econ-type">Risk</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leadership Recommendations -->
+        <div class="analysis-block" data-section="recs">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num lending-bg">04</div>
+              <div>
+                <h3>Leadership Recommendations</h3>
+                <p>Four imperatives for the AI-era lending franchise</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="rec-list">
+              <div class="rec-item">
+                <div class="rec-num lending-bg">1</div>
+                <div class="rec-content">
+                  <h4>Modernize Underwriting with Alternative and Cash-Flow Data</h4>
+                  <p>Build or partner for ML models incorporating bank transaction data, rent payment history, and behavioral signals. Prioritize explainability and fair lending compliance from model inception — not as a post-hoc retrofit. Target 10–15% lift in approval rates with equivalent or better loss performance.</p>
+                </div>
+                <span class="rec-priority now">Now</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num lending-bg">2</div>
+                <div class="rec-content">
+                  <h4>Achieve Real-Time Decisioning Across All Products</h4>
+                  <p>Invest in ML-powered decisioning infrastructure capable of sub-second approvals for personal loans, HELOC pre-qualifications, and credit line increases. Real-time capability is the prerequisite for embedded lending partnerships — without it, distribution deals will flow to competitors.</p>
+                </div>
+                <span class="rec-priority now">Now</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num lending-bg">3</div>
+                <div class="rec-content">
+                  <h4>Treat Algorithmic Fairness as a Strategic Moat</h4>
+                  <p>Deploy continuous disparate impact monitoring, explainable adverse action generation, and model bias testing across the full credit lifecycle. Banks that demonstrate compliance leadership will earn regulatory trust, attract mission-aligned capital, and build defensible brand equity in underserved markets.</p>
+                </div>
+                <span class="rec-priority next">Next</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num lending-bg">4</div>
+                <div class="rec-content">
+                  <h4>Build Open API Infrastructure for Embedded Lending</h4>
+                  <p>Develop lending-as-a-service API capabilities that allow distribution through digital ecosystems — e-commerce platforms, healthcare financing, payroll portals, and gig economy apps. Embedded distribution reduces CAC by 60–75% vs. direct channels and captures credit demand at the point of need.</p>
+                </div>
+                <span class="rec-priority next">Next</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end analysis-sections -->
+    </div><!-- end panel-lending -->
+
+    <!-- ========================
+         PAYMENTS PANEL
+         ======================== -->
+    <div class="product-panel" id="panel-payments" role="tabpanel">
+      <div class="panel-header payments-accent">
+        <div class="panel-header-text">
+          <h2>Payments</h2>
+          <p>AI-orchestrated fraud defense, real-time rails, and the invisible payments future</p>
+        </div>
+        <div class="panel-kpis">
+          <div class="pkpi"><span class="pkpi-val">$10.8T</span><span class="pkpi-label">Annual US Volume</span></div>
+          <div class="pkpi"><span class="pkpi-val">+85%</span><span class="pkpi-label">RTP YoY Growth</span></div>
+          <div class="pkpi"><span class="pkpi-val">$33B</span><span class="pkpi-label">Annual Fraud Losses</span></div>
+        </div>
+      </div>
+
+      <div class="analysis-sections">
+
+        <!-- Market Today -->
+        <div class="analysis-block" data-section="market">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num payments-bg">01</div>
+              <div>
+                <h3>Market Today</h3>
+                <p>The $10.8T US payments landscape and its inflection points</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="block-content-grid">
+              <div class="content-text">
+                <p>Payments is the most technologically advanced of the three banking pillars — and simultaneously the most exposed to AI-driven disruption. With <strong>$10.8 trillion in annual US consumer payment volume</strong>, the economic stakes are enormous, and the competitive dynamics are shifting rapidly as real-time rails, digital wallets, and embedded payment infrastructure displace traditional card networks.</p>
+                <p>Real-Time Payments (RTP) and FedNow are growing at <strong>85% year-over-year</strong>, while payment fraud losses of $33B annually continue escalating at 15% per year. The competitive moat of card networks — built on four decades of fraud infrastructure and network effects — is being eroded by AI-native challengers who can build equivalent fraud capability in months, not years.</p>
+              </div>
+              <div class="market-metrics">
+                <div class="metric-bar-item">
+                  <span>Digital wallet adoption (US consumers)</span>
+                  <div class="bar-track"><div class="bar-fill payments-fill" style="--pct:65%">65%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Real-time payment YoY growth</span>
+                  <div class="bar-track"><div class="bar-fill payments-fill" style="--pct:85%">85%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Fraud loss growth rate (annual)</span>
+                  <div class="bar-track"><div class="bar-fill payments-fill" style="--pct:15%">15%</div></div>
+                </div>
+                <div class="metric-bar-item">
+                  <span>Merchants preferring instant settlement</span>
+                  <div class="bar-track"><div class="bar-fill payments-fill" style="--pct:72%">72%</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disruptive Forces -->
+        <div class="analysis-block" data-section="forces">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num payments-bg">02</div>
+              <div>
+                <h3>Potential Disruptive Forces</h3>
+                <p>Five forces converging to transform the payments value chain</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="force-cards">
+              <div class="force-card">
+                <div class="force-icon payments-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>AI-Powered Fraud Orchestration</h4>
+                    <span class="risk-badge badge-critical">Critical</span>
+                  </div>
+                  <p>Real-time ML models processing 1,000+ signals per transaction — including device fingerprinting, behavioral biometrics, and network graph analysis — achieve 70%+ reduction in false positives while catching emerging fraud patterns. This is the most mature AI application in banking today.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon payments-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Embedded Payment Infrastructure</h4>
+                    <span class="risk-badge badge-critical">Critical</span>
+                  </div>
+                  <p>Payments are becoming invisible — embedded in every digital interaction from healthcare portals to subscription apps. AI orchestrates routing, pricing, authorization, and settlement, removing the payment "moment" entirely. Banks that don't own a piece of the orchestration layer will be reduced to utility processors.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon payments-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Real-Time Payment Network Expansion</h4>
+                    <span class="risk-badge badge-high">High</span>
+                  </div>
+                  <p>FedNow and RTP participation is becoming a competitive baseline. AI manages the liquidity risk, reconciliation complexity, and fraud exposure that real-time settlement introduces — enabling banks to offer instant payments profitably. Late movers face a mounting infrastructure gap.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon payments-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><path d="M12 12v4"/><circle cx="12" cy="12" r="1"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Stablecoin &amp; CBDC Readiness</h4>
+                    <span class="risk-badge badge-medium">Emerging</span>
+                  </div>
+                  <p>Programmable money — whether USD stablecoins or a Federal Reserve CBDC — enables smart-contract-mediated payments that bypass traditional rails entirely. AI will optimize routing across traditional and blockchain payment infrastructure, creating new economics that disintermediate current network participants.</p>
+                </div>
+              </div>
+              <div class="force-card">
+                <div class="force-icon payments-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="force-content">
+                  <div class="force-header-row">
+                    <h4>Conversational &amp; Ambient Payments</h4>
+                    <span class="risk-badge badge-medium">Emerging</span>
+                  </div>
+                  <p>Voice AI, AR interfaces, and IoT devices are enabling payments that require no deliberate user action. AI serves as the payments orchestrator, validating identity, optimizing funding source, and executing transactions frictionlessly — reshaping the definition of a "payment experience."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economic Impact -->
+        <div class="analysis-block" data-section="economic">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num payments-bg">03</div>
+              <div>
+                <h3>Economic Impact</h3>
+                <p>Value creation and destruction in the AI-payments era</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="economic-grid">
+              <div class="econ-card opportunity">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">$18–24<small>B</small></div>
+                <div class="econ-label">Annual fraud savings achievable with AI-native orchestration by 2028</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card risk">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">$20–30<small>B</small></div>
+                <div class="econ-label">Interchange revenue at risk from real-time payment alternatives</div>
+                <div class="econ-type">Risk</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">$</div>
+                <div class="econ-value">$15–25<small>B</small></div>
+                <div class="econ-label">New revenue from AI-powered payment intelligence and merchant analytics</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+              <div class="econ-card opportunity">
+                <div class="econ-icon">↓</div>
+                <div class="econ-value">35–50<small>%</small></div>
+                <div class="econ-label">Operational cost reduction from automated reconciliation and dispute resolution</div>
+                <div class="econ-type">Opportunity</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leadership Recommendations -->
+        <div class="analysis-block" data-section="recs">
+          <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header-left">
+              <div class="block-num payments-bg">04</div>
+              <div>
+                <h3>Leadership Recommendations</h3>
+                <p>Strategic moves to win the AI-payments era</p>
+              </div>
+            </div>
+            <div class="block-toggle">
+              <svg class="toggle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="block-body open">
+            <div class="rec-list">
+              <div class="rec-item">
+                <div class="rec-num payments-bg">1</div>
+                <div class="rec-content">
+                  <h4>Deploy Enterprise AI Fraud Orchestration</h4>
+                  <p>Replace siloed, rule-based fraud systems with a unified ML fraud platform that shares signals cross-channel, adapts in real-time to emerging attack vectors, and provides explainable decisions for customer care. Target 70%+ false positive reduction and $200M+ in annual loss improvement.</p>
+                </div>
+                <span class="rec-priority now">Now</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num payments-bg">2</div>
+                <div class="rec-content">
+                  <h4>Invest Aggressively in Real-Time Payment Infrastructure</h4>
+                  <p>FedNow and RTP participation is no longer optional — it is competitive table stakes. Build AI-powered liquidity management and real-time risk scoring to optimize instant settlement economics. Banks not offering instant payments by 2026 will face accelerating volume attrition.</p>
+                </div>
+                <span class="rec-priority now">Now</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num payments-bg">3</div>
+                <div class="rec-content">
+                  <h4>Build a Payment Intelligence Platform</h4>
+                  <p>Monetize transaction data through AI-powered insights delivered to merchants, consumers, and partners — creating revenue streams beyond interchange that are differentiated, defensible, and growing as interchange compresses. Target $500M+ in incremental revenue within 3 years.</p>
+                </div>
+                <span class="rec-priority next">Next</span>
+              </div>
+              <div class="rec-item">
+                <div class="rec-num payments-bg">4</div>
+                <div class="rec-content">
+                  <h4>Establish a Programmable Money Strategy</h4>
+                  <p>Form a cross-functional taskforce to evaluate stablecoin and CBDC use cases — B2B settlement, programmable disbursements, and cross-border payments. Build open API infrastructure now that can connect to future digital currency rails, preserving optionality as the regulatory landscape firms up.</p>
+                </div>
+                <span class="rec-priority later">Later</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end analysis-sections -->
+    </div><!-- end panel-payments -->
+
+  </div><!-- end container -->
+</section><!-- end products -->
+
+<!-- ============================================================
+     CROSS-CATEGORY COMPARISON
+     ============================================================ -->
+<section id="comparison">
+  <div class="container">
+    <div class="section-label light">Comparative Analysis</div>
+    <h2 class="section-title light">Where AI Hits Hardest</h2>
+    <p class="section-subtitle light">A multi-dimensional comparison of AI disruption across the three pillars of consumer banking</p>
+
+    <div class="comparison-matrix">
+      <!-- Header -->
+      <div class="matrix-header">
+        <div class="matrix-dimension-label">Dimension</div>
+        <div class="matrix-product-label deposits-label">
+          <span class="label-dot deposits-dot"></span> Deposits
+        </div>
+        <div class="matrix-product-label lending-label">
+          <span class="label-dot lending-dot"></span> Lending
+        </div>
+        <div class="matrix-product-label payments-label">
+          <span class="label-dot payments-dot"></span> Payments
+        </div>
+      </div>
+
+      <!-- Row: AI Disruption Speed -->
+      <div class="matrix-row" data-row="1">
+        <div class="matrix-dim">
+          <div class="dim-title">AI Disruption Speed</div>
+          <div class="dim-sub">How fast AI is changing competitive dynamics</div>
+        </div>
+        <div class="matrix-cell" data-score="3" data-product="deposits">
+          <div class="cell-score-bar"><div class="csb-fill deposits-bg" style="--score-pct:60%"></div></div>
+          <div class="cell-label">Moderate</div>
+          <div class="cell-insight">Rate personalization and embedded distribution accelerating; 2–3 year disruption window</div>
+        </div>
+        <div class="matrix-cell" data-score="4" data-product="lending">
+          <div class="cell-score-bar"><div class="csb-fill lending-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">Fast</div>
+          <div class="cell-insight">Alt-data underwriting and embedded credit decisioning creating rapid competitive divergence</div>
+        </div>
+        <div class="matrix-cell highlighted" data-score="5" data-product="payments">
+          <div class="cell-score-bar"><div class="csb-fill payments-bg" style="--score-pct:100%"></div></div>
+          <div class="cell-label">Fastest ★</div>
+          <div class="cell-insight">Real-time rails, AI fraud, and embedded payments creating immediate, irreversible disruption</div>
+        </div>
+      </div>
+
+      <!-- Row: Margin Compression Risk -->
+      <div class="matrix-row" data-row="2">
+        <div class="matrix-dim">
+          <div class="dim-title">Margin Compression Risk</div>
+          <div class="dim-sub">Degree to which AI threatens core product margins</div>
+        </div>
+        <div class="matrix-cell highlighted" data-score="5" data-product="deposits">
+          <div class="cell-score-bar"><div class="csb-fill deposits-bg" style="--score-pct:100%"></div></div>
+          <div class="cell-label">Highest ★</div>
+          <div class="cell-insight">NIM compression from AI-driven rate shopping and neobank competition directly threatens spread income</div>
+        </div>
+        <div class="matrix-cell" data-score="3" data-product="lending">
+          <div class="cell-score-bar"><div class="csb-fill lending-bg" style="--score-pct:60%"></div></div>
+          <div class="cell-label">Moderate</div>
+          <div class="cell-insight">Margin pressure offset by loss improvement; net impact depends on speed of model modernization</div>
+        </div>
+        <div class="matrix-cell" data-score="4" data-product="payments">
+          <div class="cell-score-bar"><div class="csb-fill payments-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">High</div>
+          <div class="cell-insight">$20–30B interchange at risk from real-time alternatives; fraud savings partially offset</div>
+        </div>
+      </div>
+
+      <!-- Row: Competitive Threat Level -->
+      <div class="matrix-row" data-row="3">
+        <div class="matrix-dim">
+          <div class="dim-title">External Competitive Threat</div>
+          <div class="dim-sub">Risk from non-bank / fintech entrants using AI</div>
+        </div>
+        <div class="matrix-cell" data-score="4" data-product="deposits">
+          <div class="cell-score-bar"><div class="csb-fill deposits-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">High</div>
+          <div class="cell-insight">Tech platform embedded deposits and neobanks with 60–70% cost advantage pose existential risk to mid-tier banks</div>
+        </div>
+        <div class="matrix-cell highlighted" data-score="5" data-product="lending">
+          <div class="cell-score-bar"><div class="csb-fill lending-bg" style="--score-pct:100%"></div></div>
+          <div class="cell-label">Highest ★</div>
+          <div class="cell-insight">BNPL providers, embedded lenders, and AI-native fintechs originating at $500 vs. $2,100 for legacy banks</div>
+        </div>
+        <div class="matrix-cell" data-score="4" data-product="payments">
+          <div class="cell-score-bar"><div class="csb-fill payments-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">High</div>
+          <div class="cell-insight">Big Tech, payment fintechs, and RTP-native players compressing traditional card economics</div>
+        </div>
+      </div>
+
+      <!-- Row: Leadership Urgency -->
+      <div class="matrix-row" data-row="4">
+        <div class="matrix-dim">
+          <div class="dim-title">Leadership Action Urgency</div>
+          <div class="dim-sub">How soon executive decisions must be made</div>
+        </div>
+        <div class="matrix-cell" data-score="4" data-product="deposits">
+          <div class="cell-score-bar"><div class="csb-fill deposits-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">High</div>
+          <div class="cell-insight">Dynamic pricing and retention AI must be deployed before the next rate cycle reshapes deposit flows</div>
+        </div>
+        <div class="matrix-cell highlighted" data-score="5" data-product="lending">
+          <div class="cell-score-bar"><div class="csb-fill lending-bg" style="--score-pct:100%"></div></div>
+          <div class="cell-label">Highest ★</div>
+          <div class="cell-insight">Embedded lending distribution and real-time decisioning require immediate investment — market windows are closing</div>
+        </div>
+        <div class="matrix-cell" data-score="5" data-product="payments">
+          <div class="cell-score-bar"><div class="csb-fill payments-bg" style="--score-pct:100%"></div></div>
+          <div class="cell-label">Highest ★</div>
+          <div class="cell-insight">Fraud orchestration and real-time payment infrastructure have zero tolerance for delay</div>
+        </div>
+      </div>
+
+      <!-- Row: AI Adoption Maturity -->
+      <div class="matrix-row" data-row="5">
+        <div class="matrix-dim">
+          <div class="dim-title">Current AI Adoption Maturity</div>
+          <div class="dim-sub">Where incumbents currently stand on AI deployment</div>
+        </div>
+        <div class="matrix-cell" data-score="2" data-product="deposits">
+          <div class="cell-score-bar"><div class="csb-fill deposits-bg" style="--score-pct:40%"></div></div>
+          <div class="cell-label">Early Stage</div>
+          <div class="cell-insight">Most banks still rely on static rate committees; AI personalization is rare outside of top-tier institutions</div>
+        </div>
+        <div class="matrix-cell" data-score="3" data-product="lending">
+          <div class="cell-score-bar"><div class="csb-fill lending-bg" style="--score-pct:60%"></div></div>
+          <div class="cell-label">Developing</div>
+          <div class="cell-insight">Credit scoring modernization underway; alt-data models at early commercial pilots; real-time decisioning scaling</div>
+        </div>
+        <div class="matrix-cell highlighted" data-score="4" data-product="payments">
+          <div class="cell-score-bar"><div class="csb-fill payments-bg" style="--score-pct:80%"></div></div>
+          <div class="cell-label">Most Advanced ★</div>
+          <div class="cell-insight">AI fraud detection widely deployed; real-time payment AI scaling; most mature AI use case in banking</div>
+        </div>
+      </div>
+
+    </div><!-- end comparison-matrix -->
+
+    <div class="comparison-legend">
+      <div class="legend-item"><span class="legend-star">★</span> Highest intensity on this dimension across the three products</div>
+      <div class="legend-item"><span class="legend-bar deposits-bg"></span> Deposits</div>
+      <div class="legend-item"><span class="legend-bar lending-bg"></span> Lending</div>
+      <div class="legend-item"><span class="legend-bar payments-bg"></span> Payments</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEADERSHIP RECOMMENDATIONS (Now / Next / Later)
+     ============================================================ -->
+<section id="recommendations">
+  <div class="container">
+    <div class="section-label">Strategic Imperatives</div>
+    <h2 class="section-title">Leadership Agenda</h2>
+    <p class="section-subtitle">A synthesized action framework for banking executives navigating the AI transformation — sequenced by urgency and organizational readiness.</p>
+
+    <div class="timeline-recs">
+
+      <!-- NOW -->
+      <div class="timeline-col">
+        <div class="timeline-header now-header">
+          <div class="timeline-badge now-badge">NOW</div>
+          <div class="timeline-period">0 – 12 Months</div>
+          <p class="timeline-desc">Defensive necessity and quick-win actions that protect competitive position and fund the transformation</p>
+        </div>
+        <div class="timeline-cards">
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Deploy AI Fraud Orchestration</h4>
+            <p>Unify cross-channel fraud signals in a single ML platform. Reduce false positives by 70%+, recover $200M+ in avoidable losses, and free capacity for revenue initiatives.</p>
+            <div class="tlcard-tags"><span class="tag-product payments-tag">Payments</span><span class="tag-impact">$200M+ impact</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Achieve Real-Time Credit Decisions</h4>
+            <p>Invest in ML-powered decisioning infrastructure capable of sub-second approvals. This is the prerequisite for all embedded lending partnerships and BNPL competition.</p>
+            <div class="tlcard-tags"><span class="tag-product lending-tag">Lending</span><span class="tag-impact">Competitive moat</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>Launch AI Deposit Retention Models</h4>
+            <p>Deploy churn prediction models that identify at-risk deposit relationships 90+ days before attrition, triggering personalized multichannel interventions beyond rate matching.</p>
+            <div class="tlcard-tags"><span class="tag-product deposits-tag">Deposits</span><span class="tag-impact">NIM protection</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h4>Establish AI Governance &amp; Model Risk</h4>
+            <p>Convene a cross-functional AI governance committee. Define model risk standards, bias testing protocols, and explainability requirements before AI-native products reach scale.</p>
+            <div class="tlcard-tags"><span class="tag-product all-tag">All Products</span><span class="tag-impact">Regulatory readiness</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEXT -->
+      <div class="timeline-col">
+        <div class="timeline-header next-header">
+          <div class="timeline-badge next-badge">NEXT</div>
+          <div class="timeline-period">12 – 36 Months</div>
+          <p class="timeline-desc">Capability-building investments that create durable competitive advantage and unlock new revenue</p>
+        </div>
+        <div class="timeline-cards">
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h4>Alternative Data Underwriting at Scale</h4>
+            <p>Build or acquire ML underwriting using cash-flow, rent, and behavioral data to reach credit-invisible segments. Target 10–15% approval rate lift with equivalent loss performance.</p>
+            <div class="tlcard-tags"><span class="tag-product lending-tag">Lending</span><span class="tag-impact">$90B+ market</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h4>Build Embedded Distribution APIs</h4>
+            <p>Launch deposit and lending-as-a-service APIs for digital platforms, payroll ecosystems, and marketplace partners — capturing demand at the point of need, at 60–75% lower CAC.</p>
+            <div class="tlcard-tags"><span class="tag-product deposits-tag">Deposits</span><span class="tag-product lending-tag">Lending</span><span class="tag-impact">Channel strategy</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h4>Dynamic Deposit Pricing Engine</h4>
+            <p>Move from quarterly rate committee cycles to real-time, customer-level deposit pricing optimization. Target 10–15bps NIM improvement vs. static pricing, protecting $1–2B+ in annual net interest income.</p>
+            <div class="tlcard-tags"><span class="tag-product deposits-tag">Deposits</span><span class="tag-impact">NIM optimization</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>Real-Time Payments Infrastructure</h4>
+            <p>Achieve full FedNow/RTP participation with AI-powered liquidity management. Build toward 24/7 real-time settlement capability across all payment types — this is table stakes by 2026.</p>
+            <div class="tlcard-tags"><span class="tag-product payments-tag">Payments</span><span class="tag-impact">Infrastructure</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LATER -->
+      <div class="timeline-col">
+        <div class="timeline-header later-header">
+          <div class="timeline-badge later-badge">LATER</div>
+          <div class="timeline-period">36+ Months</div>
+          <p class="timeline-desc">Transformational bets that define the next-generation consumer banking franchise</p>
+        </div>
+        <div class="timeline-cards">
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h4>Build or Acquire an AI-Native Subsidiary</h4>
+            <p>Establish a greenfield digital bank operating on a fully AI-native stack — or acquire a challenger with one. This enables the cost structure and product velocity required to compete with next-generation entrants without replatforming the core.</p>
+            <div class="tlcard-tags"><span class="tag-product all-tag">All Products</span><span class="tag-impact">Transformational</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h4>Programmable Money Strategy</h4>
+            <p>Position for a CBDC or stablecoin future with open API infrastructure, regulatory engagement, and internal capability development. Early architecture decisions will determine which banks thrive on future payment rails.</p>
+            <div class="tlcard-tags"><span class="tag-product payments-tag">Payments</span><span class="tag-impact">Future readiness</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4>Gen AI Financial Advisor at Scale</h4>
+            <p>Deploy generative AI as a personalized financial advisor accessible to all customers, not just HNW clients. This democratizes advice, deepens cross-sell, and creates the relationship-level lock-in that rate and features alone cannot sustain.</p>
+            <div class="tlcard-tags"><span class="tag-product all-tag">All Products</span><span class="tag-impact">Loyalty &amp; lifetime value</span></div>
+          </div>
+          <div class="tlcard">
+            <div class="tlcard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+            </div>
+            <h4>Payment Intelligence Monetization</h4>
+            <p>Build AI-powered merchant and consumer analytics platforms that monetize transaction data through insights, dynamic offers, and intelligent routing. This creates durable revenue streams not dependent on interchange or NIM.</p>
+            <div class="tlcard-tags"><span class="tag-product payments-tag">Payments</span><span class="tag-impact">$15–25B opportunity</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end timeline-recs -->
+  </div>
+</section>
+
+<!-- ============================================================
+     CONCLUSION
+     ============================================================ -->
+<section id="conclusion">
+  <div class="container">
+    <div class="conclusion-inner">
+      <div class="conclusion-label">Closing Perspective</div>
+      <h2 class="conclusion-title">The Window is Open — and Closing</h2>
+      <p class="conclusion-body">The convergence of AI, real-time infrastructure, and changing consumer expectations has created a rare strategic window in consumer banking. The institutions that move decisively — building AI capabilities into the product core, not bolted to the periphery — will emerge with durable cost, risk, and experience advantages that compound over years.</p>
+      <p class="conclusion-body">The competitive threat is not abstract. It is being built right now: in San Francisco fintechs using alternative data to approve loans legacy banks decline, in tech platforms quietly accumulating deposits, in real-time payment rails steadily eroding interchange economics. The question is not whether AI will reshape consumer banking. It already has. The question is whether your institution will shape that future — or be shaped by it.</p>
+      <div class="conclusion-divider"></div>
+      <div class="conclusion-thesis">
+        "AI is not a feature to add to banking. It is a new operating model for banking — and the window to adopt it on your terms is finite."
+      </div>
+      <div class="conclusion-actions">
+        <button class="btn-primary" onclick="scrollToSection('recommendations')">Review Leadership Recommendations</button>
+        <button class="btn-ghost-dark" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Return to Top</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <span class="brand-dot"></span>
+        <span>AI × Banking</span>
+      </div>
+      <p class="footer-desc">A capstone analysis of artificial intelligence's impact on consumer banking — produced as part of an advanced graduate program in financial services strategy.</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-meta">
+        <div class="footer-meta-item"><span>Project</span> AI in Consumer Banking — Capstone</div>
+        <div class="footer-meta-item"><span>Year</span> 2025</div>
+        <div class="footer-meta-item"><span>Focus Areas</span> Deposits · Lending · Payments</div>
+        <div class="footer-meta-item"><span>Team</span> [Team Name Placeholder]</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>This analysis is prepared for academic and strategic discussion purposes. Data sourced from publicly available industry research, regulatory filings, and analyst reports.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
