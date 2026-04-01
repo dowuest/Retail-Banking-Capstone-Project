@@ -39,9 +39,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
 .page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:20px;position:relative;}
 .page-header h1 .accent{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.page-header p{font-size:1rem;font-weight:300;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.75;position:relative;}
+.page-header p{font-size:1rem;font-weight:300;color:var(--gray);max-width:560px;margin:0 auto;line-height:1.75;position:relative;}
 .gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:28px auto 0;}
-main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
+main{max-width:920px;margin:0 auto;padding:72px 5vw 100px;}
 .team-bar{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 32px;margin-bottom:56px;display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;}
 .team-bar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--cyan),var(--violet));}
 .team-bar .label{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
@@ -58,7 +58,7 @@ main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
-.footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .footer-copy{font-size:.8rem;color:var(--gray);}
 .footer-copy a{color:var(--cyan);text-decoration:none;}
@@ -66,51 +66,362 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
 .github-link:hover{border-color:var(--cyan);color:var(--white);}
 @media(prefers-reduced-motion:reduce){.reveal{transition:none;}.page-badge::before{animation:none;}}
 </style>
+
+<style id="preview-overrides">
+/* ── Header stat pill ─────────────────────────── */
+.header-stat{display:inline-flex;flex-direction:column;align-items:center;background:rgba(0,245,255,.06);border:1px solid rgba(0,245,255,.2);border-radius:14px;padding:14px 28px;margin-top:28px;}
+.header-stat-val{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.04em;color:var(--cyan);line-height:1;}
+.header-stat-label{font-size:.68rem;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;margin-top:5px;}
+
+/* ── Tab navigation ───────────────────────────── */
+.tab-nav{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
+.tab-btn{padding:10px 22px;border-radius:100px;font-size:.8rem;font-weight:500;letter-spacing:.04em;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--gray);transition:border-color .22s,color .22s,background .22s;font-family:'DM Sans',sans-serif;}
+.tab-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,245,255,.06);}
+.tab-btn:hover:not(.active){border-color:rgba(255,255,255,.18);color:var(--white);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── Sub-card grid ────────────────────────────── */
+.sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:700px){.sub-grid{grid-template-columns:1fr;}}
+.sub-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color .22s,box-shadow .22s;}
+.sub-card:hover{border-color:rgba(0,245,255,.28);box-shadow:0 0 24px rgba(0,245,255,.1);}
+.sub-card-icon{font-size:1.5rem;margin-bottom:10px;line-height:1;color:var(--cyan);display:block;}
+.sub-card-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.05em;color:var(--white);margin-bottom:3px;line-height:1.1;}
+.sub-card-sub{font-size:.7rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+.sub-card-stat{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.02em;color:var(--cyan);line-height:1;}
+.sub-card-stat-label{font-size:.68rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;margin-top:3px;}
+.sub-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.sub-list li{font-size:.82rem;color:var(--gray);padding-left:14px;position:relative;line-height:1.55;}
+.sub-list li::before{content:'→';position:absolute;left:0;color:var(--cyan);font-size:.68rem;top:2px;}
+
+/* ── Tags ─────────────────────────────────────── */
+.tag{display:inline-block;padding:2px 9px;border-radius:100px;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:4px;}
+.tag-threat{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.25);}
+.tag-oppty{background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.25);}
+
+/* ── Revenue metric bars ──────────────────────── */
+.metric-section-label{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;}
+.metric-group{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
+.metric-row{display:flex;align-items:center;gap:14px;}
+.metric-label{font-size:.82rem;color:var(--gray);min-width:190px;}
+.metric-track{flex:1;background:rgba(255,255,255,.06);border-radius:4px;height:8px;overflow:hidden;}
+.metric-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
+.metric-val{font-size:.82rem;color:var(--white);font-weight:500;min-width:90px;text-align:right;font-variant-numeric:tabular-nums;}
+
+/* ── Strategic table ──────────────────────────── */
+.strat-wrap{border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.strat-table-label{padding:14px 18px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border-bottom:1px solid var(--border);background:rgba(255,255,255,.03);}
+.strat-table{width:100%;border-collapse:collapse;}
+.strat-table th{text-align:left;padding:10px 16px;font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gray);background:rgba(255,255,255,.04);border-bottom:1px solid var(--border);}
+.strat-table td{padding:12px 16px;font-size:.82rem;color:var(--gray);border-bottom:1px solid var(--border);line-height:1.5;vertical-align:top;}
+.strat-table tr:last-child td{border-bottom:none;}
+.strat-table td:first-child{color:var(--white);font-weight:500;white-space:nowrap;}
+.strat-table tr:hover td{background:rgba(255,255,255,.02);}
+@media(max-width:700px){.strat-table{font-size:.75rem;}.strat-table td:first-child{white-space:normal;}}
+</style>
 </head>
 <body>
-<div id="preloader" role="status" aria-label="Loading"><span class="pl-text">PAYMENTS</span><div class="pl-bar"><div class="pl-fill"></div></div></div>
+
+<div id="preloader" role="status" aria-label="Loading">
+  <span class="pl-text">PAYMENTS</span>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
 <div id="cursor-dot" aria-hidden="true"></div>
 <div id="cursor-ring" aria-hidden="true"></div>
+
 <nav role="navigation" aria-label="Main navigation">
-  <a href="../index.html" class="nav-logo">RB·26</a>
-  <ul class="nav-links"><li><a href="../index.html#sections">Sections</a></li><li><a href="../index.html#team">Team</a></li></ul>
-  <a href="../index.html" class="nav-back">← Overview</a>
+  <a href="../../index.html" class="nav-logo">RB·26</a>
+  <ul class="nav-links">
+    <li><a href="../../index.html#sections">Sections</a></li>
+    <li><a href="../../index.html#team">Team</a></li>
+  </ul>
+  <a href="../../index.html" class="nav-back">← Overview</a>
 </nav>
+
 <header class="page-header" role="banner">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="page-badge">Retail Banking · Capstone 2026</div>
   <h1><span class="accent">Payments</span></h1>
-  <p>Analysing the market landscape, disruptive forces, and simulated economic impact of modern payments.</p>
+  <p>$150–170B in annual revenue under simultaneous compression from four structural disruptions with different origins and velocities.</p>
+  <div class="header-stat">
+    <span class="header-stat-val">$175T+</span>
+    <span class="header-stat-label">Annual Payment Volume</span>
+  </div>
   <div class="gold-line"></div>
 </header>
+
 <main id="main-content">
-  <div class="team-bar reveal"><div><div class="label">Section team</div><div class="names">Francisco Martha Gonzalez &amp; Dominik Wüst</div></div></div>
-  <div class="section-eyebrow reveal">Analysis</div>
-  <div class="section-heading reveal" style="transition-delay:.1s">Three <span style="color:var(--cyan)">Lenses</span></div>
-  <div class="content-block reveal" style="transition-delay:.15s"><h2>Market Landscape</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.25s"><h2>Disruptive Forces</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.35s"><h2>Simulated Economic Impact</h2><p>Add your content here.</p></div>
+
+  <div class="team-bar reveal">
+    <div>
+      <div class="label">Section team</div>
+      <div class="names">Francisco Martha Gonzalez &amp; Dominik Wüst</div>
+    </div>
+  </div>
+
+  <div class="section-eyebrow reveal">Business Line Deep Dive</div>
+  <div class="section-heading reveal" style="transition-delay:.08s">
+    Payments <span style="color:var(--cyan)">Ecosystem</span>
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="tab-nav reveal" style="transition-delay:.14s" role="tablist" aria-label="Payments analysis">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-landscape" id="btn-landscape" onclick="switchTab('landscape')">Market Landscape</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-disruption" id="btn-disruption" onclick="switchTab('disruption')">Disruptive Forces</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-economics" id="btn-economics" onclick="switchTab('economics')">Economic Impact</button>
+  </div>
+
+  <!-- ── TAB 1: Market Landscape ─────────────────── -->
+  <div class="tab-panel active reveal" id="tab-landscape" role="tabpanel" aria-labelledby="btn-landscape" style="transition-delay:.18s">
+    <div class="sub-grid">
+
+      <div class="sub-card">
+        <div class="sub-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12a7 7 0 0 1 13.4-2.8"/>
+            <path d="M19 12a7 7 0 0 1-13.4 2.8"/>
+            <polyline points="18 8 21.4 9.2 22 6"/>
+            <polyline points="6 16 2.6 14.8 2 18"/>
+          </svg>
+        </div>
+        <div class="sub-card-title">Real-Time Payments</div>
+        <div class="sub-card-sub">The defining structural shift</div>
+        <div class="sub-card-stat">60–80%</div>
+        <div class="sub-card-stat-label">Annual CAGR for RTP</div>
+        <ul class="sub-list">
+          <li>FedNow (Jul 2023) now at 900+ institutions; community banks 78% of participants</li>
+          <li>FedNow per-transaction fee: $0.045 vs $15–50 for a domestic wire</li>
+          <li>$80T+ ACH volume is the migration prize</li>
+          <li>Real-time becoming table stakes for B2B and consumer disbursements</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/>
+            <line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <div class="sub-card-title">Embedded Finance &amp; BaaS</div>
+        <div class="sub-card-sub">Disaggregating the value chain</div>
+        <div class="sub-card-stat">&gt;40%</div>
+        <div class="sub-card-stat-label">Annual growth in embedded payment volume</div>
+        <ul class="sub-list">
+          <li>BaaS players: Unit, Synctera, Treasury Prime, Column</li>
+          <li>Software platforms (Shopify, Toast, ServiceTitan) now own acquiring economics</li>
+          <li>750+ PayFacs in the US; ISVs taking meaningful share of acquiring</li>
+          <li>Highest deposit volume, zero relationship depth, margin compression</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+            <path d="M9 7h6M9 11h4"/>
+          </svg>
+        </div>
+        <div class="sub-card-title">Digital Wallets &amp; BNPL</div>
+        <div class="sub-card-sub">Big Tech encroachment</div>
+        <div class="sub-card-stat">3–5%</div>
+        <div class="sub-card-stat-label">BNPL share of e-commerce GMV</div>
+        <ul class="sub-list">
+          <li>Apple Pay, Google Pay, PayPal dominate mobile wallet share</li>
+          <li>BNPL charge-off rate declined to 1.83% in 2023</li>
+          <li>Wallets tokenize card credentials → fraud losses drop, but bank brand recedes</li>
+          <li>Apple, Google, Amazon building payments moats at massive scale</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TAB 2: Disruptive Forces ────────────────── -->
+  <div class="tab-panel reveal" id="tab-disruption" role="tabpanel" aria-labelledby="btn-disruption" style="transition-delay:.18s">
+    <div class="sub-grid">
+
+      <div class="sub-card">
+        <div class="sub-card-icon">📉</div>
+        <div class="sub-card-title">Acquiring Margin Race to Zero</div>
+        <div class="sub-card-sub">50–75bps → sub-20bps</div>
+        <div class="sub-card-stat">&lt;20bps</div>
+        <div class="sub-card-stat-label">Enterprise acquiring spread (was 50–75bps)</div>
+        <ul class="sub-list">
+          <li>Adyen eliminated 3rd-party acquirer markup entirely via direct acquiring licenses</li>
+          <li>Stripe: commoditize the transaction, monetize the intelligence (Radar, Capital, Atlas)</li>
+          <li>ISO model in structural decline; pure-play gateways functionally commoditized</li>
+          <li><span class="tag tag-oppty">Opportunity</span> Software attachment (Clover, Toast, Shopify) is the only durable model</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-icon">🔗</div>
+        <div class="sub-card-title">Cross-Border &amp; Stablecoin</div>
+        <div class="sub-card-sub">FX spread collapse</div>
+        <div class="sub-card-stat">$1T+</div>
+        <div class="sub-card-stat-label">Stablecoin outstanding (2025 projection)</div>
+        <ul class="sub-list">
+          <li>Wise, Airwallex eliminated information asymmetry on bank FX spreads in major corridors</li>
+          <li>OCC granted national trust charters to Circle, Paxos, 3 others (Dec 2025)</li>
+          <li>Stablecoins eliminate FX conversion requirement for USD-equivalent flows entirely</li>
+          <li><span class="tag tag-threat">Risk</span> Correspondent banking shrinks to genuinely complex multi-currency institutional flows</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-icon">🪙</div>
+        <div class="sub-card-title">Check &amp; Wire Displacement</div>
+        <div class="sub-card-sub">Protected profit pool eroded</div>
+        <div class="sub-card-stat">$0.045</div>
+        <div class="sub-card-stat-label">FedNow fee vs $25 avg wire fee</div>
+        <ul class="sub-list">
+          <li>Wire defensible only for very large transactions or complex cross-border flows</li>
+          <li>Modern Treasury adds RfP, reconciliation automation on top of RTP — more functional than wire</li>
+          <li><span class="tag tag-threat">Most Exposed</span> Regional/community banks with wire fee income dependency</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TAB 3: Economic Impact ──────────────────── -->
+  <div class="tab-panel reveal" id="tab-economics" role="tabpanel" aria-labelledby="btn-economics" style="transition-delay:.18s">
+
+    <div class="content-block" style="transform:none;">
+      <h2>US Payments Revenue Pool — Key Metrics (2024)</h2>
+      <div class="metric-section-label" style="margin-top:8px;">Annual Revenue &amp; Volume</div>
+      <div class="metric-group">
+        <div class="metric-row">
+          <span class="metric-label">Card Interest Income</span>
+          <div class="metric-track"><div class="metric-fill" style="width:100%;"></div></div>
+          <span class="metric-val">$174B</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Total Payments Revenue</span>
+          <div class="metric-track"><div class="metric-fill" style="width:95%;opacity:.85;"></div></div>
+          <span class="metric-val">$150–170B</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Interchange Fees</span>
+          <div class="metric-track"><div class="metric-fill" style="width:85%;"></div></div>
+          <span class="metric-val">$148.5B</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">BNPL GMV</span>
+          <div class="metric-track"><div class="metric-fill" style="width:63%;"></div></div>
+          <span class="metric-val">$109B</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="strat-wrap">
+      <div class="strat-table-label">Strategic Implications by Ecosystem Participant</div>
+      <table class="strat-table">
+        <thead>
+          <tr>
+            <th>Participant</th>
+            <th>Primary Threat</th>
+            <th>Key Opportunity</th>
+            <th>Required Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Banks (Issuer + Acquirer)</td>
+            <td>Interchange regulation; BNPL displacement</td>
+            <td>Own real-time rail relationship</td>
+            <td>Invest in RTP; partner/acquire fintechs</td>
+          </tr>
+          <tr>
+            <td>Card Networks</td>
+            <td>A2A bypassing rails; regulatory scrutiny</td>
+            <td>Expand into fraud/data/B2B</td>
+            <td>Diversify beyond card assessments</td>
+          </tr>
+          <tr>
+            <td>Processors &amp; Fintechs</td>
+            <td>Commoditization; embedded margin compression</td>
+            <td>Vertical SaaS + payments bundling</td>
+            <td>Move up the stack to software</td>
+          </tr>
+          <tr>
+            <td>Merchants</td>
+            <td>Rising card costs; chargeback risk</td>
+            <td>A2A dramatically cuts acceptance costs</td>
+            <td>Advocate for / accelerate A2A adoption</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- end tabs -->
+
 </main>
+
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-logo">RB·26</div>
     <span class="footer-copy">Retail Banking Capstone Project · <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener">dowuest</a></span>
-    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
   </div>
 </footer>
+
 <script>
 (function(){
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.addEventListener('load',()=>{setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.transition='opacity .5s ease';pl.style.opacity='0';setTimeout(()=>pl.style.display='none',550);},1100);});
-  const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  function lerpCursor(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpCursor);}
-  if(!reduced)lerpCursor();
-  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.borderColor='rgba(123,47,255,.7)';});el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(0,245,255,.5)';});});
-  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  /* ── Preloader ── */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const pl = document.getElementById('preloader');
+      pl.style.transition = 'opacity .5s ease';
+      pl.style.opacity = '0';
+      setTimeout(() => pl.style.display = 'none', 550);
+    }, 1100);
+  });
+
+  /* ── Custom cursor ── */
+  const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  function lerpCursor() {
+    rx += (mx - rx) * .12; ry += (my - ry) * .12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(lerpCursor);
+  }
+  if (!reduced) lerpCursor();
+  document.querySelectorAll('a,button').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.borderColor = 'rgba(123,47,255,.7)'; });
+    el.addEventListener('mouseleave', () => { dot.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(0,245,255,.5)'; });
+  });
+
+  /* ── Scroll reveal ── */
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 })();
+
+/* ── Tab switching ── */
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  const panel = document.getElementById('tab-' + name);
+  const btn   = document.getElementById('btn-' + name);
+  if (panel) panel.classList.add('active');
+  if (btn)   { btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+}
 </script>
 </body>
 </html>
