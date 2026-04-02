@@ -143,6 +143,9 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
   <div class="tab-nav reveal" style="transition-delay:.14s" role="tablist" aria-label="Scenario analysis">
     <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-deposits" id="btn-deposits" onclick="switchTab('deposits')">Deposits · 3-Year</button>
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-payments" id="btn-payments" onclick="switchTab('payments')">Payments · 2-Year</button>
+    <button class="tab-btn" role="tab" aria-selected="false"
+            aria-controls="tab-lending" id="btn-lending"
+            onclick="switchTab('lending')">Lending · 3-Year</button>
   </div>
 
   <!-- ── TAB 1: Deposits 3-Year Scenarios ─────── -->
@@ -262,6 +265,72 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
         </div>
       </div>
 
+    </div>
+
+  </div>
+
+  <!-- ── TAB 3: Lending 3-Year Scenarios ──────── -->
+  <div class="tab-panel reveal" id="tab-lending" role="tabpanel" aria-labelledby="btn-lending" style="transition-delay:.18s">
+
+    <div class="sub-grid">
+
+      <!-- Scenario X -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-cyan">
+          <div class="scen-title">Scenario X — AI Acceleration</div>
+          <div class="scen-prob">~40%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">ML Decisioning</span><span class="scen-val">Live in production</span></div>
+          <div class="scen-row"><span class="scen-key">Decision Time</span><span class="scen-val">&lt;2 min (85% STP)</span></div>
+          <div class="scen-row"><span class="scen-key">Cost per Loan</span><span class="scen-val">$1,500 → $350</span></div>
+          <div class="scen-row"><span class="scen-key">Fraud Loss Rate</span><span class="scen-val">0.20% → 0.08%</span></div>
+          <div class="scen-row"><span class="scen-key">Credit Loss Impact</span><span class="scen-val"><span class="val-neg">−10–25%</span></span></div>
+          <div class="scen-row"><span class="scen-key">Lending NPS</span><span class="scen-val"><span class="val-pos">45–60</span></span></div>
+          <div class="scen-implication"><strong>Implication:</strong> First-movers capture approval rate uplift and NIM advantage. Late adopters face a structural cost disadvantage that compounds annually. Window for differentiation closes by 2027.</div>
+        </div>
+      </div>
+
+      <!-- Scenario Y -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-violet">
+          <div class="scen-title">Scenario Y — Regulatory Friction</div>
+          <div class="scen-prob">~35%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">ML Decisioning</span><span class="scen-val">Challenger model only</span></div>
+          <div class="scen-row"><span class="scen-key">SR 11-7 Burden</span><span class="scen-val"><span class="val-neg">High — slows deployment</span></span></div>
+          <div class="scen-row"><span class="scen-key">Decision Time</span><span class="scen-val">3–5 days (limited automation)</span></div>
+          <div class="scen-row"><span class="scen-key">Fraud Loss Rate</span><span class="scen-val">0.14%</span></div>
+          <div class="scen-row"><span class="scen-key">Credit Loss Impact</span><span class="scen-val">Flat / marginal gains</span></div>
+          <div class="scen-row"><span class="scen-key">Neobank Thin-File</span><span class="scen-val"><span class="val-neg">Gaining share</span></span></div>
+          <div class="scen-implication"><strong>Implication:</strong> ECOA / SR 11-7 scrutiny forces manual underwriting to persist. Neobanks gain share among thin-file and gig-economy borrowers as incumbents retreat to prime-only segments. Cost gap widens slowly but irreversibly.</div>
+        </div>
+      </div>
+
+      <!-- Scenario Z -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-threat">
+          <div class="scen-title">Scenario Z — Credit Cycle Stress</div>
+          <div class="scen-prob">~25%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">Unemployment Rate</span><span class="scen-val"><span class="val-neg">6.5–8.0% by 2027</span></span></div>
+          <div class="scen-row"><span class="scen-key">Consumer NCO Rate</span><span class="scen-val"><span class="val-neg">2.8–3.5%</span></span></div>
+          <div class="scen-row"><span class="scen-key">HELOC / Auto</span><span class="scen-val"><span class="val-neg">Volume −20–30%</span></span></div>
+          <div class="scen-row"><span class="scen-key">Provision Build</span><span class="scen-val"><span class="val-neg">+40–70bps of loans</span></span></div>
+          <div class="scen-row"><span class="scen-key">AI Model Drift</span><span class="scen-val"><span class="val-neg">High — OOT degradation</span></span></div>
+          <div class="scen-row"><span class="scen-key">Stress-Test Capital</span><span class="scen-val">CET1 pressure at mid-tier</span></div>
+          <div class="scen-implication"><strong>Implication:</strong> Lenders with real-time model monitoring and dynamic limit management survive with contained losses. Those relying on static scorecards face outsized charge-offs. AI investment pays its largest dividend precisely in this scenario.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scenario-Robust Conclusion -->
+    <div class="content-block">
+      <h2>Scenario-Robust Conclusion</h2>
+      <p>The <strong style="color:var(--white);">AI-native lending infrastructure thesis holds in all three scenarios.</strong> In Acceleration, it drives cost and NIM leadership. In Regulatory Friction, it preserves optionality as the compliance burden forces peers to pause. In Credit Cycle Stress, real-time monitoring becomes the primary loss-containment tool. There is no scenario in which early investment in ML decisioning is the wrong call — only scenarios in which late adoption is irreversible.</p>
     </div>
 
   </div>
