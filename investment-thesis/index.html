@@ -17,7 +17,7 @@ body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;
 #preloader{position:fixed;inset:0;z-index:9000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;}
 #preloader .pl-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);letter-spacing:.4em;color:var(--cyan);opacity:0;animation:plFadeIn .4s .4s ease forwards;}
 #preloader .pl-bar{width:200px;height:2px;background:var(--border);border-radius:2px;overflow:hidden;opacity:0;animation:plFadeIn .4s .4s ease forwards;}
-#preloader .pl-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));animation:plFill .9s .5s ease forwards;}
+#preloader .pl-fill{height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan));animation:plFill .9s .5s ease forwards;}
 @keyframes plFadeIn{to{opacity:1;}}@keyframes plFill{to{width:100%;}}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(10,10,15,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
@@ -40,8 +40,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:20px;position:relative;}
 .page-header h1 .accent{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .page-header p{font-size:1rem;font-weight:300;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.75;position:relative;}
-.gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:28px auto 0;}
-main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
+.gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan));margin:28px auto 0;}
+main{max-width:920px;margin:0 auto;padding:72px 5vw 100px;}
 .section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
 .section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:.03em;margin-bottom:40px;}
 .content-block{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px 44px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s;}
@@ -54,7 +54,7 @@ main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
-.footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .footer-copy{font-size:.8rem;color:var(--gray);}
 .footer-copy a{color:var(--cyan);text-decoration:none;}
@@ -62,51 +62,271 @@ footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
 .github-link:hover{border-color:var(--cyan);color:var(--white);}
 @media(prefers-reduced-motion:reduce){.reveal{transition:none;}.page-badge::before{animation:none;}}
 </style>
+
+<style id="preview-overrides">
+/* ── Tab navigation (violet-adapted) ─────────── */
+.tab-nav{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
+.tab-btn{padding:10px 22px;border-radius:100px;font-size:.8rem;font-weight:500;letter-spacing:.04em;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--gray);transition:border-color .22s,color .22s,background .22s;font-family:'DM Sans',sans-serif;}
+.tab-btn.active{border-color:var(--violet);color:var(--violet);background:rgba(123,47,255,.08);}
+.tab-btn:hover:not(.active){border-color:rgba(255,255,255,.18);color:var(--white);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── Scenario card grid ───────────────────────── */
+.sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+@media(max-width:700px){.sub-grid{grid-template-columns:1fr;}}
+
+/* ── Scenario card ────────────────────────────── */
+.scen-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .22s,box-shadow .22s;}
+.scen-card:hover{border-color:rgba(123,47,255,.3);box-shadow:0 0 24px rgba(123,47,255,.12);}
+.scen-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
+.scen-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--white);line-height:1.2;}
+.scen-prob{font-size:.68rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;margin-left:8px;}
+.scen-body{padding:18px 20px;}
+.scen-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--border);gap:12px;}
+.scen-row:last-of-type{border-bottom:none;}
+.scen-key{font-size:.78rem;color:var(--gray);flex-shrink:0;}
+.scen-val{font-size:.78rem;font-weight:600;color:var(--white);text-align:right;font-variant-numeric:tabular-nums;}
+.scen-implication{margin-top:16px;padding:12px 14px;background:rgba(255,255,255,.04);border-radius:10px;border-left:2px solid rgba(255,255,255,.12);font-size:.78rem;color:var(--gray);line-height:1.65;}
+.scen-implication strong{color:var(--white);}
+
+/* ── Scenario header accent colors (palette) ─── */
+.scen-hdr-cyan{background:rgba(0,245,255,.12);}
+.scen-hdr-violet{background:rgba(123,47,255,.22);}
+.scen-hdr-threat{background:rgba(239,68,68,.18);}
+.scen-hdr-neutral{background:rgba(255,255,255,.06);}
+
+/* ── Value indicators ─────────────────────────── */
+.val-neg{color:#f87171;}
+.val-pos{color:#34d399;}
+
+/* ── Bullet list (common thread) ──────────────── */
+.sub-list{list-style:none;display:flex;flex-direction:column;gap:7px;padding:0;}
+.sub-list li{font-size:.8rem;color:var(--gray);padding-left:14px;position:relative;line-height:1.55;}
+.sub-list li::before{content:'→';position:absolute;left:0;color:var(--violet);font-size:.68rem;top:2px;}
+</style>
 </head>
 <body>
-<div id="preloader" role="status" aria-label="Loading"><span class="pl-text">INVESTMENT THESIS</span><div class="pl-bar"><div class="pl-fill"></div></div></div>
+
+<div id="preloader" role="status" aria-label="Loading">
+  <span class="pl-text">INVESTMENT THESIS</span>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
 <div id="cursor-dot" aria-hidden="true"></div>
 <div id="cursor-ring" aria-hidden="true"></div>
+
 <nav role="navigation" aria-label="Main navigation">
   <a href="../index.html" class="nav-logo">RB·26</a>
-  <ul class="nav-links"><li><a href="../index.html#sections">Sections</a></li><li><a href="../index.html#team">Team</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="../index.html#sections">Sections</a></li>
+    <li><a href="../index.html#team">Team</a></li>
+  </ul>
   <a href="../index.html" class="nav-back">← Overview</a>
 </nav>
+
 <header class="page-header" role="banner">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="page-badge">Retail Banking · Capstone 2026</div>
   <h1>Investment <span class="accent">Thesis</span></h1>
-  <p>Our synthesised view on where retail banking is heading and where the opportunities lie.</p>
+  <p>Three plausible futures across deposits, payments, and lending. One strategy that holds in all of them.</p>
   <div class="gold-line"></div>
 </header>
+
 <main id="main-content">
-  <div class="section-eyebrow reveal">Our conclusions</div>
-  <div class="section-heading reveal" style="transition-delay:.1s">The Case for <span style="color:var(--violet)">Investing</span></div>
-  <div class="content-block reveal" style="transition-delay:.15s"><h2>Thesis Overview</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.25s"><h2>Key Opportunities</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.35s"><h2>Risk Factors</h2><p>Add your content here.</p></div>
-  <div class="content-block reveal" style="transition-delay:.45s"><h2>Recommendation</h2><p>Add your content here.</p></div>
+
+  <div class="section-eyebrow reveal">Forward Strategy</div>
+  <div class="section-heading reveal" style="transition-delay:.08s">
+    Scenario <span style="color:var(--violet)">Analysis</span>
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="tab-nav reveal" style="transition-delay:.14s" role="tablist" aria-label="Scenario analysis">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-deposits" id="btn-deposits" onclick="switchTab('deposits')">Deposits · 3-Year</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-payments" id="btn-payments" onclick="switchTab('payments')">Payments · 2-Year</button>
+  </div>
+
+  <!-- ── TAB 1: Deposits 3-Year Scenarios ─────── -->
+  <div class="tab-panel active reveal" id="tab-deposits" role="tabpanel" aria-labelledby="btn-deposits" style="transition-delay:.18s">
+
+    <div class="sub-grid">
+
+      <!-- Scenario A -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-cyan">
+          <div class="scen-title">Scenario A — Base Case</div>
+          <div class="scen-prob">~50%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">Fed Funds Rate</span><span class="scen-val">3.0–3.5% by 2026</span></div>
+          <div class="scen-row"><span class="scen-key">HYSA Floor</span><span class="scen-val">2.8–3.2%</span></div>
+          <div class="scen-row"><span class="scen-key">System Deposit Cost</span><span class="scen-val">1.8–2.0%</span></div>
+          <div class="scen-row"><span class="scen-key">GSIB Share Shift</span><span class="scen-val"><span class="val-pos">+0.5–1.5pp</span></span></div>
+          <div class="scen-row"><span class="scen-key">Mid-Tier NIM Change</span><span class="scen-val"><span class="val-pos">+15–25bps</span></span></div>
+          <div class="scen-row"><span class="scen-key">CD Wall Impact</span><span class="scen-val">Managed churn</span></div>
+          <div class="scen-implication"><strong>Implication:</strong> Managed decline unless SMB/affluent investment delivers. NIM improves modestly as CD repricing wall passes. Survivable but not winning without strategic action.</div>
+        </div>
+      </div>
+
+      <!-- Scenario B -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-violet">
+          <div class="scen-title">Scenario B — High Competition</div>
+          <div class="scen-prob">~30%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">Fed Funds Rate</span><span class="scen-val">Holds 4.5–5.0%</span></div>
+          <div class="scen-row"><span class="scen-key">HYSA Floor</span><span class="scen-val">3.5–4.5%</span></div>
+          <div class="scen-row"><span class="scen-key">System Deposit Cost</span><span class="scen-val">2.8–3.2%</span></div>
+          <div class="scen-row"><span class="scen-key">Mid-Tier Deposit Beta</span><span class="scen-val">75–85%</span></div>
+          <div class="scen-row"><span class="scen-key">GSIB / Online Gain</span><span class="scen-val"><span class="val-pos">+2.5–3pp</span></span></div>
+          <div class="scen-row"><span class="scen-key">Mid-Tier NIM Change</span><span class="scen-val"><span class="val-neg">−40–60bps</span></span></div>
+          <div class="scen-implication"><strong>Implication:</strong> Severe NIM compression. Forced choice between paying market rates (destroys economics) or permanently losing rate-sensitive segments. Accelerates consolidation.</div>
+        </div>
+      </div>
+
+      <!-- Scenario C -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-threat">
+          <div class="scen-title">Scenario C — Disintermediation</div>
+          <div class="scen-prob">~20%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">Open Banking</span><span class="scen-val">FRB 1033 live</span></div>
+          <div class="scen-row"><span class="scen-key">Switching Cost</span><span class="scen-val"><span class="val-neg">Near zero</span></span></div>
+          <div class="scen-row"><span class="scen-key">MMF AUM</span><span class="scen-val">$8T+ surges</span></div>
+          <div class="scen-row"><span class="scen-key">Mid-Tier Share Loss</span><span class="scen-val"><span class="val-neg">−3–5pp over 3yr</span></span></div>
+          <div class="scen-row"><span class="scen-key">Pricing Power</span><span class="scen-val"><span class="val-neg">Aggregator-set floor</span></span></div>
+          <div class="scen-row"><span class="scen-key">Mid-Tier NIM Change</span><span class="scen-val"><span class="val-neg">−70–100bps</span></span></div>
+          <div class="scen-implication"><strong>Existential for undifferentiated mid-tier.</strong> Only survival path: vertical specialisation or M&amp;A scale. Banks without SMB/affluent depth by 2026 face funding stress by 2028–29.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scenario-Robust Conclusion -->
+    <div class="content-block">
+      <h2>Scenario-Robust Conclusion</h2>
+      <p>The <strong style="color:var(--white);">SMB + Affluent investment thesis holds in all three scenarios.</strong> It is the only strategy that improves relative position in Base Case, limits damage in High Competition, and provides survival runway in Disintermediation. Generic mass-retail positioning is indefensible in any scenario. Every quarter of strategic delay is a quarter of relationship inception loss that cannot be recovered — the competitive clock runs independently of the rate cycle.</p>
+    </div>
+
+  </div>
+
+  <!-- ── TAB 2: Payments 2-Year Scenarios ──────── -->
+  <div class="tab-panel reveal" id="tab-payments" role="tabpanel" aria-labelledby="btn-payments" style="transition-delay:.18s">
+
+    <div class="sub-grid">
+
+      <!-- Scenario 1 -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-threat">
+          <div class="scen-title">Scenario 1 — Disruption Accelerates</div>
+          <div class="scen-prob">~40%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">FedNow</span><span class="scen-val">5,000+ institutions</span></div>
+          <div class="scen-row"><span class="scen-key">Stablecoins</span><span class="scen-val">$1T+ outstanding</span></div>
+          <div class="scen-row"><span class="scen-key">Card Interchange</span><span class="scen-val"><span class="val-neg">−30–40% if CCCA</span></span></div>
+          <div class="scen-row"><span class="scen-key">Checks</span><span class="scen-val"><span class="val-neg">Functionally dead by 2029</span></span></div>
+          <div class="scen-row"><span class="scen-key">RTP / FedNow Volume</span><span class="scen-val"><span class="val-pos">30%+ of electronic vol</span></span></div>
+        </div>
+      </div>
+
+      <!-- Scenario 2 -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-cyan">
+          <div class="scen-title">Scenario 2 — Incumbents Defend</div>
+          <div class="scen-prob">~60%</div>
+        </div>
+        <div class="scen-body">
+          <div class="scen-row"><span class="scen-key">CCCA</span><span class="scen-val">Does not pass</span></div>
+          <div class="scen-row"><span class="scen-key">FedNow Growth</span><span class="scen-val">Slower than expected</span></div>
+          <div class="scen-row"><span class="scen-key">Stablecoin</span><span class="scen-val">Institutional only</span></div>
+          <div class="scen-row"><span class="scen-key">Cards</span><span class="scen-val"><span class="val-pos">Dominant and growing</span></span></div>
+          <div class="scen-row"><span class="scen-key">Checks (B2B)</span><span class="scen-val">Persist through 2030</span></div>
+        </div>
+      </div>
+
+      <!-- Common Thread -->
+      <div class="scen-card">
+        <div class="scen-header scen-hdr-neutral">
+          <div class="scen-title">Common Thread</div>
+          <div class="scen-prob">All Scenarios</div>
+        </div>
+        <div class="scen-body">
+          <ul class="sub-list" style="margin-top:4px;">
+            <li>JPMorgan wins in both (full-stack position)</li>
+            <li>Standalone processors lose in both</li>
+            <li>Software-attached models survive in both</li>
+            <li>Mid-tier banks must invest in RTP now — not after adoption reaches 50%</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end tabs -->
+
 </main>
+
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-logo">RB·26</div>
     <span class="footer-copy">Retail Banking Capstone Project · <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener">dowuest</a></span>
-    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
   </div>
 </footer>
+
 <script>
 (function(){
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.addEventListener('load',()=>{setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.transition='opacity .5s ease';pl.style.opacity='0';setTimeout(()=>pl.style.display='none',550);},1100);});
-  const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  function lerpCursor(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpCursor);}
-  if(!reduced)lerpCursor();
-  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.borderColor='rgba(123,47,255,.7)';});el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(0,245,255,.5)';});});
-  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  /* ── Preloader ── */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const pl = document.getElementById('preloader');
+      pl.style.transition = 'opacity .5s ease';
+      pl.style.opacity = '0';
+      setTimeout(() => pl.style.display = 'none', 550);
+    }, 1100);
+  });
+
+  /* ── Custom cursor ── */
+  const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  function lerpCursor() {
+    rx += (mx - rx) * .12; ry += (my - ry) * .12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(lerpCursor);
+  }
+  if (!reduced) lerpCursor();
+  document.querySelectorAll('a,button').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.borderColor = 'rgba(123,47,255,.7)'; });
+    el.addEventListener('mouseleave', () => { dot.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(0,245,255,.5)'; });
+  });
+
+  /* ── Scroll reveal ── */
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 })();
+
+/* ── Tab switching ── */
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  const panel = document.getElementById('tab-' + name);
+  const btn   = document.getElementById('btn-' + name);
+  if (panel) panel.classList.add('active');
+  if (btn)   { btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+}
 </script>
 </body>
 </html>
