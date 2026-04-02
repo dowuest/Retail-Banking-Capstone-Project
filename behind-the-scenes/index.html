@@ -8,17 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--bg:#0a0a0f;--cyan:#00f5ff;--violet:#7b2fff;--white:#f0f4ff;--gray:#8892a4;--surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--glow-cyan:0 0 40px rgba(0,245,255,0.35);--glow-violet:0 0 40px rgba(123,47,255,0.35);}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;cursor:none;}
-body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-#cursor-dot{position:fixed;width:8px;height:8px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:8999;transform:translate(-50%,-50%);box-shadow:0 0 12px var(--cyan);transition:transform .1s;}
-#cursor-ring{position:fixed;width:32px;height:32px;border:1.5px solid rgba(0,245,255,.5);border-radius:50%;pointer-events:none;z-index:8998;transform:translate(-50%,-50%);}
+:root{
+  --bg:#0a0a0f;--cyan:#00f5ff;--violet:#7b2fff;--white:#f0f4ff;
+  --gray:#8892a4;--surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);
+  --glow-cyan:0 0 40px rgba(0,245,255,0.35);--glow-violet:0 0 40px rgba(123,47,255,0.35);
+}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none;}
+body.reduced-motion *{animation:none!important;transition:none!important;}
+.skip-link{position:fixed;top:-100px;left:20px;z-index:9999;background:var(--cyan);color:#000;padding:10px 20px;border-radius:4px;font-weight:600;text-decoration:none;transition:top .2s;}
+.skip-link:focus{top:20px;}
 #preloader{position:fixed;inset:0;z-index:9000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;}
-#preloader .pl-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);letter-spacing:.4em;color:var(--cyan);opacity:0;animation:plFadeIn .4s .4s ease forwards;}
-#preloader .pl-bar{width:200px;height:2px;background:var(--border);border-radius:2px;overflow:hidden;opacity:0;animation:plFadeIn .4s .4s ease forwards;}
-#preloader .pl-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));animation:plFill .9s .5s ease forwards;}
-@keyframes plFadeIn{to{opacity:1;}}@keyframes plFill{to{width:100%;}}
+#preloader .pl-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);letter-spacing:.4em;color:var(--cyan);opacity:0;animation:plFadeIn .4s .6s ease forwards;}
+#preloader .pl-bar{width:200px;height:2px;background:var(--border);border-radius:2px;overflow:hidden;opacity:0;animation:plFadeIn .4s .6s ease forwards;}
+#preloader .pl-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:2px;animation:plFill 1s .7s ease forwards;}
+@keyframes plFadeIn{to{opacity:1;}}
+@keyframes plFill{to{width:100%;}}
+#cursor-dot{position:fixed;width:8px;height:8px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:8999;transform:translate(-50%,-50%);transition:background .2s,transform .1s;box-shadow:0 0 12px var(--cyan);}
+#cursor-ring{position:fixed;width:32px;height:32px;border:1.5px solid rgba(0,245,255,.5);border-radius:50%;pointer-events:none;z-index:8998;transform:translate(-50%,-50%);}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(10,10,15,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
 .nav-links{display:flex;gap:32px;list-style:none;}
@@ -26,386 +33,405 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--cyan);transform:scaleX(0);transition:transform .2s;}
 .nav-links a:hover{color:var(--white);}
 .nav-links a:hover::after{transform:scaleX(1);}
-.nav-back{font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;color:var(--cyan);border:1.5px solid var(--cyan);border-radius:100px;padding:8px 24px;text-decoration:none;background:transparent;cursor:none;position:relative;overflow:hidden;transition:color .3s;letter-spacing:.04em;}
-.nav-back::before{content:'';position:absolute;inset:0;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:-1;}
-.nav-back:hover{color:#000;}
-.nav-back:hover::before{transform:scaleX(1);}
-@media(max-width:768px){.nav-links{display:none;}}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;color:var(--cyan);border:1.5px solid var(--cyan);border-radius:100px;padding:8px 24px;text-decoration:none;background:transparent;cursor:none;position:relative;overflow:hidden;transition:color .3s;letter-spacing:.04em;}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:-1;}
+.nav-cta:hover{color:#000;}
+.nav-cta:hover::before{transform:scaleX(1);}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+section{padding:100px 5vw;}
+.section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;}
+.section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);line-height:1;letter-spacing:.03em;margin-bottom:20px;}
+.section-sub{color:var(--gray);font-size:1rem;font-weight:300;line-height:1.8;max-width:680px;margin-bottom:56px;}
+body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,245,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);}
+footer{background:#07070c;border-top:1px solid var(--border);padding:60px 5vw 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:48px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-links{display:flex;gap:28px;list-style:none;}
+.footer-links a{color:var(--gray);font-size:.875rem;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:.8rem;color:var(--gray);}
+.footer-copy a{color:var(--cyan);text-decoration:none;}
+.github-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--gray);text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:6px 16px;transition:border-color .2s,color .2s;}
+.github-link:hover{border-color:var(--cyan);color:var(--white);}
+@media(max-width:768px){nav .nav-links{display:none;}.footer-links{flex-direction:column;gap:12px;}}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none;}}
+</style>
+
+<style id="preview-overrides">
+/* ── Page Header ─────────────────────────────────────────────────── */
 .page-header{position:relative;padding:140px 5vw 80px;overflow:hidden;text-align:center;border-bottom:1px solid var(--border);}
 .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(0,245,255,.06) 0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 70%,rgba(123,47,255,.05) 0%,transparent 60%);pointer-events:none;}
-.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,245,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);}
 .page-badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,245,255,.3);border-radius:100px;padding:6px 16px;margin-bottom:28px;}
 .page-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
 .page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:20px;position:relative;}
 .page-header h1 .accent{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .page-header p{font-size:1rem;font-weight:300;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.75;position:relative;}
-.gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:28px auto 0;}
-main{max-width:860px;margin:0 auto;padding:72px 5vw 100px;}
-.section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
-.section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:.03em;margin-bottom:40px;}
+.header-rule{width:48px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:28px auto 0;}
 
-/* ── Widget styles ── */
-.widget-block{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px 40px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
-.widget-block:hover{border-color:rgba(0,245,255,.25);box-shadow:var(--glow-cyan);}
-.widget-block::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
-.widget-block.custom-step::before{background:linear-gradient(90deg,var(--violet),var(--cyan));}
-.widget-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;}
-.widget-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--white);display:flex;align-items:center;gap:12px;}
-.widget-title::before{content:'';display:block;width:3px;height:1.4rem;background:linear-gradient(to bottom,var(--cyan),var(--violet));border-radius:2px;flex-shrink:0;}
-.widget-title-input{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--white);background:transparent;border:none;outline:none;border-bottom:1px dashed rgba(0,245,255,.3);width:100%;transition:border-color .2s;cursor:text;}
-.widget-title-input:focus{border-bottom-color:var(--cyan);}
-.widget-title-input::placeholder{color:rgba(255,255,255,.2);}
-.widget-textarea{width:100%;min-height:120px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 18px;color:var(--gray);font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.85;resize:vertical;outline:none;transition:border-color .2s,box-shadow .2s;cursor:text;}
-.widget-textarea:focus{border-color:rgba(0,245,255,.4);box-shadow:0 0 0 3px rgba(0,245,255,.07);color:var(--white);}
-.widget-textarea::placeholder{color:rgba(136,146,164,.5);}
-.save-indicator{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,245,255,.5);opacity:0;transition:opacity .4s;pointer-events:none;}
-.save-indicator.show{opacity:1;}
-.delete-btn{background:rgba(255,60,60,.08);border:1px solid rgba(255,60,60,.2);color:rgba(255,100,100,.7);border-radius:8px;padding:5px 12px;font-size:.75rem;font-family:'DM Sans',sans-serif;cursor:none;transition:background .2s,color .2s;white-space:nowrap;}
-.delete-btn:hover{background:rgba(255,60,60,.2);color:#ff6464;}
-.widget-actions{display:flex;align-items:center;gap:12px;}
+/* ── Content wrapper ─────────────────────────────────────────────── */
+.content-wrap{max-width:860px;margin:0 auto;}
 
-/* Add step button */
-.add-step-wrap{text-align:center;margin:8px 0 48px;}
-.add-step-btn{display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.06em;color:var(--cyan);border:1.5px dashed rgba(0,245,255,.4);border-radius:100px;padding:12px 32px;background:transparent;cursor:none;transition:background .2s,border-color .2s,box-shadow .2s;}
-.add-step-btn:hover{background:rgba(0,245,255,.06);border-color:var(--cyan);box-shadow:var(--glow-cyan);}
-.add-step-btn svg{flex-shrink:0;}
+/* ── In-page section links ───────────────────────────────────────── */
+.section-links{display:flex;flex-wrap:wrap;gap:12px;padding:48px 5vw 0;max-width:860px;margin:0 auto;}
+.section-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--gray);text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:9px 20px;transition:color .2s,border-color .2s,box-shadow .2s;white-space:nowrap;}
+.section-link:hover{color:var(--cyan);border-color:rgba(0,245,255,.4);box-shadow:0 0 16px rgba(0,245,255,.12);}
+.section-link svg{flex-shrink:0;}
 
-/* Save all banner */
-.save-all-wrap{position:sticky;bottom:24px;text-align:right;pointer-events:none;z-index:100;margin-top:-20px;margin-bottom:32px;}
-.save-all-btn{pointer-events:all;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:#000;background:linear-gradient(135deg,var(--cyan),var(--violet));border:none;border-radius:100px;padding:11px 28px;cursor:none;box-shadow:0 4px 24px rgba(0,245,255,.3);transition:transform .2s,box-shadow .2s;}
-.save-all-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,245,255,.45);}
-.save-status{display:inline-block;font-size:.72rem;font-weight:400;letter-spacing:.08em;margin-left:4px;opacity:.7;}
+/* ── Section backgrounds ─────────────────────────────────────────── */
+#ai-usage{background:linear-gradient(180deg,var(--bg) 0%,#0d0d18 100%);}
+#tool-critique{background:var(--bg);}
+#team-reflection{background:linear-gradient(180deg,#0d0d18 0%,var(--bg) 100%);}
+#library{background:var(--bg);}
 
-/* ── Library grid ── */
-.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:48px;}
-.lib-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden;}
-.lib-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
+/* ── Prose text ──────────────────────────────────────────────────── */
+.prose p{font-size:.975rem;font-weight:300;color:var(--gray);line-height:1.9;margin-bottom:20px;}
+.prose p:last-child{margin-bottom:0;}
+
+/* ── Sub-section ─────────────────────────────────────────────────── */
+.sub-section{margin-bottom:64px;}
+.sub-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
+.sub-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1;letter-spacing:.03em;color:var(--white);margin-bottom:24px;}
+
+/* ── "What we changed" block ─────────────────────────────────────── */
+.change-block{background:rgba(123,47,255,.04);border:1px solid rgba(123,47,255,.18);border-left:3px solid var(--violet);border-radius:0 14px 14px 0;padding:24px 28px;margin-top:28px;margin-bottom:0;}
+.change-label{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:12px;}
+.change-block p{font-size:.9rem;font-weight:300;color:var(--gray);line-height:1.85;margin-bottom:14px;}
+.change-block p:last-child{margin-bottom:0;}
+
+/* ── SVG diagram display ─────────────────────────────────────────── */
+.diagram-wrap{margin:40px 0;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--surface);position:relative;}
+.diagram-wrap img{width:100%;height:auto;display:block;}
+.diagram-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);padding:12px 20px;border-top:1px solid var(--border);background:rgba(255,255,255,.02);text-align:center;}
+
+/* ── Pull quote ──────────────────────────────────────────────────── */
+.pull-quote{position:relative;margin:52px 0;padding:28px 32px 28px 40px;background:rgba(0,245,255,.04);border:1px solid rgba(0,245,255,.15);border-left:3px solid var(--cyan);border-radius:0 20px 20px 0;}
+.pull-quote blockquote{font-size:1.08rem;font-style:italic;font-weight:300;color:var(--white);line-height:1.75;}
+.pull-quote::before{content:'\201C';position:absolute;top:-12px;left:24px;font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--cyan);opacity:.25;line-height:1;}
+
+/* ── Divider ─────────────────────────────────────────────────────── */
+.section-divider{width:100%;height:1px;background:var(--border);margin:16px 0 56px;}
+
+/* ── Library grid ────────────────────────────────────────────────── */
+.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:8px;}
+.lib-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden;}
+.lib-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));}
 .lib-card:hover{border-color:rgba(0,245,255,.35);box-shadow:var(--glow-cyan);transform:translateY(-4px);}
-.lib-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;letter-spacing:.05em;flex-shrink:0;}
+.lib-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;letter-spacing:.05em;flex-shrink:0;}
 .lib-icon.pdf{background:rgba(255,80,80,.12);color:#ff7070;border:1px solid rgba(255,80,80,.22);}
 .lib-icon.docx{background:rgba(30,120,255,.12);color:#5aabff;border:1px solid rgba(30,120,255,.22);}
-.lib-title{font-size:.88rem;font-weight:500;color:var(--white);line-height:1.5;}
+.lib-icon.svg-file{background:rgba(0,245,255,.1);color:var(--cyan);border:1px solid rgba(0,245,255,.22);}
+.lib-title{font-size:.88rem;font-weight:500;color:var(--white);line-height:1.5;flex:1;}
 .lib-dl{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--cyan);margin-top:auto;}
-.lib-dl svg{flex-shrink:0;}
 
-/* Team grid */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px;margin-top:4px;}
-.member{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;transition:border-color .3s,transform .3s;}
-.member:hover{border-color:rgba(0,245,255,.3);transform:translateY(-4px);}
-.avatar{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;border:1.5px solid var(--border);overflow:hidden;background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--cyan);}
-.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;display:block;}
-.member h3{font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:4px;}
-.member span{font-size:.7rem;color:var(--gray);}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-footer{background:#07070c;border-top:1px solid var(--border);padding:40px 5vw;}
-.footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.footer-copy{font-size:.8rem;color:var(--gray);}
-.footer-copy a{color:var(--cyan);text-decoration:none;}
-.github-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--gray);text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:6px 16px;transition:border-color .2s,color .2s;}
-.github-link:hover{border-color:var(--cyan);color:var(--white);}
-@media(prefers-reduced-motion:reduce){.reveal{transition:none;}.page-badge::before{animation:none;}}
+@media(max-width:680px){
+  .library-grid{grid-template-columns:1fr;}
+  .pull-quote{padding:20px 20px 20px 28px;}
+  .change-block{padding:18px 20px;}
+}
 </style>
 </head>
 <body>
-<div id="preloader" role="status" aria-label="Loading"><span class="pl-text">BEHIND THE SCENES</span><div class="pl-bar"><div class="pl-fill"></div></div></div>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<div id="preloader" role="status" aria-label="Loading">
+  <span class="pl-text">BEHIND THE SCENES</span>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
+
 <div id="cursor-dot" aria-hidden="true"></div>
 <div id="cursor-ring" aria-hidden="true"></div>
+
 <nav role="navigation" aria-label="Main navigation">
-  <a href="../index.html" class="nav-logo">RB·26</a>
-  <ul class="nav-links"><li><a href="../index.html#sections">Sections</a></li><li><a href="../index.html#team">Team</a></li></ul>
-  <a href="../index.html" class="nav-back">← Overview</a>
+  <a href="../" class="nav-logo">RB·26</a>
+  <ul class="nav-links">
+    <li><a href="../#sections">Sections</a></li>
+    <li><a href="../#strategic-pivot">Strategic Pivot</a></li>
+    <li><a href="../#team">Team</a></li>
+    <li><a href="#">Behind the Scenes</a></li>
+  </ul>
+  <a href="../" class="nav-cta mag-btn">Overview</a>
 </nav>
+
+<!-- ── PAGE HEADER ──────────────────────────────────────────────── -->
 <header class="page-header" role="banner">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="page-badge">Retail Banking · Capstone 2026</div>
   <h1>Behind the <span class="accent">Scenes</span></h1>
-  <p>How we built this project — our process, tools, collaboration, and reflections.</p>
-  <div class="gold-line"></div>
+  <p>How we built this project — our process, our tools, what we learned, and what we would do differently.</p>
+  <div class="header-rule"></div>
 </header>
 
 <main id="main-content">
-  <div class="section-eyebrow reveal">Our process</div>
-  <div class="section-heading reveal" style="transition-delay:.1s">How It Came <span style="color:var(--cyan)">Together</span></div>
 
-  <!-- Fixed steps widget -->
-  <div id="steps-container"></div>
+<!-- ── Section anchor links ──────────────────────────────────────── -->
+<div class="section-links">
+  <a href="#ai-usage" class="section-link">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5L10 11" stroke-linecap="round"/></svg>
+    AI Tool Usage &amp; Process
+  </a>
+  <a href="#tool-critique" class="section-link">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 4h12M2 8h8M2 12h10" stroke-linecap="round"/></svg>
+    Tool Critique
+  </a>
+  <a href="#team-reflection" class="section-link">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="6" cy="5" r="2.2"/><circle cx="11" cy="5" r="2.2"/><path d="M1 13c0-2 2-3.5 5-3.5s5 1.5 5 3.5" stroke-linecap="round"/></svg>
+    Team Reflection
+  </a>
+  <a href="#library" class="section-link">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 2v12M8 4v10M12 6v8" stroke-linecap="round"/></svg>
+    Project Library
+  </a>
+</div>
 
-  <!-- Add new step -->
-  <div class="add-step-wrap">
-    <button class="add-step-btn" id="addStepBtn" type="button">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Add New Step
-    </button>
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 · AI TOOL USAGE & PROCESS                          -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="ai-usage">
+  <div class="content-wrap">
+
+    <h2 class="section-heading reveal">AI Tool Usage <span style="background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">&amp; Process</span></h2>
+    <p class="section-sub reveal" style="transition-delay:.14s">A detailed look at how we used Claude across two distinct workstreams — building the agentic research system and building this website — and what each experience taught us.</p>
+
+    <!-- ── Sub-section 1 · Agent System ─────────────────────── -->
+    <div class="sub-section reveal" style="transition-delay:.2s">
+      <p class="sub-eyebrow">Workstream 1</p>
+      <h3 class="sub-heading">Experience with Claude When Creating the Agentic System</h3>
+      <div class="prose">
+        <p>Claude proved to be an exceptionally capable guide through the creation of our multi-agent research pipeline. The built-in human-in-the-loop dynamic meant that every error that surfaced during development became a concrete learning opportunity rather than a setback. We treated each failure as a signal to tighten our understanding of what the system was actually doing — and Claude made those feedback loops fast.</p>
+        <p>A foundational principle we discovered early was that every agent in a pipeline requires its own iteration cycle, and it is critical not to test on too large a dataset at the outset. Starting small — with minimal, well-understood inputs — allowed us to isolate where things broke before scaling up. This discipline saved us significant time and kept debugging tractable.</p>
+      </div>
+
+      <div class="change-block reveal" style="transition-delay:.26s">
+        <p class="change-label">What we changed during the iteration process</p>
+        <p>We optimized the Synthesis Agent several times because it was producing overly general, low-specificity output. What became clear through careful diagnosis was that the root cause lay upstream: the Visualization and Analyzing Agents were not producing sufficiently precise output in the first place, and the Synthesis Agent was simply propagating that imprecision forward. Fixing the problem at its source resolved the downstream symptoms.</p>
+        <p>We also expanded the Research Agent's set of web sources, because the original input channels did not cover enough information to support the depth of analysis we needed. Broadening the input surface significantly improved the quality of the agent's outputs across all downstream stages.</p>
+      </div>
+
+      <div class="diagram-wrap reveal" style="transition-delay:.3s">
+        <img src="Library/agent_system_payments_ai.svg" alt="Agent system architecture diagram — Payments AI pipeline" loading="lazy"/>
+        <div class="diagram-label">Agent System · Payments AI Pipeline Architecture</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ── Sub-section 2 · Webpage + GitHub ─────────────────── -->
+    <div class="sub-section reveal" style="transition-delay:.2s">
+      <p class="sub-eyebrow">Workstream 2</p>
+      <h3 class="sub-heading">Experience with Claude When Creating the Webpage with GitHub</h3>
+      <div class="prose">
+        <p>Working with Claude to build this website and manage the GitHub workflow surfaced a different category of challenges. Insufficient framing in our early prompts repeatedly led to inadequate context gathering — Claude would proceed without fully understanding the constraints we were working within, and corrections had to happen after the fact rather than before.</p>
+        <p>We also encountered misleading tool recommendations that stemmed from an incomplete understanding of the actual functionalities available in our environment. This resulted in wasted time and unnecessary confusion as we worked to untangle what Claude had suggested from what would actually work. Related to this, Claude's knowledge of its own product ecosystem proved at times to be assumption-based rather than grounded in verified capability — something we had to account for through independent verification.</p>
+        <p>A recurring pattern was information overload: when we asked open-ended questions, Claude would present multiple parallel options without clearly prioritizing among them. This shifted cognitive load back to us in ways that were not always efficient. The broader dynamic was reactive rather than proactive — Claude responded well once problems surfaced, but rarely anticipated them in advance. From these observations, two structural principles emerged: safety by design (build in a visual sandbox and maintain a human in the loop at every stage), and disciplined context management (finite tokens make session boundaries a real constraint that must be planned around).</p>
+      </div>
+
+      <div class="change-block reveal" style="transition-delay:.26s">
+        <p class="change-label">What we changed during the iteration process</p>
+        <p>We introduced a visual sandbox because errors on a webpage are immediately visible — far easier to validate than reviewing raw text output. Seeing a change rendered in real time against the intended design made it trivially fast to confirm whether a solution was correct or not.</p>
+        <p>We also added a decision summary after every significant step, consolidating design choices, identified conflicts, and open questions into a single reference table. This kept the whole team aligned on what had been decided and why, and reduced the risk of conflicting changes accumulating unnoticed over time.</p>
+      </div>
+
+      <div class="diagram-wrap reveal" style="transition-delay:.3s">
+        <img src="Library/prompt_to_production_schema.svg" alt="Prompt-to-production schema diagram — from instruction to deployed output" loading="lazy"/>
+        <div class="diagram-label">Prompt to Production · Schema of Our Development Workflow</div>
+      </div>
+    </div>
+
+    <!-- ── Pull Quote ─────────────────────────────────────────── -->
+    <div class="pull-quote reveal" style="transition-delay:.2s">
+      <blockquote>AI is strong as an architect and explainer, but weaker as an anticipator. Claude responds well to errors once they occur — but too rarely prevents them beforehand.</blockquote>
+    </div>
+
   </div>
+</section>
 
-  <!-- Sticky save button -->
-  <div class="save-all-wrap">
-    <button class="save-all-btn" id="saveAllBtn" type="button">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 10.5v2a1 1 0 01-1 1h-9a1 1 0 01-1-1v-2M8 2v8M5 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Save All
-      <span class="save-status" id="saveStatus"></span>
-    </button>
-  </div>
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 · TOOL CRITIQUE                                     -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="tool-critique">
+  <div class="content-wrap">
 
-  <!-- Library -->
-  <div class="section-eyebrow reveal" style="margin-top:60px;transition-delay:.4s">Reference materials</div>
-  <div class="section-heading reveal" style="transition-delay:.45s">Project <span style="color:var(--cyan)">Library</span></div>
-  <div class="library-grid reveal" style="transition-delay:.5s">
+    <p class="section-eyebrow reveal">Our assessment</p>
+    <h2 class="section-heading reveal" style="transition-delay:.08s">Tool <span style="color:var(--cyan)">Critique</span></h2>
 
-    <a href="Library/Retail_Banking_AI_Capstone_Plan.pdf" target="_blank" rel="noopener" class="lib-card">
-      <div class="lib-icon pdf">PDF</div>
-      <div class="lib-title">Retail Banking AI Capstone Plan</div>
-      <div class="lib-dl">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Open PDF
-      </div>
-    </a>
-
-    <a href="Library/Four-Session Workshop Plan for Evaluating AI and New Data Sources in Consumer Lending.pdf" target="_blank" rel="noopener" class="lib-card">
-      <div class="lib-icon pdf">PDF</div>
-      <div class="lib-title">Four-Session Workshop Plan — AI &amp; New Data Sources in Consumer Lending</div>
-      <div class="lib-dl">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Open PDF
-      </div>
-    </a>
-
-    <a href="Library/Retail_Banking_AI_Capstone_UNIFIED.docx" target="_blank" rel="noopener" class="lib-card">
-      <div class="lib-icon docx">DOCX</div>
-      <div class="lib-title">Retail Banking AI Capstone — Unified Document</div>
-      <div class="lib-dl">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Download DOCX
-      </div>
-    </a>
-
-    <a href="Library/simple-multi-agent-workflow-guide.docx" target="_blank" rel="noopener" class="lib-card">
-      <div class="lib-icon docx">DOCX</div>
-      <div class="lib-title">Simple Multi-Agent Workflow Guide</div>
-      <div class="lib-dl">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Download DOCX
-      </div>
-    </a>
+    <div class="prose reveal" style="transition-delay:.14s">
+      <p>Claude is, on balance, very useful. We were able to complete work in six to seven hours that would normally have taken us many times longer. The more explicit and consistent we were in formulating our instructions, the more likely the outcome aligned with our expectations. This forced us to engage deeply with every single change — to think through what we were asking for before we asked — and the discipline paid off in output quality. At the same time, the level of oversight required made the process somewhat exhausting at times. Precision prompting is a skill, and developing it takes sustained effort.</p>
+      <p>As already noted, the context window limitations of Claude are extremely cumbersome, especially when setting up and operating multiple larger systems in parallel. Session management — knowing when to start fresh versus when to continue — became a non-trivial part of our workflow, and getting it wrong had real costs in the form of context drift and accumulated misunderstandings.</p>
+      <p>The limitations also became apparent in the design of the interactive 3D element on the homepage. While it functioned, it never reached the quality or visual sharpness of the reference we had in mind. In that case, a specialized AI design tool would have been the more appropriate choice. Claude is a generalist, and in precision visual design, the gap between a generalist and a specialist is visible.</p>
+      <p>During the research phase, we had to exercise particular care when reusing a chat session to avoid data being misinterpreted across contexts. Knowing when it is better to start a new session versus continuing an existing one with its established skills and embedded information proved to be a learned skill of its own. At times, continuity led to incorrect analytical conclusions — conclusions that were caught only because multiple team members independently examined the same topic. The implementation of the multi-agent research system led to a significant improvement here: structured pipelines are more robust than ad-hoc conversations for tasks that demand consistency and precision.</p>
+      <p>AI is a highly effective tool for research and analysis when it is set up correctly — but that setup requires careful, intentional planning of the research and analysis architecture. The advantage of these tools became particularly evident in creative work: visualizing complex information is greatly simplified and accelerated, enabling a quality and density of presentation that would have been far harder to achieve through manual effort alone.</p>
+    </div>
 
   </div>
+</section>
 
-  <!-- Team -->
-  <div class="section-eyebrow reveal" style="margin-top:20px;transition-delay:.5s">The full team</div>
-  <div class="section-heading reveal" style="transition-delay:.55s">Six <span style="color:var(--cyan)">Contributors</span></div>
-  <div class="widget-block reveal" style="transition-delay:.6s">
-    <div class="team-grid">
-      <div class="member"><div class="avatar"><img src="../assets/images/vivek-ramachandran.jpg" alt="Vivek Ramachandran"/></div><h3>Vivek Ramachandran</h3><span>Loans &amp; Credit</span></div>
-      <div class="member"><div class="avatar">A</div><h3>Ade Olanrewaju</h3><span>Loans &amp; Credit</span></div>
-      <div class="member"><div class="avatar"><img src="../assets/images/peter-sewing.jpg" alt="Peter Sewing"/></div><h3>Peter Sewing</h3><span>Savings &amp; Deposits</span></div>
-      <div class="member"><div class="avatar"><img src="../assets/images/davron-mirtursunov.jpg" alt="Davron Mirtursunov"/></div><h3>Davron Mirtursunov</h3><span>Savings &amp; Deposits</span></div>
-      <div class="member"><div class="avatar"><img src="../assets/images/francisco-gonzalez.png" alt="Francisco Martha Gonzalez"/></div><h3>Francisco M. Gonzalez</h3><span>Payments</span></div>
-      <div class="member"><div class="avatar"><img src="../assets/images/dominik-wust.jpg" alt="Dominik Wüst"/></div><h3>Dominik Wüst</h3><span>Payments</span></div>
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 · TEAM REFLECTION                                   -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="team-reflection">
+  <div class="content-wrap">
+
+    <p class="section-eyebrow reveal">Looking back</p>
+    <h2 class="section-heading reveal" style="transition-delay:.08s">Team <span style="color:var(--violet)">Reflection</span></h2>
+
+    <div class="prose reveal" style="transition-delay:.14s">
+      <p>This project revealed a clear and consistent division between what AI does well and what requires human judgment. AI acted as an architect and accelerator — structuring problems, generating options, executing repetitive tasks at speed. Humans handled validation, refinement, and the final decisions about what was correct and what was good. Neither role was sufficient without the other, and the human-in-the-loop approach proved essential throughout. Errors became learning opportunities precisely because a person was always in a position to catch them and correct course.</p>
+      <p>One of our most valuable insights was that problems often originated upstream from where they first became visible. When an output from one agent was wrong, our first instinct was to fix that agent — but in many cases, the actual cause lay one or two stages earlier in the pipeline, with a component that was producing imprecise output the downstream stage could not compensate for. This taught us to think in systems: to trace causality back to its source rather than treating symptoms at the point where they surfaced.</p>
+      <p>We also confirmed through direct experience that AI is fundamentally reactive rather than proactive. It responds well once a problem is defined and placed in front of it, but it does not reliably anticipate problems before they arise. This required us to introduce structural compensations — the visual sandbox, the decision summary tables — that gave us visibility into what was happening before issues escalated into failures.</p>
+      <p>The cognitive load was higher than we anticipated. While AI significantly accelerated our work on individual tasks, the meta-work of managing the AI — writing precise prompts, reviewing outputs critically, managing session context, knowing when to push and when to restart — was itself demanding. This is a real cost that tends to be underestimated in practice, and it should be planned for explicitly rather than assumed away.</p>
+      <p>Finally, the clearest capability boundary we encountered was in specialized tasks. AI was strong in research, analysis, structuring, and explanation. It was weaker where precision and aesthetic judgment were paramount — tasks where a domain-specific tool would have delivered higher quality output with less iteration. Understanding this boundary is part of using AI well.</p>
+    </div>
+
+    <!-- ── Closing Pull Quote ─────────────────────────────────── -->
+    <div class="pull-quote reveal" style="transition-delay:.2s">
+      <blockquote>Effective AI use is not about automation, but about orchestration. Success depended on how well we combined human judgment with AI capabilities — leveraging speed and scalability while maintaining control, critical thinking, and intentional design.</blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 · LIBRARY / DOWNLOADS                               -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="library">
+  <div class="content-wrap">
+
+    <p class="section-eyebrow reveal">Reference materials</p>
+    <h2 class="section-heading reveal" style="transition-delay:.08s">Project <span style="color:var(--cyan)">Library</span></h2>
+    <p class="section-sub reveal" style="transition-delay:.14s">Source documents, planning artefacts, and diagrams produced during the capstone — available to open or download directly.</p>
+
+    <div class="library-grid">
+
+      <a href="Library/Retail_Banking_AI_Capstone_Plan.pdf" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.18s">
+        <div class="lib-icon pdf">PDF</div>
+        <div class="lib-title">Retail Banking AI Capstone Plan</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Open PDF
+        </div>
+      </a>
+
+      <a href="Library/Four-Session Workshop Plan for Evaluating AI and New Data Sources in Consumer Lending.pdf" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.22s">
+        <div class="lib-icon pdf">PDF</div>
+        <div class="lib-title">Four-Session Workshop Plan — AI &amp; New Data Sources in Consumer Lending</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Open PDF
+        </div>
+      </a>
+
+      <a href="Library/Retail_Banking_AI_Capstone_UNIFIED.docx" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.26s">
+        <div class="lib-icon docx">DOCX</div>
+        <div class="lib-title">Retail Banking AI Capstone — Unified Document</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download DOCX
+        </div>
+      </a>
+
+      <a href="Library/simple-multi-agent-workflow-guide.docx" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.3s">
+        <div class="lib-icon docx">DOCX</div>
+        <div class="lib-title">Simple Multi-Agent Workflow Guide</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download DOCX
+        </div>
+      </a>
+
+      <a href="Library/agent_system_payments_ai.svg" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.34s">
+        <div class="lib-icon svg-file">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="lib-title">Agent System · Payments AI — Architecture Diagram</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Open SVG
+        </div>
+      </a>
+
+      <a href="Library/prompt_to_production_schema.svg" target="_blank" rel="noopener" class="lib-card reveal" style="transition-delay:.38s">
+        <div class="lib-icon svg-file">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="lib-title">Prompt to Production — Workflow Schema Diagram</div>
+        <div class="lib-dl">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Open SVG
+        </div>
+      </a>
+
     </div>
   </div>
+</section>
+
 </main>
 
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-logo">RB·26</div>
+    <ul class="footer-links">
+      <li><a href="../loans-credit/index.html">Loans &amp; Credit</a></li>
+      <li><a href="../savings-deposits/index.html">Savings &amp; Deposits</a></li>
+      <li><a href="../payments/index.html">Payments</a></li>
+      <li><a href="../investment-thesis/index.html">Investment Thesis</a></li>
+      <li><a href="../behind-the-scenes/index.html">Behind the Scenes</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
     <span class="footer-copy">Retail Banking Capstone Project · <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener">dowuest</a></span>
-    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+    <a href="https://github.com/dowuest/Retail-Banking-Capstone-Project" target="_blank" rel="noopener" class="github-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
   </div>
 </footer>
 
 <script>
 (function(){
-  const STORAGE_KEY = 'rbc26_bts_steps';
+'use strict';
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduced) document.body.classList.add('reduced-motion');
 
-  /* ── Default fixed steps ── */
-  const DEFAULT_STEPS = [
-    { id:'s1', title:'Project Approach',        body:'', fixed:true  },
-    { id:'s2', title:'Tools & Technologies',    body:'', fixed:true  },
-    { id:'s3', title:'Collaboration & Workflow', body:'', fixed:true  },
-    { id:'s4', title:'Reflections & Takeaways', body:'', fixed:true  }
-  ];
+/* ── Preloader ── */
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{
+    const pl = document.getElementById('preloader');
+    pl.style.transition = 'opacity .6s ease';
+    pl.style.opacity = '0';
+    setTimeout(()=>{ pl.style.display='none'; }, 650);
+  }, 1200);
+});
 
-  /* ── Load saved state or defaults ── */
-  function loadSteps(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if(raw) return JSON.parse(raw);
-    }catch(e){}
-    return DEFAULT_STEPS.map(s=>({...s}));
-  }
+/* ── Custom cursor ── */
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my;
+document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+function lerpCursor(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerpCursor); }
+if(!reduced) lerpCursor();
 
-  function saveSteps(steps){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(steps));
-  }
+document.querySelectorAll('a,button,.mag-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ dot.style.transform='translate(-50%,-50%) scale(2.5)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(123,47,255,.7)'; });
+  el.addEventListener('mouseleave',()=>{ dot.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(0,245,255,.5)'; });
+});
 
-  /* ── Render all steps ── */
-  const container = document.getElementById('steps-container');
+/* ── Magnetic button ── */
+document.querySelectorAll('.mag-btn').forEach(btn=>{
+  btn.addEventListener('mousemove', e=>{ const r=btn.getBoundingClientRect(); btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.25}px)`; });
+  btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
+});
 
-  function flashSaved(){
-    const el = document.getElementById('saveStatus');
-    el.textContent = '✓ Saved';
-    clearTimeout(flashSaved._t);
-    flashSaved._t = setTimeout(()=>{ el.textContent=''; }, 2200);
-  }
+/* ── Scroll reveal ── */
+const revealObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
-  function renderSteps(){
-    const steps = loadSteps();
-    container.innerHTML = '';
-
-    steps.forEach((step, idx) => {
-      const block = document.createElement('div');
-      block.className = 'widget-block reveal visible' + (step.fixed ? '' : ' custom-step');
-      block.dataset.id = step.id;
-
-      const headerDiv = document.createElement('div');
-      headerDiv.className = 'widget-header';
-
-      if(step.fixed){
-        /* Fixed title — not editable */
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'widget-title';
-        titleDiv.textContent = step.title;
-        headerDiv.appendChild(titleDiv);
-      } else {
-        /* Custom step — editable title */
-        const titleWrap = document.createElement('div');
-        titleWrap.style.cssText = 'display:flex;align-items:center;gap:12px;flex:1;min-width:0;';
-        const bar = document.createElement('span');
-        bar.style.cssText = 'width:3px;height:1.4rem;background:linear-gradient(to bottom,var(--violet),var(--cyan));border-radius:2px;flex-shrink:0;display:block;';
-        const titleInput = document.createElement('input');
-        titleInput.className = 'widget-title-input';
-        titleInput.type = 'text';
-        titleInput.value = step.title;
-        titleInput.placeholder = 'Step title…';
-        titleInput.addEventListener('input', ()=>{
-          const s = loadSteps();
-          const i = s.findIndex(x=>x.id===step.id);
-          if(i>-1){ s[i].title = titleInput.value; saveSteps(s); }
-        });
-        titleWrap.appendChild(bar);
-        titleWrap.appendChild(titleInput);
-        headerDiv.appendChild(titleWrap);
-      }
-
-      const actionsDiv = document.createElement('div');
-      actionsDiv.className = 'widget-actions';
-
-      /* Save indicator */
-      const saveInd = document.createElement('span');
-      saveInd.className = 'save-indicator';
-      saveInd.textContent = '✓ saved';
-      actionsDiv.appendChild(saveInd);
-
-      /* Delete button for custom steps */
-      if(!step.fixed){
-        const delBtn = document.createElement('button');
-        delBtn.className = 'delete-btn';
-        delBtn.type = 'button';
-        delBtn.textContent = '✕ Remove';
-        delBtn.addEventListener('click', ()=>{
-          const s = loadSteps().filter(x=>x.id!==step.id);
-          saveSteps(s);
-          renderSteps();
-        });
-        actionsDiv.appendChild(delBtn);
-      }
-
-      headerDiv.appendChild(actionsDiv);
-      block.appendChild(headerDiv);
-
-      /* Textarea */
-      const textarea = document.createElement('textarea');
-      textarea.className = 'widget-textarea';
-      textarea.placeholder = step.fixed
-        ? `Write your notes for "${step.title}" here…`
-        : 'Describe this step…';
-      textarea.value = step.body;
-
-      let saveTimer;
-      textarea.addEventListener('input', ()=>{
-        clearTimeout(saveTimer);
-        saveInd.classList.remove('show');
-        saveTimer = setTimeout(()=>{
-          const s = loadSteps();
-          const i = s.findIndex(x=>x.id===step.id);
-          if(i>-1){ s[i].body = textarea.value; saveSteps(s); }
-          saveInd.classList.add('show');
-          setTimeout(()=>saveInd.classList.remove('show'), 1800);
-        }, 600);
-      });
-
-      block.appendChild(textarea);
-      container.appendChild(block);
-    });
-  }
-
-  /* ── Add new step ── */
-  document.getElementById('addStepBtn').addEventListener('click', ()=>{
-    const steps = loadSteps();
-    const newStep = {
-      id: 'c_' + Date.now(),
-      title: '',
-      body: '',
-      fixed: false
-    };
-    steps.push(newStep);
-    saveSteps(steps);
-    renderSteps();
-    /* Focus the new title input */
-    setTimeout(()=>{
-      const inputs = container.querySelectorAll('.widget-title-input');
-      if(inputs.length) inputs[inputs.length-1].focus();
-    }, 50);
-  });
-
-  /* ── Save All button ── */
-  document.getElementById('saveAllBtn').addEventListener('click', ()=>{
-    /* Flush all textarea values to storage */
-    const steps = loadSteps();
-    container.querySelectorAll('.widget-block').forEach(block=>{
-      const id = block.dataset.id;
-      const textarea = block.querySelector('.widget-textarea');
-      const titleInput = block.querySelector('.widget-title-input');
-      const s = steps.find(x=>x.id===id);
-      if(s){
-        if(textarea) s.body = textarea.value;
-        if(titleInput) s.title = titleInput.value;
-      }
-    });
-    saveSteps(steps);
-    flashSaved();
-  });
-
-  /* ── Init ── */
-  renderSteps();
-
-  /* ── Preloader ── */
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.addEventListener('load',()=>{
-    setTimeout(()=>{
-      const pl=document.getElementById('preloader');
-      pl.style.transition='opacity .5s ease';pl.style.opacity='0';
-      setTimeout(()=>pl.style.display='none',550);
-    },1100);
-  });
-
-  /* ── Custom cursor ── */
-  const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  function lerpCursor(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpCursor);}
-  if(!reduced)lerpCursor();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.borderColor='rgba(123,47,255,.7)';});
-    el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(0,245,255,.5)';});
-  });
-
-  /* ── Scroll reveal ── */
-  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
 </script>
 </body>
